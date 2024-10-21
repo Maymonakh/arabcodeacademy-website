@@ -4,6 +4,7 @@
     background-color: var(--primary);
     text-align: center;
     font-size: 23px;
+    font-weight: bold;
     font-family:  var(--font-tajawal);
   }
   
