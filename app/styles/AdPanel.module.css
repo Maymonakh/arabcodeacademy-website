@@ -1,0 +1,9 @@
+.adPanel {
+    padding: 32px;
+    color: var(--background); ;
+    background-color: var(--primary);
+    text-align: center;
+    font-size: 23px;
+    font-family:  var(--font-tajawal);
+  }
+  
