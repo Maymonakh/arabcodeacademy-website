@@ -1,5 +1,4 @@
-# Arab Code Academy
-<hr>
+## Arab Code Academy
 
 This project is a part of the **React Js and Next Js Training program** at **Gaza Sky Geeks**.
 
@@ -11,7 +10,7 @@ This project is a part of the **React Js and Next Js Training program** at **Gaz
 - Nada Obaid
 - Misk Ashoor
 
-![image](https://github.com/user-attachments/assets/25d669bd-51d1-4a58-a52a-235672abdf1a)
+![image](https://github.com/user-attachments/assets/b28422d7-3d93-41cb-b106-8bd99ffc2465)
 
 <hr>
 
