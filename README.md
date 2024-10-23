@@ -1,4 +1,4 @@
-## Arab Code Academy
+# Arab Code Academy
 
 This project is a part of the **React Js and Next Js Training program** at **Gaza Sky Geeks**.
 
