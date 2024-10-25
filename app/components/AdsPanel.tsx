@@ -8,7 +8,7 @@ interface AdPanelProps {
   adText: string;
 }
 
-const AdPanel: React.FC<AdPanelProps> = ({ startDate, endDate, adText }) => {
+const AdsPanel: React.FC<AdPanelProps> = ({ startDate, endDate, adText }) => {
   const now = new Date();
   const start = new Date(startDate);
   const end = new Date(endDate);
@@ -25,4 +25,4 @@ const AdPanel: React.FC<AdPanelProps> = ({ startDate, endDate, adText }) => {
   );
 };
 
-export default AdPanel;
+export default AdsPanel;
