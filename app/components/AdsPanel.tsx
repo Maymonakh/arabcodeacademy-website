@@ -14,14 +14,12 @@ const AdsPanel: React.FC<AdPanelProps> = ({ startDate, endDate, adText }) => {
   const end = new Date(endDate);
   const isAdActive = now >= start && now <= end;
 
+  if (!isAdActive) return null;
+
   return (
-    <>
-      {isAdActive && (
-        <Box className={styles.adPanel}>
-          <Text >{adText}</Text>
-        </Box>
-      )}
-    </>
+    <Box className={styles.adPanel}>
+      <Text>{adText}</Text>
+    </Box>
   );
 };
 
