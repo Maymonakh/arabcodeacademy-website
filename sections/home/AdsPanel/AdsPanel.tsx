@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import styles from "../styles/AdPanel.module.css";
+import styles from "./AdsPanel.module.css";
 
 interface AdPanelProps {
   startDate: string;
