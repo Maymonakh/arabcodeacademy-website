@@ -21,20 +21,20 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
   const buttonStyles = {
     primary: isMobile
-      ? { height: "60px", width: "200px", fontSize: "17px" }
+      ? { height: "60px", width: "200px" }
       : isTablet
-      ? { height: "85px", width: "330px", fontSize: "17px" }
-      : { height: "80px", width: "310px", fontSize: "17px" },
+      ? { height: "85px", width: "330px" }
+      : { height: "80px", width: "310px" },
     secondaryOne: isMobile
-      ? { height: "50px", width: "150px", fontSize: "17px" }
+      ? { height: "50px", width: "150px" }
       : isTablet
-      ? { height: "70px", width: "234px", fontSize: "17px" }
-      : { height: "60px", width: "200px", fontSize: "17px" },
+      ? { height: "70px", width: "234px" }
+      : { height: "60px", width: "200px" },
     secondaryTwo: isMobile
-      ? { height: "40px", width: "100px", fontSize: "17px" }
+      ? { height: "40px", width: "100px" }
       : isTablet
-      ? { height: "50px", width: "160px", fontSize: "17px" }
-      : { height: "44px", width: "140px", fontSize: "17px" },
+      ? { height: "50px", width: "160px" }
+      : { height: "44px", width: "140px" },
   };
 
   const colorStyles = {
@@ -52,7 +52,11 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
   return (
     <Button
-      sx={{ ...buttonStyles[buttonType], ...colorStyles[color] }}
+      sx={{
+        ...buttonStyles[buttonType],
+        ...colorStyles[color],
+        fontSize: "17px",
+      }}
       rightIcon={icon || undefined}
       onClick={onClick}
     >
