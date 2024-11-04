@@ -1,10 +1,12 @@
 .adPanel {
-    padding: 32px;
-    color: var(--background); ;
-    background-color: var(--primary);
-    text-align: center;
-    font-size: 23px;
-    font-weight: bold;
-    font-family:  var(--font-tajawal);
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  color: var(--background);
+  background-color: var(--primary);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  font-family: var(--font-tajawal);
+}
