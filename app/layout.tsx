@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const tajawal = localFont({
-  src: "./assets/fonts/Tajawal-Regular.ttf",
+  src: "./fonts/Tajawal-Regular.ttf",
   variable: "--font-tajawal",
   weight: "400",
 });

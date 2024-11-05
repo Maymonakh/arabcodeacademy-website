@@ -1,0 +1,51 @@
+.textBlock {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 27.6px;
+    font-family: var(--font-tajawal);
+    color: var(--background);
+  }
+
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 30.35px;
+  }
+  
+  .textBlock h3 {
+    font-size: 23px;
+    margin-bottom: 27.6px;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .textBlock p {
+    font-size: 19px;
+    margin-bottom: 22.8px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 1024px) {
+    .textBlock {
+      gap: 10px;
+    }
+    .textBlock h3 {
+      margin: 0;
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+    .textBlock p {
+      margin-bottom: 10px;
+    }
+  }
+  
