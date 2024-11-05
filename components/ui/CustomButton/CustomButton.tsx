@@ -1,9 +1,9 @@
 import { Button, useMediaQuery } from "@chakra-ui/react";
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 
 interface CustomButtonProps {
   text: string;
-  icon?: ReactElement;
+  icon: ReactElement;
   buttonType?: "primary" | "secondaryOne" | "secondaryTwo";
   color?: "green" | "orange";
   onClick?: () => void;
@@ -56,11 +56,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         ...buttonStyles[buttonType],
         ...colorStyles[color],
         fontSize: "17px",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
       }}
-      rightIcon={icon || undefined}
       onClick={onClick}
     >
       {text}
+      {icon}
     </Button>
   );
 };
