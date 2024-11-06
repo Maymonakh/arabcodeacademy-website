@@ -1,0 +1,92 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, var(--primary), #783ba2);
+  color: #fff;
+  width: 100%;
+  height: 90vh;
+  margin: auto;
+  gap: 100px;
+}
+
+.textContainer {
+  width: 470px;
+  height: 562.07px;
+  text-align: right;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 600px;
+  height: 544.79px;
+}
+
+.firstImage {
+  position: relative;
+  width: 357.99px;
+  height: 325.94px;
+  top: 215px;
+  left: 0;
+  z-index: 1;
+}
+
+.secondImage {
+  position: absolute;
+  width: 357.99px;
+  height: 339.3px;
+  left: 240px;
+  top: 2px;
+  z-index: 0;
+}
+
+@media ((min-width: 481px) and (max-width: 850px)) {
+  .section {
+    flex-direction: column;
+    height: auto;
+    padding-top: 60px;
+  }
+
+  .textContainer {
+    width: 495px;
+    height: auto;
+    margin-top: 140px;
+  }
+  .butt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .buttonContainer {
+    justify-content: center;
+  }
+  .imageContainer {
+    order: -1;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .firstImage {
+    width: 40%;
+    height: auto;
+    position: relative;
+  }
+
+  .secondImage {
+    width: 40%;
+    height: auto;
+    position: relative;
+    left: -110px;
+  }
+}
