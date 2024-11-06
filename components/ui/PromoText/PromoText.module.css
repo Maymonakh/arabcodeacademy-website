@@ -13,6 +13,10 @@
   height: auto;
 }
 
+.promoText {
+  direction: rtl;
+}
+
 .title {
   font-size: 23px;
 }

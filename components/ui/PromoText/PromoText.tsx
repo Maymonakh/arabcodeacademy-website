@@ -30,18 +30,14 @@ const PromoText: React.FC<PromoTextProps> = ({
       opacity={opacity}
       className={styles.promoBox}
     >
-      <Text
-        marginBottom={titleMarginBottom}
-        className={styles.title}
-      >
-        {title}
-      </Text>
-      <Text
-        marginBottom={paragraphMarginBottom}
-        className={styles.paragraph}
-      >
-        {paragraph}
-      </Text>
+      <Box className={styles.promoText}>
+        <Text marginBottom={titleMarginBottom} className={styles.title}>
+          {title}
+        </Text>
+        <Text marginBottom={paragraphMarginBottom} className={styles.paragraph}>
+          {paragraph}
+        </Text>
+      </Box>
       {button}
     </Box>
   );
