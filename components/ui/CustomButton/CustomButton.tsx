@@ -17,7 +17,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   onClick,
 }) => {
   const [isMobile] = useMediaQuery("(max-width: 480px)");
-  const [isTablet] = useMediaQuery("(min-width: 481px) and (max-width: 850px)");
+  const [isTablet] = useMediaQuery("(min-width: 481px) and (max-width: 1024px)");
 
   const buttonStyles = {
     primary: isMobile
