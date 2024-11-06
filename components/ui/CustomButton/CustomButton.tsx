@@ -41,12 +41,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     green: {
       backgroundColor: "var(--green)",
       color: "var(--background)",
-      _hover: { backgroundColor: "var(--orange)" },
+      _hover: { backgroundColor: "var(--darkGreen)" },
     },
     orange: {
       backgroundColor: "var(--orange)",
       color: "var(--background)",
-      _hover: { backgroundColor: "var(--green)" },
+      _hover: { backgroundColor: "var(--darkOrange)" },
     },
   };
 
@@ -61,9 +61,9 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         gap: "8px",
       }}
       onClick={onClick}
+      rightIcon={icon}
     >
       {text}
-      {icon}
     </Button>
   );
 };
