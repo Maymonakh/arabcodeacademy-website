@@ -17,7 +17,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   onClick,
 }) => {
   const [isMobile] = useMediaQuery("(max-width: 480px)");
-  const [isTablet] = useMediaQuery("(min-width: 481px) and (max-width: 850px)");
+  const [isTablet] = useMediaQuery("(min-width: 481px) and (max-width: 1024px)");
 
   const buttonStyles = {
     primary: isMobile
@@ -41,12 +41,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     green: {
       backgroundColor: "var(--green)",
       color: "var(--background)",
-      _hover: { backgroundColor: "var(--orange)" },
+      _hover: { backgroundColor: "var(--darkGreen)" },
     },
     orange: {
       backgroundColor: "var(--orange)",
       color: "var(--background)",
-      _hover: { backgroundColor: "var(--green)" },
+      _hover: { backgroundColor: "var(--darkOrange)" },
     },
   };
 

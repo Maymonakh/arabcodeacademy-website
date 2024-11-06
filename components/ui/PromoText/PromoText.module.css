@@ -6,10 +6,15 @@
   align-items: center;
   font-family: var(--font-tajawal);
   color: var(--primary);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
   font-weight: 700;
   line-height: 30px;
   text-align: center;
+  height: auto;
+}
+
+.promoText {
+  direction: rtl;
 }
 
 .title {
@@ -18,4 +23,24 @@
 
 .paragraph {
   font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 16px;
+  }
+
+  .paragraph {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .title {
+    font-size: 25px;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
 }
