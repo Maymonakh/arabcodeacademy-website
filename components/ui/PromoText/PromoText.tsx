@@ -7,10 +7,10 @@ interface PromoTextProps {
   paragraph: string;
   button?: ReactElement;
   width: string | number;
-  height: string | number;
   padding?: string | number;
   titleMarginBottom?: string | number;
   paragraphMarginBottom?: string | number;
+  opacity?: string | number;
 }
 
 const PromoText: React.FC<PromoTextProps> = ({
@@ -18,23 +18,26 @@ const PromoText: React.FC<PromoTextProps> = ({
   paragraph,
   button,
   width,
-  height,
   padding = "20px",
   titleMarginBottom = "20px",
   paragraphMarginBottom = "20px",
+  opacity = 1,
 }) => {
   return (
     <Box
-      width={width}
-      height={height}
-      sx={{ padding }}
+      width={{ base: "100%", md: width, lg: width }}
+      padding={padding}
+      opacity={opacity}
       className={styles.promoBox}
     >
-      <Text sx={{ marginBottom: titleMarginBottom }} className={styles.title}>
+      <Text
+        marginBottom={titleMarginBottom}
+        className={styles.title}
+      >
         {title}
       </Text>
       <Text
-        sx={{ marginBottom: paragraphMarginBottom }}
+        marginBottom={paragraphMarginBottom}
         className={styles.paragraph}
       >
         {paragraph}
