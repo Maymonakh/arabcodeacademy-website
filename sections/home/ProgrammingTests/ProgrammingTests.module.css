@@ -13,6 +13,14 @@
 .textContainer {
   width: 470px;
   height: 562.07px;
+  text-align: right;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .imageContainer {
@@ -57,6 +65,9 @@
     align-items: center;
     width: 100%;
     height: 100%;
+  }
+  .buttonContainer {
+    justify-content: center;
   }
   .imageContainer {
     order: -1;

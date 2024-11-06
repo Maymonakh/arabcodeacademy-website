@@ -31,12 +31,14 @@ const ProgrammingTests = () => {
           iconSrc="/icons/Mask group (2).png"
         />
 
-        <CustomButton
-          text="قسم الامتحانات"
-          icon={<Image src={icon1} alt="icon" width={30} height={30} />}
-          buttonType="secondaryOne"
-          color="orange"
-        />
+        <div className={styles.buttonContainer}>
+          <CustomButton
+            text="قسم الامتحانات"
+            icon={<Image src={icon1} alt="icon" width={30} height={30} />}
+            buttonType="secondaryOne"
+            color="orange"
+          />
+        </div>
       </div>
 
       <div className={styles.imageContainer}>
