@@ -1,7 +1,10 @@
+"use client";
+
 import AdsPanel from "../sections/home/AdsPanel/AdsPanel";
 import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/variables.css";
 import ProgrammingTests from "../sections/home/ProgrammingTests/ProgrammingTests";
+import InteractiveTools from "@/sections/home/InteractiveTools/InteractiveTools";
 
 export default function Home() {
   return (
@@ -12,6 +15,7 @@ export default function Home() {
         adText="خصومات بنسبة 20% على الكورسات"
       />
       <ProgrammingTests />
+      <InteractiveTools />
     </ChakraProvider>
   );
 }
