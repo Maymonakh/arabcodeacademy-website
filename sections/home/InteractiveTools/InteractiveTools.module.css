@@ -1,10 +1,10 @@
 .section {
   background-image: url("/images/InteractiveTools-img.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -13,27 +13,41 @@
 
 .promoBox {
   position: absolute;
-  margin-left: 150px;
+  margin-left: 5%;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
   .section {
-    height: 65vh;
-    justify-content: center;
-  }
-
-  .promoBox {
-    margin: 1px 20px;
+    background-size: cover;
   }
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
   .section {
     height: 75vh;
+    background-size: 100% 100%;
     justify-content: center;
   }
 
   .promoBox {
     margin: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    height: 95vh;
+    display: block;
+    padding: 25px 0;
+  }
+
+  .promoBox {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 320px) {
+  .section {
+    height: 110vh;
   }
 }
