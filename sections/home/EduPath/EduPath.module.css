@@ -39,10 +39,10 @@
     display: flex;
     justify-content: center;
     font-family: 'Tajawal', sans-serif;
-    font-weight: 900; /* وزن الخط */
-    font-size: 19px; /* حجم الخط */
-    line-height: 22.8px; /* ارتفاع السطر */
-    text-align: right; /* محاذاة النص إلى اليمين */
+    font-weight: 900; 
+    font-size: 19px; 
+    line-height: 22.8px;
+    text-align: right; 
     gap:22px;
     font-size: 19px;
 
@@ -50,9 +50,9 @@
   .PromoTextParagraph {
     font-family: 'Tajawal', sans-serif;
     font-size: 18px;
-    font-weight: 500; /* سمك الخط */
-    line-height: 30px; /* ارتفاع السطر */
-    text-align: center; /* محاذاة النص في المنتصف */
+    font-weight: 500; 
+    line-height: 30px; 
+    text-align: center; 
    color: #713488;
 
   }
