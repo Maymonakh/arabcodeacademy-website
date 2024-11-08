@@ -1,4 +1,6 @@
-import { Button, useMediaQuery } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import { useMediaQuery } from '@chakra-ui/react';
+
 import React, { ReactElement } from "react";
 
 interface CustomButtonProps {
