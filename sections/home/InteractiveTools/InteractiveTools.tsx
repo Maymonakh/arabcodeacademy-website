@@ -26,7 +26,7 @@ const InteractiveTools = () => {
           padding="75px"
           titleMarginBottom="40px"
           paragraphMarginBottom="20px"
-          opacity={0.9}
+          opacity={0.83}
         />
       </Box>
     </section>
