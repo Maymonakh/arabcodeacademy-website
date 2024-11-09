@@ -1,8 +1,9 @@
 import AdsPanel from "../sections/home/AdsPanel/AdsPanel";
-import { ChakraProvider } from "@chakra-ui/react";
+ import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/variables.css";
 import ProgrammingTests from "../sections/home/ProgrammingTests/ProgrammingTests";
-import EduPath from "../sections/home/EduPath/EduPath";
+import EduPath from '../sections/home/EduPath/EduPath';
+import PromoText from '../components/ui/PromoText/PromoText';
 export default function Home() {
   return (
     <ChakraProvider>
@@ -12,8 +13,9 @@ export default function Home() {
         adText="خصومات بنسبة 20% على الكورسات"
       />
       <ProgrammingTests /> */}
-
-      <EduPath />
+      {/* <ProgrammingTests/> */}
+     <EduPath/>
+     
     </ChakraProvider>
   );
 }
