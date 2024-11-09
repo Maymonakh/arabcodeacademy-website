@@ -1,0 +1,46 @@
+.section {
+  background-image: url("/images/InteractiveTools-img.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.promoBox {
+  position: absolute;
+  margin-left: 150px;
+}
+
+@media (min-width: 1025px) {
+  .section {
+    justify-content: flex-start; /* Align left on larger screens */
+    padding-left: 150px; /* Move box slightly to the left */
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    height: 70vh;
+    justify-content: center;
+  }
+
+  .promoBox {
+    margin: 1px 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .section {
+    height: 90vh;
+    justify-content: center;
+  }
+
+  .promoBox {
+    margin: auto;
+  }
+}

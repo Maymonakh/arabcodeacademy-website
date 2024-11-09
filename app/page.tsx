@@ -1,3 +1,5 @@
+"use client";
+
 import AdsPanel from "../sections/home/AdsPanel/AdsPanel";
  import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/variables.css";
