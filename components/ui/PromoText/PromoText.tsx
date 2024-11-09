@@ -6,7 +6,7 @@ interface PromoTextProps {
   title: string;
   paragraph: string;
   button?: ReactElement;
-  width: string | number;
+  width?: string | number;
   padding?: string | number;
   titleMarginBottom?: string | number;
   paragraphMarginBottom?: string | number;

@@ -14,10 +14,6 @@ export default function Home() {
         endDate="2024-11-31T23:59:59Z"
         adText="خصومات بنسبة 20% على الكورسات"
       />
-
-      <ProgrammingTests />
-      <InteractiveTools />
-=======
       <ProgrammingTests /> */}
       {/* <ProgrammingTests/> */}
      <EduPath/>
