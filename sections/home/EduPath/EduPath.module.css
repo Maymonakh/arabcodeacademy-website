@@ -1,107 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-
 .section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    width: 100%;
-    height: 90vh;
-    margin: auto;
-    gap: 100px;
-  }
-  .containerOfAll{
-    width:1670.23px;
-    margin-left: 134px;
-    margin-right: 134px;
-    margin-top:20px;
-  }
-
-  .girlImg{
-    width:886.23px;
-   height: 650px;
-   margin-bottom: 20px; 
-   top: 0;
-  }
-  .PromoTextContainer{
-    margin-top: 60px;
-  margin-right:30px;
-    height: 507px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-  }
-  .ButtonContainer {
-    margin-top: 2px;
-    padding-top:26px;
-    padding-bottom:26px;
-    display: flex;
-    justify-content: center;
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 900; 
-    font-size: 19px; 
-    line-height: 22.8px;
-    text-align: right; 
-    gap:22px;
-    font-size: 19px;
-
-  }
-  .PromoTextParagraph {
-    font-family: 'Tajawal', sans-serif;
-    font-size: 18px;
-    font-weight: 500; 
-    line-height: 30px; 
-    text-align: center; 
-   color: #713488;
-
-  }
-
-  @media ((min-width: 481px) and (max-width: 1024px)) {
-
-    .section {
-      flex-direction: column;
-      height: auto;
-      padding-top: 60px;
-      background-color:'red';
-
-    }
-    .containerOfAll {
-      /* flex-direction: column;  */
-      /* align-items: center;  */
-      /* height: auto; */
-      padding-top: 60px;
-
-    }
-   .girlImg{
-    order: -1;
-    display: flex;
-    margin-left: 242px;
-    
-  
-  }
-  .PromoTextContainer{
-    width: 495px;
-    
-    margin-top: 700px;
-    justify-content: center;
-    margin-left:1px;
-  }
-
-.ButtonContainer {
+  width: 100%;
   display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  padding: 50px;
+}
+
+.TextContainer {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  margin-top: 20px;
 }
+
 .ButtonContainer {
-  justify-content: center;
+  margin-top: 30px;
 }
 
+.Img {
+  width: 100%;
+}
 
-
+@media (max-width: 480px) {
+  .section {
+    flex-direction: column-reverse;
   }
+}
 
-
-
+@media (min-width: 481px) and (max-width: 1024px) {
+  .section {
+    flex-direction: column-reverse;
+  }
+}
