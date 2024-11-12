@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
-import { Grid, Box } from "@chakra-ui/react";
 import Image from "next/image";
 import PromoText from "@/components/ui/PromoText/PromoText";
 import CustomButton from "@/components/ui/CustomButton/CustomButton";
 import img1 from "@/public/images/photo_2024-08-31_00-11-45 2.svg";
 import style from "./EduPath.module.css";
-import icon1 from "@/public/icons/🦆 icon _Chalkboard Teacher_.png";
+import icon1 from "@/public/icons/icon _Chalkboard Teacher_.png";
 
 const EduPath = () => {
   return (
