@@ -62,7 +62,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         fontSize: "17px",
         display: "flex",
         alignItems: "center",
-        gap: "8px",
+        gap: "2px",
       }}
       onClick={onClick}
       rightIcon={icon}
