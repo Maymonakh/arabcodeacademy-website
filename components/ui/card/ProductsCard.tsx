@@ -25,12 +25,12 @@ const ProductsCard = ({
       borderWidth="1px"
       borderRadius="10px"
       m="1"
-      position="relative" 
+      position="relative"
       mb={3}
       style={{
         color: "var(--primary)",
         fontFamily: "var(--font-tajawal)",
-        boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)", 
+        boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)",
       }}
     >
       {isComingSoon && (
@@ -40,8 +40,8 @@ const ProductsCard = ({
           left="0"
           width="0"
           height="0"
-          borderTop="100px solid #00be98" 
-          borderRight="100px solid transparent" 
+          borderTop="100px solid #00be98"
+          borderRight="100px solid transparent"
         >
           <Text
             position="absolute"
@@ -50,7 +50,7 @@ const ProductsCard = ({
             fontWeight="bold"
             color="white"
             top="-96px"
-            w="60px" 
+            w="60px"
             textAlign="center"
           >
             قريبًا
@@ -85,35 +85,35 @@ const ProductsCard = ({
         justifyContent={"space-between"}
       >
         <Stack spacing={2}>
-          <Text fontSize="md" fontWeight="bold" style={{fontSize: "30px"}}>
+          <Text fontSize="md" fontWeight="bold" style={{ fontSize: "30px" }}>
             ${price}
           </Text>
         </Stack>
         <Stack spacing={2}>
-          <Text fontSize="lg" fontWeight="bold" style={{fontSize: "23px"}}>
+          <Text fontSize="lg" fontWeight="bold" style={{ fontSize: "23px" }}>
             {title}
           </Text>
         </Stack>
       </Stack>
 
-      <Stack pr={3} textAlign="right" style={{fontSize: "18px"}}>
+      <Stack pr={3} textAlign="right" style={{ fontSize: "18px" }}>
         <Text fontSize="sm">{Coachname}</Text>
         <Text fontSize="sm">{description}</Text>
       </Stack>
 
       <Stack direction="row" p={6} justify="center">
-        <CustomButton
-          text="شراء"
+      <CustomButton
+          text={isComingSoon ? "احجز الآن" : "شراء"}
           icon={
             <Image
               src="icons/icon _cart_.png"
               alt="icon"
-              width={30}
-              height={30}
+              width={5}
+              height={5}
             />
           }
           buttonType="secondaryTwo"
-          color="orange"
+          color="green"
         />
         <CustomButton
           text="اقرأ المزيد"
@@ -121,12 +121,12 @@ const ProductsCard = ({
             <Image
               src="icons/icon _more horiz circled outline_.png"
               alt="icon"
-              width={30}
-              height={30}
+              width={5}
+              height={5}
             />
           }
           buttonType="secondaryTwo"
-          color="green"
+          color="orange"
         />
       </Stack>
     </Box>
