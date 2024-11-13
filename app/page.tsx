@@ -6,8 +6,7 @@ import "../styles/variables.css";
 import ProgrammingTests from "../sections/home/ProgrammingTests/ProgrammingTests";
 import EduPath from "../sections/home/EduPath/EduPath";
 import InteractiveTools from "@/sections/home/InteractiveTools/InteractiveTools";
-import TrainingCourses from "@/sections/home/TrainingCourses/Trainingcourses";
-import SoonCourses from "@/sections/home/SoonCourses/Sooncourses";
+import Courses from "@/sections/home/Courses/Courses";
 
 export default function Home() {
   return (
@@ -19,8 +18,7 @@ export default function Home() {
       />
       <ProgrammingTests />
       <EduPath />
-      <TrainingCourses />
-      <SoonCourses />
+      <Courses />
       <InteractiveTools />
     </ChakraProvider>
   );
