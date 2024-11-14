@@ -37,26 +37,31 @@ const ProductsCard = ({
         <Box
           position="absolute"
           top="0"
-          left="0"
-          width="0"
-          height="0"
-          borderTop="100px solid #00be98"
-          borderRight="100px solid transparent"
+          left="25.5%"
+          transform="translateX(-50%)"
+          overflow="hidden"
+          textAlign="center"
         >
           <Text
-            position="absolute"
-            transform="rotate(-45deg)"
             fontSize="30px"
-            fontWeight="bold"
             color="white"
-            top="-96px"
-            w="60px"
-            textAlign="center"
+            position="absolute"
+            top="10px"
+            left="25%"
+            transform="translateX(-50%)"
           >
-            قريبًا
+            قريباً
           </Text>
+          <Image
+            src="/images/Rectangle 88.png"
+            alt="Coming Soon"
+            width="100%"
+            height="100%"
+            objectFit="cover"
+          />
         </Box>
       )}
+
       <div
         style={{
           backgroundColor: "var(--orange)",
@@ -102,7 +107,7 @@ const ProductsCard = ({
       </Stack>
 
       <Stack direction="row" p={6} justify="center">
-      <CustomButton
+        <CustomButton
           text={isComingSoon ? "احجز الآن" : "شراء"}
           icon={
             <Image
