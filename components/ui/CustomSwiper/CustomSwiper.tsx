@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
-import "../../../styles/swiper-styles.css";
+import "../../../styles/swiper-styles.css"; 
 import { Box } from "@chakra-ui/react";
 
 interface CustomSwiperProps<T> {
