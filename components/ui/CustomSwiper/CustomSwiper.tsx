@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
 import "../../../styles/swiper-styles.css"; 
-import { Box } from "@chakra-ui/react";
 
 interface CustomSwiperProps<T> {
   data: T[];
@@ -23,7 +22,6 @@ const CustomSwiper = <T,>({
   spaceBetween = 5,
 }: CustomSwiperProps<T>) => {
   return (
-    <Box style={{padding:"10px 70px"}}>
       <Swiper
         navigation={true}
         modules={[Navigation]}
@@ -37,7 +35,6 @@ const CustomSwiper = <T,>({
           <SwiperSlide key={index}>{renderItem(item, index)}</SwiperSlide>
         ))}
       </Swiper>
-    </Box>
   );
 };
 

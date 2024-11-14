@@ -1,12 +1,14 @@
+.section{
+    padding: 50px 100px;
+    text-align: right;
+}
 
 .box1 {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-  padding-inline: 80px;
+  margin-bottom: 40px;
 }
 
 .box2 {
   margin-block: 40px;
-  padding-inline: 80px;
 }
