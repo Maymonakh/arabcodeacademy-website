@@ -1,0 +1,12 @@
+
+.box1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-inline: 80px;
+}
+
+.box2 {
+  margin-block: 40px;
+  padding-inline: 80px;
+}

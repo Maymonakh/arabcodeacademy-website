@@ -14,7 +14,7 @@ const ProgrammingTests = () => {
     <section className={styles.section}>
       <div className={styles.textContainer}>
         <TextBlock
-          title="اختر قدراتك"
+          title="اختبر قدراتك"
           description="تمكنك الأكاديمية العربية للبرمجة من اختبار مهاراتك البرمجية عبر الإنترنت بسهولة ومرونة، من خلال خدمة الامتحان البرمجي الإلكتروني"
           iconSrc="/icons/Mask group.png"
         />
@@ -35,7 +35,7 @@ const ProgrammingTests = () => {
           <CustomButton
             text="قسم الامتحانات"
             icon={<Image src={icon1} alt="icon" width={30} height={30} />}
-            buttonType="secondaryOne"
+            buttonType="primary"
             color="orange"
           />
         </div>
