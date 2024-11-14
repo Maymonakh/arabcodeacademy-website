@@ -1,5 +1,5 @@
 import React from "react";
-import SimpleCard from "./SimpleCard/simpleCard";
+import SimpleCard from "../../../components/ui/SimpleCard/simpleCard";
 import img1 from '@/public/images/kisspng-portrait-shannon-5ae540d7d5c1d0.2959227015249737838756 1.svg';
 import img2 from '@/public/images/2.svg';
 import img3 from '@/public/images/3.svg';
