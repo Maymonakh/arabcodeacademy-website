@@ -8,7 +8,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
   return (
-    <InputGroup style={{ width: "50%" }}>
+    <InputGroup width={{ base: "100%", md: "100%", lg: "50%" }}>
       <InputLeftElement
         pointerEvents="none"
         borderRight="2px solid"

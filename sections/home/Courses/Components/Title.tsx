@@ -7,19 +7,24 @@ interface TitleProps {
 
 const Title: React.FC<TitleProps> = ({ text }) => {
   return (
-    <Box position="relative" display="inline-block">
+    <Box
+      position="relative"
+      display="inline-block"
+      width={{ base: "60%", md: "auto", lg: "auto" }}
+    >
       <Text
         fontSize="27px"
         fontWeight="bold"
         color="var(--primary)"
         fontFamily="var(--font-tajawal)"
         dir="rtl"
+        textAlign="center"
       >
         {text}
       </Text>
       <Box
         position="absolute"
-        bottom="-2px"
+        bottom={{ base: "-15px", md: "-4px", lg: "-2px" }}
         left="0"
         width="100%"
         height="2px"

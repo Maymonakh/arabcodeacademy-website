@@ -73,6 +73,11 @@ const SoonCourses = () => {
   return (
     <CustomSwiper
       data={courses}
+      breakpoints={{
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 4 },
+      }}
       renderItem={(course) => (
         <ProductsCard
           title={course.title}

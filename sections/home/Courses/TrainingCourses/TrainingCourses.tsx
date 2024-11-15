@@ -82,6 +82,11 @@ const TrainingCourses: React.FC = () => {
   return (
     <CustomSwiper
       data={courses}
+      breakpoints={{
+        0:{slidesPerView:1},
+        768: { slidesPerView: 2 }, 
+        1024: { slidesPerView: 4 }, 
+      }}
       renderItem={(course) => (
         <ProductsCard
           title={course.title}
@@ -91,7 +96,7 @@ const TrainingCourses: React.FC = () => {
           imageSrc={course.imageSrc}
           isComingSoon={course.isComingSoon}
         />
-      )}
+      )}     
     />
   );
 };
