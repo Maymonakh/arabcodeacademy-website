@@ -1,12 +1,10 @@
 .container{
     width: 1280px;
-    height: 400px;
-   
-    gap: 0px;
-    opacity: 0px;
-    margin-top: 30px;  /* تقليل المسافة العلوية */
-    margin-bottom: 30px;  /* تقليل المسافة السفلية */
-    }
+    margin-top: 30px; 
+    margin-bottom: 30px;  
+    /* background-color:red; */
+    padding: 10px;
+}
     .card {
         border: 1px solid hsl(0, 0%, 90%); 
         box-shadow: 3px 5px 10px hsla(0, 0%, 0%, 0.6);
@@ -21,6 +19,7 @@
         position: relative; 
        margin-right: -10px;
         box-sizing: border-box; 
+        
         
     }
     .rectangle {
@@ -84,4 +83,13 @@
         height:24.72px;
         margin-right: 2px; 
         border:1px;
+    }
+  
+
+      @media (max-width: 768px) {
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
     }

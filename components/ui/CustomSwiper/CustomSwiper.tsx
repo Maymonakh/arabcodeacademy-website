@@ -6,6 +6,9 @@ import "swiper/css/navigation";
 import "swiper/css/grid";
 import "../../../styles/swiper-styles.css"; 
 import { Box } from "@chakra-ui/react";
+import "swiper/css";
+import "swiper/css/navigation";
+
 
 interface CustomSwiperProps<T> {
   data: T[];
@@ -13,6 +16,10 @@ interface CustomSwiperProps<T> {
   slidesPerView?: number;
   slidesPerGroup?: number;
   spaceBetween?: number;
+  breakpoints?: { [key: number]: { slidesPerView: number } }; 
+  onNextSlide?: () => void;  
+  onPrevSlide?: () => void;
+
 }
 
 const CustomSwiper = <T,>({
@@ -27,7 +34,7 @@ const CustomSwiper = <T,>({
       <Swiper
         navigation={true}
         modules={[Navigation]}
-        loop={true}
+       loop={true}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
         slidesPerGroup={slidesPerGroup}

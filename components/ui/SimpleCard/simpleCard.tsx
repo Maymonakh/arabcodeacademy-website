@@ -30,6 +30,7 @@ const SimpleCard = ({ name, paragraph, imageSrc, date, rating }: Props) => {
   };
 
   return (
+    <section className='sectionContainer'>
     <div className={style.container}>
     <div className={style.card}>
 
@@ -56,6 +57,7 @@ const SimpleCard = ({ name, paragraph, imageSrc, date, rating }: Props) => {
   </div>
 
   </div> 
+  </section>
   );
 };
 
