@@ -1,24 +1,19 @@
 import React from "react";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { SwiperOptions } from "swiper/types";
+import { Swiper as SwiperClass, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper/types";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/grid";
-import "../../../styles/swiper-styles.css"; 
-import { Box } from "@chakra-ui/react";
-import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+
 interface CustomSwiperProps<T> {
   data: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
-  slidesPerView?: number;
+  slidesPerView?: number | "auto";
   slidesPerGroup?: number;
   spaceBetween?: number;
-  breakpoints?: { [key: number]: { slidesPerView: number } }; 
-  onNextSlide?: () => void;  
-  onPrevSlide?: () => void;
+  breakpoints?: { [key: number]: { slidesPerView: number } };
 
+  setSwiperInstance?: (swiper: SwiperType) => void;
 }
 
 const CustomSwiper = <T,>({
@@ -26,24 +21,28 @@ const CustomSwiper = <T,>({
   renderItem,
   slidesPerView = 4,
   slidesPerGroup = 4,
-  spaceBetween = 5,
+  spaceBetween = 20,
   breakpoints,
-}: CustomSwiperProps<T>) => {
+
+  setSwiperInstance,
+}: CustomSwiperProps<T>): React.ReactElement => {
   return (
-    <Swiper
-      navigation={true}
-      modules={[Navigation]}
-      loop={true}
-      spaceBetween={spaceBetween}
+    <SwiperClass
+      modules={[Pagination]}
       slidesPerView={slidesPerView}
       slidesPerGroup={slidesPerGroup}
-      breakpoints={breakpoints} 
-      style={{ padding: "auto 100px" }}
+      loop={true}
+      spaceBetween={spaceBetween}
+      breakpoints={breakpoints}
+      style={{ width: "100%" }}
+      onSwiper={(swiper) => {
+        if (setSwiperInstance) setSwiperInstance(swiper);
+      }}
     >
       {data.map((item, index) => (
         <SwiperSlide key={index}>{renderItem(item, index)}</SwiperSlide>
       ))}
-    </Swiper>
+    </SwiperClass>
   );
 };
 

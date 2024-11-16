@@ -1,6 +1,14 @@
 .section {
-  padding: 50px 100px;
+  padding: 50px 130px;
   text-align: right;
+}
+
+.CardsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
 }
 
 .box1 {

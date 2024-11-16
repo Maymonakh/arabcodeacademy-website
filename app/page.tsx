@@ -1,6 +1,5 @@
 "use client";
-import { ChakraProvider, SimpleGrid } from "@chakra-ui/react";
-
+import { ChakraProvider } from "@chakra-ui/react";
 
 import AdsPanel from "../sections/home/AdsPanel/AdsPanel";
 import "../styles/variables.css";
@@ -8,15 +7,12 @@ import ProgrammingTests from "../sections/home/ProgrammingTests/ProgrammingTests
 import EduPath from "../sections/home/EduPath/EduPath";
 import InteractiveTools from "@/sections/home/InteractiveTools/InteractiveTools";
 import Courses from "@/sections/home/Courses/Courses";
-import CardSection from '../sections/home/CardSection/CardSection';
-
-
+import CardSection from "../sections/home/CardSection/CardSection";
+import LearningCenter from "@/sections/home/LearningCenter/LearningCenter";
 
 export default function Home() {
   return (
     <ChakraProvider>
-    
-
       <AdsPanel
         startDate="2024-10-20T00:00:00Z"
         endDate="2024-11-31T23:59:59Z"
@@ -26,8 +22,8 @@ export default function Home() {
       <EduPath />
       <Courses />
       <InteractiveTools />
-      <CardSection/>
-      
+      <LearningCenter />
+      <CardSection />
     </ChakraProvider>
   );
 }
