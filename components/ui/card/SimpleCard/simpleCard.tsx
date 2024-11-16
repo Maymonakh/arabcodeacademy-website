@@ -15,18 +15,13 @@ interface Props {
 
 const SimpleCard = ({ name, paragraph, imageSrc, date, rating }: Props) => {
   const renderStars = () => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <Image
-          key={i}
-          src={i <= rating ? filledStar : emptyStar} 
-          alt="star"
-         
-        />
-      );
-    }
-    return stars;
+    return [1, 2, 3, 4, 5].map(i => (
+      <Image
+        key={i}
+        src={i <= rating ? filledStar : emptyStar} 
+        alt="star"
+      />
+    ));
   };
 
   return (
