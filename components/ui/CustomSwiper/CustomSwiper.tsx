@@ -5,15 +5,20 @@ import { SwiperOptions } from "swiper/types";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
-import "../../../styles/swiper-styles.css";
-
+import "../../../styles/swiper-styles.css"; 
+import { Box } from "@chakra-ui/react";
+import "swiper/css";
+import "swiper/css/navigation";
 interface CustomSwiperProps<T> {
   data: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
   slidesPerView?: number;
   slidesPerGroup?: number;
   spaceBetween?: number;
-  breakpoints?: { [width: number]: SwiperOptions };
+  breakpoints?: { [key: number]: { slidesPerView: number } }; 
+  onNextSlide?: () => void;  
+  onPrevSlide?: () => void;
+
 }
 
 const CustomSwiper = <T,>({
