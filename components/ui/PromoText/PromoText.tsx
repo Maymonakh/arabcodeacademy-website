@@ -6,7 +6,7 @@ interface PromoTextProps {
   title: string;
   paragraph: string;
   button?: ReactElement;
-  width: string | number;
+  width?: string | number;
   padding?: string | number;
   titleMarginBottom?: string | number;
   paragraphMarginBottom?: string | number;
@@ -26,7 +26,7 @@ const PromoText: React.FC<PromoTextProps> = ({
   return (
     <Box
       width={{ base: "100%", md: width, lg: width }}
-      padding={{base: "10px", md:padding, lg: padding}}
+      padding={{base: "20px", md:padding, lg: padding}}
       opacity={opacity}
       className={styles.promoBox}
     >

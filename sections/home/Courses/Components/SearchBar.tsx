@@ -1,0 +1,36 @@
+import React from "react";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
+
+interface SearchBarProps {
+  placeholder: string;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
+  return (
+    <InputGroup width={{ base: "100%", md: "100%", lg: "50%" }}>
+      <InputLeftElement
+        pointerEvents="none"
+        borderRight="2px solid"
+        borderColor="var(--primary)"
+        padding="25px"
+      >
+        <SearchIcon color="var(--primary)" fontSize="20px" />
+      </InputLeftElement>
+      <Input
+        placeholder={placeholder}
+        borderWidth="2px"
+        borderColor="var(--primary)"
+        borderRadius="full"
+        color="var(--primary)"
+        _placeholder={{ color: "var(--primary)" }}
+        textAlign="right"
+        paddingY="6"
+        fontFamily={" var(--font-tajawal)"}
+        dir="rtl"
+      />
+    </InputGroup>
+  );
+};
+
+export default SearchBar;
