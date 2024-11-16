@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
-import prevIcon from "../../../../public/icons/angle-left.png";
-import nextIcon from "../../../../public/icons/angle-right.png";
 import { Swiper as SwiperType } from "swiper/types";
-import Image from "next/image";
+import ProductsCard from "../../../../components/ui/card/ProductsCard";
+import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
-import ProductsCard from "../../../../components/ui/Card/ProductsCard";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const courses = [
   {
-    title: "1اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
@@ -17,7 +16,7 @@ const courses = [
     isComingSoon: true,
   },
   {
-    title: "2اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
@@ -25,7 +24,7 @@ const courses = [
     isComingSoon: true,
   },
   {
-    title: "3اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
@@ -33,43 +32,11 @@ const courses = [
     isComingSoon: true,
   },
   {
-    title: "4اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
     imageSrc: "/images/Mask group (7).png",
-    isComingSoon: true,
-  },
-  {
-    title: "5اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
-    isComingSoon: true,
-  },
-  {
-    title: "6اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
-    isComingSoon: true,
-  },
-  {
-    title: "7اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
-    isComingSoon: true,
-  },
-  {
-    title: "8اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
     isComingSoon: true,
   },
 ];
@@ -84,6 +51,11 @@ const SoonCourses = () => {
   const handlePrev = () => {
     swiperInstance?.slidePrev();
   };
+
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
+  const [isTablet] = useMediaQuery(
+    "(min-width: 481px) and (max-width: 1024px)"
+  );
 
   return (
     <div className={styles.CardsContainer}>
@@ -107,38 +79,16 @@ const SoonCourses = () => {
         )}
         setSwiperInstance={setSwiperInstance}
       />
-      <button
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "-8%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          cursor: "pointer",
-          background: "none",
-          border: "none",
-        }}
+      <ArrowButton
+        direction="left"
         onClick={handlePrev}
-        aria-label="Previous slide"
-      >
-        <Image src={prevIcon} alt="Previous slide" width={70} height={70} />
-      </button>
-      <button
-        style={{
-          position: "absolute",
-          top: "50%",
-          right: "-8%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          cursor: "pointer",
-          background: "none",
-          border: "none",
-        }}
+        positionValue={isMobile ? "-11%" : isTablet ? "-13%" : "-8%"}
+      />
+      <ArrowButton
+        direction="right"
         onClick={handleNext}
-        aria-label="Next slide"
-      >
-        <Image src={nextIcon} alt="Next slide" width={70} height={70} />
-      </button>
+        positionValue={isMobile ? "7%" : isTablet ? "-12%" : "-8%"}
+      />
     </div>
   );
 };

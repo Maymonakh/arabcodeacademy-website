@@ -1,19 +1,14 @@
-import React from "react";
-import CustomSwiper from "../../../../components/ui/CustomSwiper/CustomSwiper";
-import ProductsCard from "@/components/ui/card/ProductsCard";
+import React, { useState } from "react";
+import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
+import { Swiper as SwiperType } from "swiper/types";
+import ProductsCard from "../../../../components/ui/card/ProductsCard";
+import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
+import styles from "./../Courses.module.css";
+import { useMediaQuery } from "@chakra-ui/react";
 
-interface Course {
-  title: string;
-  price: number;
-  Coachname: string;
-  description: string;
-  imageSrc: string;
-  isComingSoon: boolean;
-}
-
-const courses: Course[] = [
+const courses = [
   {
-    title: "1اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
@@ -21,7 +16,7 @@ const courses: Course[] = [
     isComingSoon: false,
   },
   {
-    title: "2اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
@@ -29,7 +24,7 @@ const courses: Course[] = [
     isComingSoon: false,
   },
   {
-    title: "3اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
@@ -37,67 +32,64 @@ const courses: Course[] = [
     isComingSoon: false,
   },
   {
-    title: "4اسم الكورس",
+    title: "اسم الكورس",
     price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
     imageSrc: "/images/Mask group (7).png",
     isComingSoon: false,
   },
-  {
-    title: "5اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
-    isComingSoon: false,
-  },
-  {
-    title: "6اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
-    isComingSoon: false,
-  },
-  {
-    title: "7اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
-    isComingSoon: false,
-  },
-  {
-    title: "8اسم الكورس",
-    price: 24,
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (5).png",
-    isComingSoon: false,
-  },
 ];
 
-const TrainingCourses: React.FC = () => {
+const TrainingCourses = () => {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+  const handleNext = () => {
+    swiperInstance?.slideNext();
+  };
+
+  const handlePrev = () => {
+    swiperInstance?.slidePrev();
+  };
+
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
+  const [isTablet] = useMediaQuery(
+    "(min-width: 481px) and (max-width: 1024px)"
+  );
+
   return (
-    <CustomSwiper
-      data={courses}
-      breakpoints={{
-        0:{slidesPerView:1},
-        768: { slidesPerView: 2 }, 
-        1024: { slidesPerView: 4 }, 
-      }}
-      renderItem={(course) => (
-        <ProductsCard
-          title={course.title}
-          price={course.price}
-          Coachname={course.Coachname}
-          description={course.description}
-          imageSrc={course.imageSrc}
-          isComingSoon={course.isComingSoon}
-        />
-      )}     
-    />
+    <div className={styles.CardsContainer}>
+      <CustomSwiper
+        data={courses}
+        spaceBetween={10}
+        breakpoints={{
+          1024: { slidesPerView: 4 },
+          768: { slidesPerView: 2 },
+          480: { slidesPerView: 1 },
+        }}
+        renderItem={(course) => (
+          <ProductsCard
+            title={course.title}
+            price={course.price}
+            Coachname={course.Coachname}
+            description={course.description}
+            imageSrc={course.imageSrc}
+            isComingSoon={course.isComingSoon}
+          />
+        )}
+        setSwiperInstance={setSwiperInstance}
+      />
+      <ArrowButton
+        direction="left"
+        onClick={handlePrev}
+        positionValue={isMobile ? "-11%" : isTablet ? "-13%" : "-8%"}
+      />
+      <ArrowButton
+        direction="right"
+        onClick={handleNext}
+        positionValue={isMobile ? "7%" : isTablet ? "-12%" : "-8%"}
+      />
+    </div>
   );
 };
 

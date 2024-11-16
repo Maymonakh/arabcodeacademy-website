@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper as SwiperClass, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType } from "swiper/types";
+import { SwiperOptions, Swiper as SwiperType } from "swiper/types";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
@@ -11,19 +11,17 @@ interface CustomSwiperProps<T> {
   slidesPerView?: number | "auto";
   slidesPerGroup?: number;
   spaceBetween?: number;
-  breakpoints?: { [key: number]: { slidesPerView: number } };
-
+  breakpoints?: Record<string, SwiperOptions>;
   setSwiperInstance?: (swiper: SwiperType) => void;
 }
 
 const CustomSwiper = <T,>({
   data,
   renderItem,
-  slidesPerView = 4,
-  slidesPerGroup = 4,
-  spaceBetween = 20,
+  slidesPerView,
+  slidesPerGroup=1,
+  spaceBetween=10,
   breakpoints,
-
   setSwiperInstance,
 }: CustomSwiperProps<T>): React.ReactElement => {
   return (

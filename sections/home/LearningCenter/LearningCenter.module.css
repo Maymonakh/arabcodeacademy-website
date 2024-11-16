@@ -1,69 +1,35 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 50px 0px;
+}
+
 .learningCenterContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   box-shadow: 0px 1px 20px 3px rgba(0, 0, 0, 0.25);
-  max-width: 46.88%;
+  max-width: 50%;
   height: 450px;
-  margin: 0 auto;
   position: relative;
-  padding: 50px 30px;
-}
-
-.navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.cardContainer {
-  display: flex;
   gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  width: 70%;
-  height: 100%;
+  padding: 20px;
 }
 
-.cardContainer > div {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
+@media (max-width: 480px) {
+  .learningCenterContainer {
+    max-width: 70%;
+    padding: 50px 0px;
+  }
+  
 }
 
-/* Responsive Behavior */
-@media (max-width: 1024px) {
-  .card {
-    width: 45%;
-    padding: 15px;
-  }
-
-  .cardParagraph {
-    font-size: 0.9rem;
-  }
-
-  .cardButton {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .cardParagraph {
-    font-size: 0.8rem;
-  }
-
-  .cardButton {
-    font-size: 0.7rem;
-    padding: 6px 12px;
+@media (min-width: 481px) and (max-width: 1024px) {
+  .learningCenterContainer {
+    max-width: 70%;
+    padding: 50px 0px;
   }
 }

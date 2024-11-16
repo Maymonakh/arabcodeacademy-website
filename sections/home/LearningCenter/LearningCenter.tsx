@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Swiper as SwiperType } from "swiper/types";
-import LearningCenterCard from "@/components/ui/LearningCenterCard/LearningCenterCard";
+import LearningCenterCard from "@/components/ui/card/LearningCenterCard/LearningCenterCard";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
-import Image from "next/image";
+import ArrowButton from "../../../components/ui/CustomSwiper/ArrowButton";
 import educationLogo from "../../../public/icons/kisspng-education-logo-image-e-learning-5cce15891e7a39 1.png";
 import testQuizLogo from "../../../public/icons/transparent-test-quiz-icon-my-classroom-icon-check-icon-5dd1c17b65bb03 1.png";
 import bookLogo from "../../../public/icons/transparent-book-icon-open-blank-book-pages-icon-education-ico-5f9bad3ade7008 1.png";
-import prevIcon from "../../../public/icons/angle-left.png";
-import nextIcon from "../../../public/icons/angle-right.png";
 import styles from "./LearningCenter.module.css";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const cardData = [
   {
@@ -45,62 +44,45 @@ const LearningCenter: React.FC = () => {
     swiperInstance?.slidePrev();
   };
 
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
+  const [isTablet] = useMediaQuery(
+    "(min-width: 481px) and (max-width: 1024px)"
+  );
+
   return (
-    <div className={styles.learningCenterContainer}>
-      <CustomSwiper
-        data={cardData}
-        renderItem={(card, index) => (
-          <LearningCenterCard
-            key={index}
-            logo={card.logo}
-            title={card.title}
-            logoWidth={card.logoWidth}
-            logoHeight={card.logoHeight}
-            isMiddle={index === Math.floor(cardData.length / 2)} // Check if it's the middle card
-          />
-        )}
-        slidesPerView={3}
-        slidesPerGroup={3}
-        breakpoints={{
-          1024: { slidesPerView: 3 },
-          768: { slidesPerView: 2 },
-          480: { slidesPerView: 1 },
-        }}
-        setSwiperInstance={setSwiperInstance}
-      />
-      <button
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "-40%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          cursor: "pointer",
-          background: "none",
-          border: "none",
-        }}
-        onClick={handlePrev}
-        aria-label="Previous slide"
-      >
-        <Image src={prevIcon} alt="Previous slide" width={70} height={70} />
-      </button>
-      <button
-        style={{
-          position: "absolute",
-          top: "50%",
-          right: "-40%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          cursor: "pointer",
-          background: "none",
-          border: "none",
-        }}
-        onClick={handleNext}
-        aria-label="Next slide"
-      >
-        <Image src={nextIcon} alt="Next slide" width={70} height={70} />
-      </button>
-    </div>
+    <section className={styles.section}>
+      <div className={styles.learningCenterContainer}>
+        <CustomSwiper
+          data={cardData}
+          renderItem={(card, index) => (
+            <LearningCenterCard
+              key={index}
+              logo={card.logo}
+              title={card.title}
+              logoWidth={card.logoWidth}
+              logoHeight={card.logoHeight}
+            />
+          )}
+          spaceBetween={10}
+          breakpoints={{
+            1024: { slidesPerView: 3},
+            768: { slidesPerView: 2 },
+            480: { slidesPerView: 1 },
+          }}
+          setSwiperInstance={setSwiperInstance}
+        />
+        <ArrowButton
+          direction="left"
+          positionValue={isMobile ? "-20%" : isTablet ? "-18%" :"-47%"}
+          onClick={handlePrev}
+        />
+        <ArrowButton
+          direction="right"
+          positionValue={isMobile ? "-20%" : isTablet ? "-18%" :"-47%"}
+          onClick={handleNext}
+        />
+      </div>
+    </section>
   );
 };
 

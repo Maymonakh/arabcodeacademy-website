@@ -1,0 +1,20 @@
+.section {
+  padding: 50px 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .section {
+    padding: 50px 50px;
+  }
+}
