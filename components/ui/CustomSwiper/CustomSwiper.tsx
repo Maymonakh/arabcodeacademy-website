@@ -10,10 +10,9 @@ interface CustomSwiperProps<T> {
   renderItem: (item: T, index: number) => React.ReactNode;
   slidesPerView?: number | "auto";
   slidesPerGroup?: number;
-  breakpoints?: Record<
-    number,
-    { slidesPerView: number | "auto"; slidesPerGroup: number }
-  >;
+  spaceBetween?: number;
+  breakpoints?: { [key: number]: { slidesPerView: number } };
+
   setSwiperInstance?: (swiper: SwiperType) => void;
 }
 
@@ -22,12 +21,9 @@ const CustomSwiper = <T,>({
   renderItem,
   slidesPerView = 4,
   slidesPerGroup = 4,
-  breakpoints = {
-    // Breakpoints configuration for responsiveness
-    1440: { slidesPerView: 3, slidesPerGroup: 3 },
-    768: { slidesPerView: 2, slidesPerGroup: 2 },
-    480: { slidesPerView: 1, slidesPerGroup: 1 },
-  },
+  spaceBetween = 20,
+  breakpoints,
+
   setSwiperInstance,
 }: CustomSwiperProps<T>): React.ReactElement => {
   return (
@@ -36,7 +32,9 @@ const CustomSwiper = <T,>({
       slidesPerView={slidesPerView}
       slidesPerGroup={slidesPerGroup}
       loop={true}
+      spaceBetween={spaceBetween}
       breakpoints={breakpoints}
+      style={{ width: "100%" }}
       onSwiper={(swiper) => {
         if (setSwiperInstance) setSwiperInstance(swiper);
       }}

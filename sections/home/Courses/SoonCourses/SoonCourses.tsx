@@ -1,6 +1,11 @@
-import React from "react";
-import ProductsCard from "@/components/ui/card/ProductsCard";
+import React, { useState } from "react";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
+import prevIcon from "../../../../public/icons/angle-left.png";
+import nextIcon from "../../../../public/icons/angle-right.png";
+import { Swiper as SwiperType } from "swiper/types";
+import Image from "next/image";
+import styles from "./../Courses.module.css";
+import ProductsCard from "../../../../components/ui/Card/ProductsCard";
 
 const courses = [
   {
@@ -70,25 +75,71 @@ const courses = [
 ];
 
 const SoonCourses = () => {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+  const handleNext = () => {
+    swiperInstance?.slideNext();
+  };
+
+  const handlePrev = () => {
+    swiperInstance?.slidePrev();
+  };
+
   return (
-    <CustomSwiper
-      data={courses}
-      breakpoints={{
-        0: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 4 },
-      }}
-      renderItem={(course) => (
-        <ProductsCard
-          title={course.title}
-          price={course.price}
-          Coachname={course.Coachname}
-          description={course.description}
-          imageSrc={course.imageSrc}
-          isComingSoon={course.isComingSoon}
-        />
-      )}
-    />
+    <div className={styles.CardsContainer}>
+      <CustomSwiper
+        data={courses}
+        spaceBetween={10}
+        breakpoints={{
+          1024: { slidesPerView: 4 },
+          768: { slidesPerView: 2 },
+          480: { slidesPerView: 1 },
+        }}
+        renderItem={(course) => (
+          <ProductsCard
+            title={course.title}
+            price={course.price}
+            Coachname={course.Coachname}
+            description={course.description}
+            imageSrc={course.imageSrc}
+            isComingSoon={course.isComingSoon}
+          />
+        )}
+        setSwiperInstance={setSwiperInstance}
+      />
+      <button
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "-8%",
+          transform: "translateY(-50%)",
+          zIndex: 10,
+          cursor: "pointer",
+          background: "none",
+          border: "none",
+        }}
+        onClick={handlePrev}
+        aria-label="Previous slide"
+      >
+        <Image src={prevIcon} alt="Previous slide" width={70} height={70} />
+      </button>
+      <button
+        style={{
+          position: "absolute",
+          top: "50%",
+          right: "-8%",
+          transform: "translateY(-50%)",
+          zIndex: 10,
+          cursor: "pointer",
+          background: "none",
+          border: "none",
+        }}
+        onClick={handleNext}
+        aria-label="Next slide"
+      >
+        <Image src={nextIcon} alt="Next slide" width={70} height={70} />
+      </button>
+    </div>
   );
 };
 

@@ -20,13 +20,11 @@ const ProductsCard = ({
 }: CourseCardProps) => {
   return (
     <Box
-      width="310px"
-      maxHeight={520}
+      width="300px"
+      maxHeight={500}
       borderWidth="1px"
       borderRadius="10px"
-      m="1"
       position="relative"
-      mb={3}
       style={{
         color: "var(--primary)",
         fontFamily: "var(--font-tajawal)",
