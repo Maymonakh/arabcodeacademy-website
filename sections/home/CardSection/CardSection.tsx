@@ -44,6 +44,7 @@ const CardSection: React.FC = () => {
       slidesPerGroup={1}
       spaceBetween={10}
       breakpoints={{
+        0:{slidesPerView:1},
         768: { slidesPerView: 1 }, 
         1024: { slidesPerView: 3 }, 
       }}

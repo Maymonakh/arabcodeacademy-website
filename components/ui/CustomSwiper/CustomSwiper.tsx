@@ -28,6 +28,7 @@ const CustomSwiper = <T,>({
   slidesPerView = 4,
   slidesPerGroup = 4,
   spaceBetween = 5,
+  breakpoints
 }: CustomSwiperProps<T>) => {
   return (
     <Box style={{padding:"10px 70px"}}>
@@ -38,6 +39,7 @@ const CustomSwiper = <T,>({
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
         slidesPerGroup={slidesPerGroup}
+        breakpoints={breakpoints}
         style={{ padding: "auto 100px" }}
       >
         {data.map((item, index) => (
