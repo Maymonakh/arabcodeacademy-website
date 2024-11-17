@@ -99,14 +99,12 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           
         }
         .card{
             width: 260px;
-            height:255.71px;
-            margin: 5px;
-            margin-left: 50px;
-           
+            height:255.71px;           
         }
         .img{
             width:62.07px;

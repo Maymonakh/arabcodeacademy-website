@@ -82,12 +82,12 @@ const TrainingCourses = () => {
       <ArrowButton
         direction="left"
         onClick={handlePrev}
-        positionValue={isMobile ? "-11%" : isTablet ? "-13%" : "-8%"}
+        positionValue={isMobile ? "-11.5%" : isTablet ? "-13%" : "-8%"}
       />
       <ArrowButton
         direction="right"
         onClick={handleNext}
-        positionValue={isMobile ? "7%" : isTablet ? "-12%" : "-8%"}
+        positionValue={isMobile ? "2%" : isTablet ? "-12%" : "-8%"}
       />
     </div>
   );
