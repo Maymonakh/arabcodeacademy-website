@@ -1,42 +1,42 @@
 import React, { useState } from "react";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import { Swiper as SwiperType } from "swiper/types";
-import ProductsCard from "../../../../components/ui/card/ProductsCard";
+import ProductsCard from "../../../../components/ui/Card/ProductsCard";
 import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
+import maskGroup11 from "../../../../public/images/Mask group (11).png";
+import maskGroup9 from "../../../../public/images/Mask group (9).png";
+import maskGroup10 from "../../../../public/images/Mask group (10).png";
+import maskGroup8 from "../../../../public/images/Mask group (8).png";
 
 const courses = [
   {
     title: "اسم الكورس",
-    price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (4).png",
+    imageSrc: maskGroup11,
     isComingSoon: true,
   },
   {
     title: "اسم الكورس",
-    price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (4).png",
+    imageSrc: maskGroup9,
     isComingSoon: true,
   },
   {
     title: "اسم الكورس",
-    price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (6).png",
+    imageSrc: maskGroup10,
     isComingSoon: true,
   },
   {
     title: "اسم الكورس",
-    price: 24,
     Coachname: "اسم المدرب",
     description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: "/images/Mask group (7).png",
+    imageSrc: maskGroup8,
     isComingSoon: true,
   },
 ];
@@ -52,10 +52,19 @@ const SoonCourses = () => {
     swiperInstance?.slidePrev();
   };
 
-  const [isMobile] = useMediaQuery("(max-width: 480px)");
-  const [isTablet] = useMediaQuery(
-    "(min-width: 481px) and (max-width: 1024px)"
-  );
+  const [isMobile, isTablet1, isTablet2] = useMediaQuery([
+    "(max-width: 550px)",
+    "(min-width: 550px) and (max-width: 900px)",
+    "(min-width: 900px) and (max-width: 1441px)",
+  ]);
+
+  const positionValue = isMobile
+    ? "-20%"
+    : isTablet1
+    ? "-17%"
+    : isTablet2
+    ? "-35%"
+    : "-13%";
 
   return (
     <div className={styles.CardsContainer}>
@@ -63,14 +72,14 @@ const SoonCourses = () => {
         data={courses}
         spaceBetween={10}
         breakpoints={{
-          1024: { slidesPerView: 4 },
-          768: { slidesPerView: 2 },
-          480: { slidesPerView: 1 },
+          1441: { slidesPerView: 4 },
+          900: { slidesPerView: 2 },
+          550: { slidesPerView: 2 },
+          0: { slidesPerView: 1 },
         }}
         renderItem={(course) => (
           <ProductsCard
             title={course.title}
-            price={course.price}
             Coachname={course.Coachname}
             description={course.description}
             imageSrc={course.imageSrc}
@@ -81,13 +90,13 @@ const SoonCourses = () => {
       />
       <ArrowButton
         direction="left"
+        positionValue={positionValue}
         onClick={handlePrev}
-        positionValue={isMobile ? "-11%" : isTablet ? "-13%" : "-8%"}
       />
       <ArrowButton
         direction="right"
+        positionValue={positionValue}
         onClick={handleNext}
-        positionValue={isMobile ? "7%" : isTablet ? "-12%" : "-8%"}
       />
     </div>
   );
