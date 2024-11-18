@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Swiper as SwiperType } from "swiper/types";
-import LearningCenterCard from "../../../components/ui/LearningCenterCard/LearningCenterCard";
+import LearningCenterCard from "../../../components/ui/Card/LearningCenterCard/LearningCenterCard";
 import CustomSwiper from "../../../components/ui/CustomSwiper/CustomSwiper";
 import ArrowButton from "../../../components/ui/CustomSwiper/ArrowButton";
 import educationLogo from "../../../public/icons/kisspng-education-logo-image-e-learning-5cce15891e7a39 1.png";
