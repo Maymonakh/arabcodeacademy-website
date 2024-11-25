@@ -4,14 +4,14 @@
   background-position: center;
   background-repeat: no-repeat;
   width: auto;
-  height: 100vh;
+  height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .promoBox {
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 @media (min-width: 1025px) {
@@ -23,7 +23,6 @@
 
 @media (max-width: 480px) {
   .section {
-    height: 70vh;
     justify-content: center;
   }
 
@@ -34,7 +33,6 @@
 
 @media (min-width: 481px) and (max-width: 1024px) {
   .section {
-    height: 70vh;
     justify-content: center;
   }
 

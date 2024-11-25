@@ -35,7 +35,7 @@ const ProgrammingTests = () => {
           <CustomButton
             text="قسم الامتحانات"
             icon={<Image src={icon1} alt="icon" width={30} height={30} />}
-            buttonType="secondaryOne"
+            buttonType="primary"
             color="orange"
           />
         </div>

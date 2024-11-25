@@ -1,0 +1,234 @@
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  border: 1px solid hsl(0, 0%, 90%);
+  box-shadow: 3px 5px 10px hsla(0, 0%, 0%, 0.6);
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-tajawal);
+  position: relative;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.rectangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 119.11px;
+  z-index: 1;
+}
+.imgC {
+  width: 100%;
+  height: 100px;
+}
+.heading {
+  color: #723689;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 22.8px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 14px;
+}
+.paragraph {
+  color: #723689;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  width: 295px;
+  height: 108px;
+  margin-bottom: 20px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 38px;
+}
+.date {
+  color: #723689;
+  margin-right: 120px;
+  width: 115px;
+  height: 21.98px;
+  font-family: var(--font-tajawal);
+  font-size: 18px;
+  font-weight: 500 !important;
+
+  line-height: 21.6px;
+  text-align: left;
+}
+.starsContainer {
+  display: flex;
+  width: 127.38px;
+  height: 24.7px;
+}
+.starsContainer img {
+  width: 23.22px;
+  height: 24.72px;
+  margin-right: 2px;
+  border: 1px;
+}
+
+@media (max-width: 431px) {
+  .card {
+    width: 90%;
+    height: 450.71px;
+    margin: 5px;
+    margin-left: 10px;
+  }
+  .footer {
+    justify-content: space-around;
+  }
+  .date {
+    width: 93px;
+    height: 16px;
+    font-weight: 500;
+    font-family: var(--font-tajawal);
+    font-size: 14px;
+    line-height: 16.8px;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+  .starsContainer {
+    width: 79.06px;
+    height: 15.34px;
+    margin-left: 5px;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card {
+    width: 260px;
+    height: 255.71px;
+    margin: 5px;
+    margin-left: 80px;
+  }
+  .img {
+    width: 62.07px;
+    height: 62.07px;
+    position: relative;
+    top: 1px;
+  }
+  .heading {
+    width: 116px;
+    height: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    text-align: center;
+    font-family: var(--font-tajawal);
+  }
+  .paragraph {
+    width: 183.3px;
+    height: 99.76px;
+    font-family: var(--font-tajawal);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+  }
+  .footer {
+    margin: -20px;
+    justify-content: space-around;
+  }
+  .date {
+    width: 93px;
+    height: 16px;
+    font-weight: 500;
+    font-family: var(--font-tajawal);
+    font-size: 14px;
+    line-height: 16.8px;
+    margin-right: 50px;
+    margin-top: 5px;
+  }
+  .starsContainer {
+    width: 79.06px;
+    height: 15.34px;
+    margin-left: 0px;
+  }
+  .starsContainer img {
+    width: 14.41px;
+    height: 15.34px;
+  }
+}
+@media (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card {
+    width: 340px;
+    height: 380px;
+    margin: 5px 0;
+  }
+  .img {
+    width: 92.23px;
+    height: 92.23px;
+    position: relative;
+    top: 1px;
+  }
+  .heading {
+    width: 138px;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    font-family: var(--font-tajawal);
+  }
+  .paragraph {
+    width: 272.39px;
+    height: 81.63px;
+    font-family: var(--font-tajawal);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+  }
+  .footer {
+    margin: 2px;
+    margin-top: 60px;
+  }
+  .date {
+    width: 144px;
+    height: 19px;
+    font-weight: 500;
+    font-family: var(--font-tajawal);
+    font-size: 19px;
+    line-height: 22.8px;
+    margin-right: 50px;
+    margin-top: 5px;
+  }
+  .starsContainer {
+    width: 117.2px;
+    height: 22.74px;
+    margin-left: 18px;
+  }
+  .starsContainer img {
+    width: 21.36px;
+    height: 22.74px;
+  }
+}

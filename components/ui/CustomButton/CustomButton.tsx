@@ -1,6 +1,5 @@
 import { Button } from "@chakra-ui/react";
-import { useMediaQuery } from '@chakra-ui/react';
-
+import { useMediaQuery } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
 
 interface CustomButtonProps {
@@ -9,6 +8,7 @@ interface CustomButtonProps {
   buttonType?: "primary" | "secondaryOne" | "secondaryTwo";
   color?: "green" | "orange";
   onClick?: () => void;
+  textStyle?: React.CSSProperties; // New prop to customize text styles
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -17,6 +17,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   buttonType = "primary",
   color = "green",
   onClick,
+  textStyle,
 }) => {
   const [isMobile] = useMediaQuery("(max-width: 480px)");
   const [isTablet] = useMediaQuery(
@@ -62,7 +63,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         fontSize: "17px",
         display: "flex",
         alignItems: "center",
-        gap: "8px",
+        gap: "2px",
+        ...textStyle,
       }}
       onClick={onClick}
       rightIcon={icon}

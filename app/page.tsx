@@ -1,11 +1,15 @@
 "use client";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import AdsPanel from "../sections/home/AdsPanel/AdsPanel";
-import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/variables.css";
 import ProgrammingTests from "../sections/home/ProgrammingTests/ProgrammingTests";
 import EduPath from "../sections/home/EduPath/EduPath";
 import InteractiveTools from "@/sections/home/InteractiveTools/InteractiveTools";
+import Courses from "@/sections/home/Courses/Courses";
+import CardSection from "../sections/home/CardSection/CardSection";
+import LearningCenter from "@/sections/home/LearningCenter/LearningCenter";
+
 export default function Home() {
   return (
     <ChakraProvider>
@@ -16,7 +20,10 @@ export default function Home() {
       />
       <ProgrammingTests />
       <EduPath />
+      <Courses />
       <InteractiveTools />
+      <LearningCenter />
+      <CardSection />
     </ChakraProvider>
   );
 }

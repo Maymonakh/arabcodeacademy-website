@@ -23,9 +23,9 @@ const InteractiveTools = () => {
             />
           }
           width="650px"
-          padding="75px"
-          titleMarginBottom="40px"
-          paragraphMarginBottom="20px"
+          padding="60px"
+          titleMarginBottom="60px"
+          paragraphMarginBottom="50px"
           opacity={0.83}
         />
       </Box>
