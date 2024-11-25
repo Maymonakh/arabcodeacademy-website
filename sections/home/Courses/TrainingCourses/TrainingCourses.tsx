@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import { Swiper as SwiperType } from "swiper/types";
-import ProductsCard from "../../../../components/ui/Card/ProductsCard";
+import ProductsCard from "../../../../components/ui/Card/ProductCard";
 import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
