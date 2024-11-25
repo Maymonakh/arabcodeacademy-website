@@ -62,14 +62,6 @@ const TrainingCourses = () => {
     "(min-width: 900px) and (max-width: 1441px)",
   ]);
 
-  const positionValue = isMobile
-    ? "-20%"
-    : isTablet1
-    ? "-17%"
-    : isTablet2
-    ? "-35%"
-    : "-13%";
-
   return (
     <div className={styles.CardsContainer}>
       <CustomSwiper
@@ -96,12 +88,16 @@ const TrainingCourses = () => {
       />
       <ArrowButton
         direction="left"
-        positionValue={positionValue}
+        positionValue={
+          isMobile ? "-0%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"
+        }
         onClick={handlePrev}
       />
       <ArrowButton
         direction="right"
-        positionValue={positionValue}
+        positionValue={
+          isMobile ? "-8%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"
+        }
         onClick={handleNext}
       />
     </div>
