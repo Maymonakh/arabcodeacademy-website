@@ -21,11 +21,15 @@
   .section {
     padding: 50px 50px;
   }
+
+  .cardSectionContainer {
+    max-width: 80%;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1440px) {
   .cardSectionContainer {
-    max-width: 45%;
+    max-width: 95%;
   }
 }
 

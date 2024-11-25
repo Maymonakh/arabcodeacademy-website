@@ -2,8 +2,8 @@
 import Image from "next/image";
 import style from "./simpleCard.module.css";
 import rectanle from "@/public/images/Rectangle 72.svg";
-import filledStar from "@/public/images/starM.svg";
-import emptyStar from "@/public/images/starF.svg";
+import filledStar from "../../../public/images/StarM.svg";
+import emptyStar from "../../../public/images/StarF.svg";
 
 interface Props {
   name: string;
