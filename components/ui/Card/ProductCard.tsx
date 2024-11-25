@@ -1,13 +1,17 @@
-import { Box, Image, Text, Stack } from "@chakra-ui/react";
+import { Box, Text, Stack } from "@chakra-ui/react";
+import Image, { StaticImageData } from "next/image";
 import CustomButton from "../CustomButton/CustomButton";
+import { useMediaQuery } from "@chakra-ui/react";
+import moreIcon from "../../../public/icons/icon _more horiz circled outline_.png";
 
 interface CourseCardProps {
   title: string;
-  price: number;
+  price?: string;
   Coachname: string;
   description: string;
-  imageSrc: string;
+  imageSrc: StaticImageData;
   isComingSoon: boolean;
+  textAlign?: "right" | "center";
 }
 
 const ProductsCard = ({
@@ -17,10 +21,32 @@ const ProductsCard = ({
   description,
   imageSrc,
   isComingSoon,
+  textAlign = "right",
 }: CourseCardProps) => {
+  const [isMobile, isTablet1, isTablet2, isDesktop1, isDesktop2] =
+    useMediaQuery([
+      "(max-width: 550px)",
+      "(min-width: 550px) and (max-width: 900px)",
+      "(min-width: 900px) and (max-width: 1441px)",
+      "(min-width: 1441px) and (max-width: 1600px)",
+      "(min-width: 1600px) and (max-width: 1700px)",
+    ]);
+
   return (
     <Box
-      width="300px"
+      width={
+        isMobile
+          ? "90%"
+          : isTablet1
+          ? "270px"
+          : isTablet2
+          ? "300px"
+          : isDesktop1
+          ? "275px"
+          : isDesktop2
+          ? "290px"
+          : "300px"
+      }
       maxHeight={500}
       borderWidth="1px"
       borderRadius="10px"
@@ -35,7 +61,7 @@ const ProductsCard = ({
         <Box
           position="absolute"
           top="0"
-          left="25.5%"
+          left="32%"
           transform="translateX(-50%)"
           overflow="hidden"
           textAlign="center"
@@ -53,8 +79,8 @@ const ProductsCard = ({
           <Image
             src="/images/Rectangle 88.png"
             alt="Coming Soon"
-            width="100%"
-            height="100%"
+            width={300}
+            height={300}
             objectFit="cover"
           />
         </Box>
@@ -86,20 +112,21 @@ const ProductsCard = ({
         justify="flex-end"
         align="center"
         justifyContent={"space-between"}
+        textAlign={textAlign}
       >
-        <Stack spacing={2}>
+        <Stack spacing={2} textAlign={textAlign}>
           <Text fontSize="md" fontWeight="bold" style={{ fontSize: "30px" }}>
-            ${price}
+            {price}
           </Text>
         </Stack>
-        <Stack spacing={2}>
+        <Stack spacing={2} textAlign={textAlign}>
           <Text fontSize="lg" fontWeight="bold" style={{ fontSize: "23px" }}>
             {title}
           </Text>
         </Stack>
       </Stack>
 
-      <Stack pr={3} textAlign="right" style={{ fontSize: "18px" }}>
+      <Stack pr={3} textAlign={textAlign} spacing={2} fontSize="18px">
         <Text fontSize="sm">{Coachname}</Text>
         <Text fontSize="sm">{description}</Text>
       </Stack>
@@ -108,28 +135,27 @@ const ProductsCard = ({
         <CustomButton
           text={isComingSoon ? "احجز الآن" : "شراء"}
           icon={
-            <Image
-              src="icons/icon _cart_.png"
-              alt="icon"
-              width={5}
-              height={5}
-            />
+            <Image src={moreIcon} alt="More Options" width={16} height={16} />
           }
-          buttonType="secondaryTwo"
+          buttonType={isMobile ? "secondaryTwo" : "secondaryOne"}
           color="green"
+          textStyle={{
+            fontSize: isMobile ? "14px" : "17px",
+            color: "white",
+          }}
+          onClick={() => alert("Button clicked!")}
         />
         <CustomButton
           text="اقرأ المزيد"
           icon={
-            <Image
-              src="icons/icon _more horiz circled outline_.png"
-              alt="icon"
-              width={5}
-              height={5}
-            />
+            <Image src={moreIcon} alt="More Options" width={16} height={16} />
           }
-          buttonType="secondaryTwo"
+          buttonType={isMobile ? "secondaryTwo" : "secondaryOne"}
           color="orange"
+          textStyle={{
+            fontSize: isMobile ? "14px" : "17px",
+          }}
+          onClick={() => alert("Read more clicked!")}
         />
       </Stack>
     </Box>

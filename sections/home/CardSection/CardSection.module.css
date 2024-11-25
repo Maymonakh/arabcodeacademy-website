@@ -21,11 +21,15 @@
   .section {
     padding: 50px 50px;
   }
+
+  .cardSectionContainer {
+    max-width: 80%;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1440px) {
   .cardSectionContainer {
-    max-width: 45%;
+    max-width: 95%;
   }
 }
 
@@ -34,21 +38,3 @@
     max-width: 122%;
   }
 }
-
-/*@media (max-width: 480px) {
-  .learningCenterContainer {
-    max-width: 55%;
-    height: 320px;
-    padding: 80px 0px;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 1024px) {
-  .learningCenterContainer {
-    max-width: 65%;
-    padding: 50px 20px;
-  }
-}
-
-
-*/
