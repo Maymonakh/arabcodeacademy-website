@@ -71,7 +71,6 @@
   font-size: 18px;
   font-weight: 500 !important;
 
-<<<<<<< HEAD:components/ui/card/SimpleCard/simpleCard.module.css
   line-height: 21.6px;
   text-align: left;
 }
@@ -86,74 +85,6 @@
   margin-right: 2px;
   border: 1px;
 }
-=======
-      @media (max-width: 768px) {
-        .container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          
-        }
-        .card{
-            width: 260px;
-            height:255.71px;           
-        }
-        .img{
-            width:62.07px;
-            height:62.07px;
-            position: relative;
-            top:1px; 
-    
-        }
-        .heading{
-            width :116px;
-            height:15px;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 19.2px;
-            text-align: center;
-            font-family:var(--font-tajawal);
-        }
-        .paragraph{
-            width: 183.3px;
-           height: 99.76px;
-           font-family: var(--font-tajawal);
-           font-size: 14px;
-           font-weight: 400;
-           line-height: 20px;
-           text-align: center;
-          
-        }
-        .footer{
-            margin:-20px;
-        }
-        .date{
-         Width:93px;
-         Height:16px;
-         font-weight:500;
-         font-family:var(--font-tajawal);
-         font-size:14px;  
-         line-height: 16.8px;
-         margin-right:50px;
-         margin-top:5px;
-          }
-         .starsContainer {
-        width:79.06px;
-        height:15.34px;
-        margin-left: 18px;
-          }
-         .starsContainer img{
-        width:14.41px;
-        height:15.34px;
-         }
-       }
-     @media (min-width: 481px) and (max-width: 1024px) {
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
->>>>>>> d96c255208623ccfc18dcd15c37f2cb18df60c38:components/ui/SimpleCard/simpleCard.module.css
 
 @media (max-width: 431px) {
   .card {
