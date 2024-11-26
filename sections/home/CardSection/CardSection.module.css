@@ -1,10 +1,14 @@
 .section {
-  padding: 50px 130px;
+  padding: 50px 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 100%;
+}
+
+.cardSectionContainer {
+  max-width: 100%;
 }
 
 @media (max-width: 480px) {
@@ -16,5 +20,21 @@
 @media (min-width: 481px) and (max-width: 1024px) {
   .section {
     padding: 50px 50px;
+  }
+
+  .cardSectionContainer {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .cardSectionContainer {
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1700px) {
+  .cardSectionContainer {
+    max-width: 122%;
   }
 }
