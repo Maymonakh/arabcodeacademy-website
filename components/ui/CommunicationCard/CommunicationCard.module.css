@@ -1,0 +1,65 @@
+.communicationCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    background-color: white;
+    width: 450px;
+    height: 439px;
+    border-radius: 5px;
+    padding: 40px;
+    margin:30px;
+    
+}
+
+.heading{
+    font-family:var(--font-tajawal);
+   font-size:23px;
+   font-weight:500;
+   color:#713488;
+   text-align:right;
+   margin-bottom:15px
+
+
+}
+.location{
+   width:227px;
+   height: 23px;
+   Line-height:22.8px;
+   font-family:var(--font-tajawal);
+   font-size:19px;
+   font-weight:500;
+   color:#713488;
+   text-align: right; /* تأكد أن هذه القيمة صحيحة */
+   margin-left: 0; /* تأكد من عدم وجود هوامش إضافية */
+   padding-left: 0;
+   margin-bottom:30px;
+   white-space: nowrap;
+
+}
+.number{
+    width:119px;
+    height: 23px;
+    Line-height:22.8px;
+    font-family:var(--font-tajawal);
+    font-size:19px;
+    font-weight:500;
+    color:#713488;
+    text-align: right; /* تأكد أن هذه القيمة صحيحة */
+    margin-left: 0; /* تأكد من عدم وجود هوامش إضافية */
+    padding-left: 0;  
+    margin-bottom:30px
+}
+.email{
+    width:235px;
+    height: 23px;
+    Line-height:22.8px;
+    font-family:var(--font-tajawal);
+    font-size:19px;
+    font-weight:500;
+    color:#713488;
+    text-align: right; /* تأكد أن هذه القيمة صحيحة */
+    margin-left: 0; /* تأكد من عدم وجود هوامش إضافية */
+    padding-left: 0  ;
+    margin-bottom:30px;
+    /* white-space: nowrap */
+}

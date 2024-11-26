@@ -1,0 +1,50 @@
+.MediaCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    background-color: white;
+    width: 450px;
+    height: 439px;
+    border-radius: 5px;
+    padding: 40px;
+    margin:30px;
+    
+}
+
+.heading{
+    font-family:var(--font-tajawal);
+   font-size:23px;
+   font-weight:500;
+   color:#713488;
+   text-align:right;
+   margin-bottom:15px
+}
+.Text{
+    font-family:var(--font-tajawal);
+    font-size:19px;
+    font-weight:500;
+    color:#713488;
+    line-height: 22.8px;
+    text-align: right; 
+    white-space: pre-line;
+
+    
+}
+.MediaCard Image{
+    background-color: #713488;
+}
+.iconContainer{
+    display: flex;
+    justify-content: center; /* لضبط الأيقونات في المنتصف أفقياً */
+    align-items: center; /* لضبط الأيقونات عمودياً */
+    gap: 7px; 
+    margin-top:40px
+}
+.iconContainer2{
+    display: flex;
+    justify-content: center; /* لضبط الأيقونات في المنتصف أفقياً */
+    align-items: center; /* لضبط الأيقونات عمودياً */
+    gap: 7px; 
+    margin-top:25px;
+    margin-bottom:50px;
+}

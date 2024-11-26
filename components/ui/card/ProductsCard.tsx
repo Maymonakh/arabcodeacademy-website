@@ -35,7 +35,7 @@ const ProductsCard = ({
         <Box
           position="absolute"
           top="0"
-          left="26%"
+          left="25.5%"
           transform="translateX(-50%)"
           overflow="hidden"
           textAlign="center"

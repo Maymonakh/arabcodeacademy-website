@@ -1,0 +1,11 @@
+
+.container {
+    background-color:#462576;
+    width:1920px;
+    height:1065px;
+    padding: 60px;
+    display: flex; /* ترتيب العناصر أفقياً */
+    gap:1px; /* تقليل المسافة بين المكونات */
+    justify-content: flex-start; /* العناصر تبدأ من اليسار */
+    align-items: flex-start; /* محاذاة رأسية من الأعلى */
+}

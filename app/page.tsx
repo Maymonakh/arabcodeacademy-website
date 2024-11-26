@@ -10,6 +10,8 @@ import Courses from "@/sections/home/Courses/Courses";
 import CardSection from "../sections/home/CardSection/CardSection";
 import LearningCenter from "@/sections/home/LearningCenter/LearningCenter";
 
+import Footer from './../sections/home/Footer/Footer';
+
 export default function Home() {
   return (
     <ChakraProvider>
@@ -24,6 +26,9 @@ export default function Home() {
       <InteractiveTools />
       <LearningCenter />
       <CardSection />
+      <Footer/>
+    
     </ChakraProvider>
+    
   );
 }
