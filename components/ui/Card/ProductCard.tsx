@@ -164,4 +164,3 @@ const ProductsCard = ({
 };
 
 export default ProductsCard;
->>>>>>> ebee972f53595ff8709d7e7568a6b02af4889122:components/ui/Card/ProductCard.tsx
