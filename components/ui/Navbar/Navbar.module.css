@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 70px;
+  height: 100px;
+  color: var(--background);
+  background-color: var(--secondary);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  font-family: var(--font-tajawal);
+}

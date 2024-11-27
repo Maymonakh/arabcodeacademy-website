@@ -8,7 +8,7 @@ interface CustomButtonProps {
   buttonType?: "primary" | "secondaryOne" | "secondaryTwo";
   color?: "green" | "orange";
   onClick?: () => void;
-  textStyle?: React.CSSProperties; // New prop to customize text styles
+  textStyle?: React.CSSProperties;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
