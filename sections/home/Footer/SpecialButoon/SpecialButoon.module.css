@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.buttonContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.button {
+  padding: 15px 35px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-size: 19px;
+  cursor: pointer;
+  font-family: var(--font-tajawal);
+}
+
+.button:hover {
+  background-color: #6a4c9c;
+  color: white;
+}

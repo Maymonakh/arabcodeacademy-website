@@ -1,11 +1,121 @@
+.ContactSocialMediacontainer {
+  display: flex;
+  position: relative;
+  right: 70%;
+  top: -10%;
+}
+
+.footer {
+  background-color: rgba(70, 37, 118, 1);
+  color: white;
+  padding: 0 20px;
+  position: relative;
+  min-height: 1065px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
 
 .container {
-    background-color:#462576;
-    width:1920px;
-    height:1065px;
-    padding: 60px;
-    display: flex; /* ترتيب العناصر أفقياً */
-    gap:1px; /* تقليل المسافة بين المكونات */
-    justify-content: flex-start; /* العناصر تبدأ من اليسار */
-    align-items: flex-start; /* محاذاة رأسية من الأعلى */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.informationAndPolicies {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  position: absolute;
+  top: 133px;
+  right: 294px;
+  gap: 70px;
+  text-align: right;
+}
+
+.informationAndPolicies div h3 {
+  font-family: var(--font-tajawal);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 27.6px;
+  text-align: -webkit-right;
+  position: relative;
+}
+
+.informationAndPolicies div h3::after {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 2px;
+  background-color: white;
+  margin-top: 14px;
+  margin-bottom: 50px;
+}
+
+.informationAndPolicies div ul li {
+  font-family: var(--font-tajawal);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 22.8px;
+  margin-bottom: 30px;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+  display: flex;
+  position: absolute;
+  top: 460px;
+  right: 294px;
+}
+
+.resources {
+  width: 67%;
+  text-align: right;
+  margin-right: 260px;
+  position: absolute;
+  bottom: 165px;
+}
+
+.resources h3 {
+  font-family: var(--font-tajawal);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 27.6px;
+  position: relative;
+  bottom: 80px;
+}
+
+.resources h3::after {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 2px;
+  background-color: white;
+  margin-top: 18px;
+  margin-bottom: 49px;
+  position: absolute;
+  right: 0;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 14px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 1);
+  align-items: center;
+}
+
+.copyrightText {
+  font-family: var(--font-tajawal);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 22.8px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
 }

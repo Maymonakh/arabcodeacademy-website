@@ -1,31 +1,33 @@
 import React from "react";
 import style from "./MediaCard.module.css";
-import line from "@/public/images/Line 166 (1).svg";
 import Image from "next/image";
-import facebook from '@/public/icons/facebook.svg';
-import instagram from '@/public/icons/instagram.svg';
-import x from '@/public/icons/x.svg';
-import linkedIn from '@/public/icons/linkedIn.svg';
-import tiktok from '@/public/icons/tiktok.svg';
-import yt from '@/public/icons/yt.png';
-import threads from '@/public/icons/threads.svg';
-import discord from '@/public/icons/discord.svg';
+import facebook from "@/public/icons/facebook.svg";
+import instagram from "@/public/icons/instagram.svg";
+import x from "@/public/icons/x.svg";
+import linkedIn from "@/public/icons/linkedIn.svg";
+import tiktok from "@/public/icons/tiktok.svg";
+import yt from "@/public/icons/yt.png";
+import threads from "@/public/icons/threads.svg";
+import discord from "@/public/icons/discord.svg";
 
-import line16 from '@/public/images/Line 166 (1).png';
-
-
+import line16 from "@/public/images/Line 166 (1).png";
 
 interface CommunicationCardProps {
   heading: string;
   text: string;
-  width :number;
-  height:number;
+  width: number;
+  height: number;
 }
 
-const MediaCard: React.FC<CommunicationCardProps> = ({ heading, text, width, height }) => {
+const MediaCard: React.FC<CommunicationCardProps> = ({
+  heading,
+  text,
+  width,
+  height,
+}) => {
   return (
-    <div 
-      className={style.MediaCard} 
+    <div
+      className={style.MediaCard}
       style={{ width: `${width}`, height: `${height}` }} // تطبيق العرض والارتفاع
     >
       <div className={style.heading}>{heading}</div>
@@ -54,4 +56,4 @@ const MediaCard: React.FC<CommunicationCardProps> = ({ heading, text, width, hei
     </div>
   );
 };
-export default  MediaCard;
+export default MediaCard;
