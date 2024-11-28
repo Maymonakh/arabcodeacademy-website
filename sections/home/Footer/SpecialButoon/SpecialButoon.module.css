@@ -11,16 +11,39 @@
 }
 
 .button {
-  padding: 15px 35px;
+  padding: 15px 30px;
   color: white;
   border: 1px solid white;
   border-radius: 6px;
   font-size: 19px;
   cursor: pointer;
   font-family: var(--font-tajawal);
+  width: 270px;
 }
 
 .button:hover {
   background-color: #6a4c9c;
   color: white;
+}
+
+@media (min-width: 481px) and (max-width: 1500px) {
+  .buttonContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .button {
+    padding: 18px 30px;
+    width: 277px;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttonContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .button {
+    padding: 18px 30px;
+    width: 277px;
+  }
 }

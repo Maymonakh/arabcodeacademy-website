@@ -10,34 +10,16 @@ import yt from "@/public/icons/yt.png";
 import threads from "@/public/icons/threads.svg";
 import discord from "@/public/icons/discord.svg";
 
-import line16 from "@/public/images/Line 166 (1).png";
-
 interface CommunicationCardProps {
   heading: string;
   text: string;
-  width: number;
-  height: number;
 }
 
-const MediaCard: React.FC<CommunicationCardProps> = ({
-  heading,
-  text,
-  width,
-  height,
-}) => {
+const MediaCard: React.FC<CommunicationCardProps> = ({ heading, text }) => {
   return (
-    <div
-      className={style.MediaCard}
-      style={{ width: `${width}`, height: `${height}` }} // تطبيق العرض والارتفاع
-    >
+    <div className={style.MediaCard}>
       <div className={style.heading}>{heading}</div>
-      <Image
-        src={line16}
-        alt="خط فاصل"
-        width={260}
-        height={10}
-        style={{ float: "right" }}
-      />
+
       <div className={style.iconContainer}>
         <Image src={linkedIn} alt="ايقونة لينكدان" width={34} height={34} />
         <Image src={x} alt="ايقونة تويتر" width={32} height={32} />

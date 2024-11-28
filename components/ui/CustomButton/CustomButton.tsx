@@ -38,7 +38,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     secondaryTwo: isMobile
       ? { height: "40px", width: "100px" }
       : isTablet
-      ? { height: "45px", width: "150px" }
+      ? { height: "50px", width: "160px" }
       : { height: "44px", width: "140px" },
   };
 

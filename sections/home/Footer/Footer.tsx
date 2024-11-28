@@ -31,22 +31,7 @@ const Footer = () => {
             </ul>
           </div>
         </section>
-        <Box className={styles.ContactSocialMediacontainer}>
-          <MediaCard
-            heading="مواقع التواصل الاجتماعي"
-            text="انضم الآن إلى مجتمع المبرمجين في الأكاديمية
-                          وابدأ رحلتك نحو احتراف البرمجة! "
-            width={420}
-            height={46}
-          />
-          <CommunicationCard
-            heading="التواصل"
-            location="المقر الرئيسي: بريطانيا، لندن"
-            number="+447918713367"
-            email="info@arabcodeacademy.com"
-            button={<button>اتصل بنا</button>} // يمكن استبداله بـ CustomButton إذا أردت
-          />
-        </Box>
+
         <div className={styles.buttonContainer}>
           <CustomButton
             text="المسارات التعليمية"
@@ -58,6 +43,20 @@ const Footer = () => {
           />
         </div>
       </section>
+      <Box className={styles.ContactSocialMediacontainer}>
+        <MediaCard
+          heading="مواقع التواصل الاجتماعي"
+          text="انضم الآن إلى مجتمع المبرمجين في الأكاديمية
+!وابدأ رحلتك نحو احتراف البرمجة"
+        />
+        <CommunicationCard
+          heading="التواصل"
+          location="المقر الرئيسي: بريطانيا، لندن"
+          number="+447918713367"
+          email="info@arabcodeacademy.com"
+          button={<button>تواصل معنا</button>} // يمكن استبداله بـ CustomButton إذا أردت
+        />
+      </Box>
       <section className={styles.resources}>
         <h3>المصادر</h3>
         <SpecialButoon />
