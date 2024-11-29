@@ -51,7 +51,7 @@
 
 .dots {
   position: absolute;
-  top: 850px;
+  top: 820px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
