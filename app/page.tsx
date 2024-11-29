@@ -12,6 +12,8 @@ import LearningCenter from "@/sections/home/LearningCenter/LearningCenter";
 
 import Footer from "./../sections/home/Footer/Footer";
 import Navbar from "@/components/ui/Navbar/Navbar";
+import Sliderpage from "@/sections/home/Slider/Slider";
+import Dad from "@/sections/home/DadSection/Dad";
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
         adText="خصومات بنسبة 20% على الكورسات"
       />
       <Navbar />
+      <Sliderpage />
+      <Dad />
       <ProgrammingTests />
       <EduPath />
       <Courses />
