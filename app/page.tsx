@@ -25,12 +25,12 @@ export default function Home() {
       />
       <Navbar />
       <Sliderpage />
+      <LearningCenter />
       <Dad />
       <ProgrammingTests />
       <EduPath />
       <Courses />
       <InteractiveTools />
-      <LearningCenter />
       <CardSection />
       <Footer />
     </ChakraProvider>

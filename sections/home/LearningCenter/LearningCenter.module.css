@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 50px 0px;
+  height: 400px;
 }
 
 .learningCenterContainer {
@@ -16,9 +16,15 @@
   height: 450px;
   position: relative;
   padding: 20px;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
 }
 
 @media (max-width: 480px) {
+  .section{
+    height: 300px;
+  }
   .learningCenterContainer {
     max-width: 55%;
     height: 320px;
@@ -27,6 +33,9 @@
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
+  .section{
+    height: 400px;
+  }
   .learningCenterContainer {
     max-width: 65%;
     padding: 50px 20px;
@@ -35,6 +44,9 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1440px) {
+  .section{
+    height: 400px;
+  }
   .learningCenterContainer {
     max-width: 45%;
     height: 393px;

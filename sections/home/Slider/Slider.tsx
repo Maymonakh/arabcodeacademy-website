@@ -46,7 +46,7 @@ const Sliderpage = () => {
                   height={16}
                 />
               }
-              buttonType="secondaryOne"
+              buttonType="primary"
               color="green"
             />
           </div>

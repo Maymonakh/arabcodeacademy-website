@@ -51,7 +51,7 @@
 
 .dots {
   position: absolute;
-  top: 800px;
+  top: 850px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -122,7 +122,7 @@
     order: -1;
   }
   .dots {
-    top: 850px;
+    top: 950px;
   }
 }
 
@@ -154,6 +154,6 @@
     align-items: center;
   }
   .dots {
-    top: 1050px;
+    top: 1250px;
   }
 }
