@@ -11,6 +11,8 @@ import CardSection from "../sections/home/CardSection/CardSection";
 import LearningCenter from "@/sections/home/LearningCenter/LearningCenter";
 
 import Footer from './../sections/home/Footer/Footer';
+import Sliderpage from "@/sections/home/Slider/Slider";
+import Dad from "@/sections/home/DadSection/Dad";
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
         endDate="2024-11-31T23:59:59Z"
         adText="خصومات بنسبة 20% على الكورسات"
       />
+      <Sliderpage />
+      <Dad />
       <ProgrammingTests />
       <EduPath />
       <Courses />
