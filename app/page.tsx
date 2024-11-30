@@ -20,7 +20,7 @@ export default function Home() {
     <ChakraProvider>
       <AdsPanel
         startDate="2024-10-20T00:00:00Z"
-        endDate="2024-11-31T23:59:59Z"
+        endDate="2025-01-01T23:59:59Z"
         adText="خصومات بنسبة 20% على الكورسات"
       />
       <Navbar />

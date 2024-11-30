@@ -76,6 +76,7 @@ const Sliderpage = () => {
           onClick={handlePrev}
           direction="left"
           positionValue="20px"
+          color="white"
         />
 
         <CustomSwiper
@@ -89,6 +90,7 @@ const Sliderpage = () => {
           onClick={handleNext}
           direction="right"
           positionValue="20px"
+          color="white"
         />
       </div>
 
