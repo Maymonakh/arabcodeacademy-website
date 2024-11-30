@@ -6,15 +6,15 @@ import moreIcon from "../../../public/icons/Vector.png";
 import CustomSwiper from "../../../components/ui/CustomSwiper/CustomSwiper";
 import ArrowButton from "../../../components/ui/CustomSwiper/ArrowButton";
 
-const Sliderpage = () => {
+const Sliderpage: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const slides = [
+  const slides: string[] = [
     "/images/header-image (1).png",
     "/images/header-image (1).png",
   ];
 
-  const renderSlide = (slide, index) => (
-    <div className={styles.heroCarousel}>
+  const renderSlide = (slide: string, index: number) => (
+    <div className={styles.heroCarousel} key={index}>
       <Image
         src={slide}
         alt={`Slide ${index + 1}`}
@@ -65,7 +65,7 @@ const Sliderpage = () => {
     );
   };
 
-  const handleDotClick = (index) => {
+  const handleDotClick = (index: number) => {
     setActiveIndex(index);
   };
 
