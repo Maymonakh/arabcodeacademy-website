@@ -25,6 +25,10 @@ const Navbar: React.FC = () => {
   const [isMobile] = useMediaQuery("(max-width: 480px)");
   const [showSubMenu, setShowSubMenu] = useState(false);
 
+  const handleSubMenuToggle = () => {
+    setShowSubMenu((prev) => !prev);
+  };
+
   return (
     <Box className={styles.nav}>
       {!isMobile ? (
@@ -51,9 +55,30 @@ const Navbar: React.FC = () => {
           <HStack spacing={{ md: 4, lg: 8 }}>
             <Text cursor="pointer">التواصل</Text>
             <Text cursor="pointer">المسارات التعليمية</Text>
-            <HStack cursor="pointer" spacing={{ md: 0, lg: 2 }}>
+            <HStack
+              cursor="pointer"
+              spacing={{ md: 0, lg: 2 }}
+              position="relative"
+              onClick={handleSubMenuToggle}
+            >
               <Text>المصادر</Text>
               <Image src={icon} alt="icon" width={12} height={12} />
+              {showSubMenu && (
+                <Box className={styles.desktopSubMenu}>
+                  <Text className={styles.menuItem}>المدونة</Text>
+                  <Text className={styles.menuItem}>المنتدى</Text>
+                  <Text className={styles.menuItem}>قاموس الكلمات</Text>
+                  <Text className={styles.menuItem}>دروس فيديو قصيرة</Text>
+                  <Text className={styles.menuItem}>
+                    دليل أدوات الذكاء الاصطناعي
+                  </Text>
+                  <Text className={styles.menuItem}>بنك الأسئلة التقنية</Text>
+                  <Text className={styles.menuItem}>
+                    دروس وأنماط الميدجورني
+                  </Text>
+                  <Text className={styles.menuItem}>لغة ضاد</Text>
+                </Box>
+              )}
             </HStack>
           </HStack>
         </>
