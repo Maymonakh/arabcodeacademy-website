@@ -14,6 +14,7 @@ import Footer from "./../sections/home/Footer/Footer";
 import Navbar from "@/components/ui/Navbar/Navbar";
 import Sliderpage from "@/sections/home/Slider/Slider";
 import Dad from "@/sections/home/DadSection/Dad";
+import AiTools from "@/components/ui/AiTools/AiTools";
 
 export default function Home() {
   return (
@@ -27,12 +28,18 @@ export default function Home() {
       <Sliderpage />
       <LearningCenter />
       <Dad />
+      <Courses />
       <ProgrammingTests />
       <EduPath />
-      <Courses />
       <InteractiveTools />
       <CardSection />
-      <Footer />
+     
+      
+    
+      <AiTools/>
+      {/* <Footer /> */}
+     
     </ChakraProvider>
+    
   );
 }

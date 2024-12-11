@@ -34,7 +34,14 @@
 @media (max-width: 480px) {
   .section {
     flex-direction: column-reverse;
+    background-color: red;
+     
   }
+  /* .Img{
+    
+  } */
+
+
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
