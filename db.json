@@ -1,0 +1,33 @@
+{
+    "cards": [
+      {
+        "id": 1,
+        "title": "Free Essay Generator",
+        "category": "#writing generators",
+        "description": "يساعدك الكتابة وإنشاء مقالات عالية الجودة بسرعة...",
+        "buttonText": "المزيد"
+      },
+      {
+        "id": 2,
+        "title": "Andi",
+        "category": "#search engine",
+        "description": "أداة محرك بحث يعتمد على التكنولوجيا لتبسيط...",
+        "buttonText": "المزيد"
+      },
+      {
+        "id": 3,
+        "title": "GitMind AI",
+        "category": "#productivity",
+        "description": "أداة سريعة لرسم خرائط ذهنك باستخدام الذكاء الاصطناعي...",
+        "buttonText": "المزيد"
+      },
+      {
+        "id": 4,
+        "title": "Upword",
+        "category": "#summarizer",
+        "description": "قم بتلخيص مستنداتك بشكل أسرع باستخدام أدوات الذكاء الاصطناعي...",
+        "buttonText": "المزيد"
+      }
+    ]
+  }
+  

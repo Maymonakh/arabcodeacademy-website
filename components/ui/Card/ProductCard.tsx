@@ -1,3 +1,4 @@
+
 import { Box, Text, Stack } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
 import CustomButton from "../CustomButton/CustomButton";

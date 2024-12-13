@@ -11,6 +11,7 @@ interface PromoTextProps {
   titleMarginBottom?: string | number;
   paragraphMarginBottom?: string | number;
   opacity?: string | number;
+  height?:string | number;
 }
 
 const PromoText: React.FC<PromoTextProps> = ({
@@ -18,14 +19,17 @@ const PromoText: React.FC<PromoTextProps> = ({
   paragraph,
   button,
   width,
+  height,
   padding = "20px",
   titleMarginBottom = "20px",
   paragraphMarginBottom = "20px",
   opacity = 1,
+
 }) => {
   return (
     <Box
       width={{ base: "100%", md: width, lg: width }}
+      height={height}
       padding={{base: "20px", md:padding, lg: padding}}
       opacity={opacity}
       className={styles.promoBox}

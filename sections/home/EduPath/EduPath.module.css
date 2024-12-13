@@ -4,6 +4,7 @@
   justify-content: space-around;
   gap: 40px;
   padding: 50px;
+  
 }
 
 .TextContainer {
@@ -12,20 +13,35 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+ 
 }
 
 .ButtonContainer {
   margin-top: 30px;
+  font-family: var(--font-tajawal);
+  font-weight: 900;
+  font-size:19px;
+  line-height:22.8px;
 }
 
 .Img {
+  /* width: 886.23px; */
+  height:650px; 
   width: 100%;
+
 }
 
 @media (max-width: 480px) {
   .section {
     flex-direction: column-reverse;
+    background-color: red;
+     
   }
+  /* .Img{
+    
+  } */
+
+
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {

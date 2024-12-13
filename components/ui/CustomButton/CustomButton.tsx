@@ -8,7 +8,7 @@ interface CustomButtonProps {
   buttonType?: "primary" | "secondaryOne" | "secondaryTwo";
   color?: "green" | "orange";
   onClick?: () => void;
-  textStyle?: React.CSSProperties; // New prop to customize text styles
+  textStyle?: React.CSSProperties;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -33,12 +33,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     secondaryOne: isMobile
       ? { height: "45px", width: "175px" }
       : isTablet
-      ? { height: "50px", width: "180px" }
+      ? { height: "50px", width: "150px" }
       : { height: "50px", width: "180px" },
     secondaryTwo: isMobile
       ? { height: "40px", width: "100px" }
       : isTablet
-      ? { height: "45px", width: "150px" }
+      ? { height: "50px", width: "160px" }
       : { height: "44px", width: "140px" },
   };
 

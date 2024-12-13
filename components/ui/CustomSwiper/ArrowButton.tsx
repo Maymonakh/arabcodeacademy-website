@@ -3,19 +3,30 @@ import Image from "next/image";
 import { useMediaQuery } from "@chakra-ui/react";
 import prevIcon from "../../../public/icons/angle-left.png";
 import nextIcon from "../../../public/icons/angle-right.png";
+import prevIconWhite from "../../../public/icons/angle-left-white.svg";
+import nextIconWhite from "../../../public/icons/angle-right-white.svg";
 
 interface ArrowButtonProps {
   onClick: () => void;
   direction: "left" | "right";
   positionValue: string;
+  color?: "primary" | "white"; 
 }
 
 const ArrowButton: React.FC<ArrowButtonProps> = ({
   onClick,
   direction,
   positionValue,
+  color = "primary", 
 }) => {
-  const iconSrc = direction === "left" ? prevIcon : nextIcon;
+  const iconSrc =
+    direction === "left"
+      ? color === "white"
+        ? prevIconWhite
+        : prevIcon
+      : color === "white"
+      ? nextIconWhite
+      : nextIcon;
 
   const [isMobile] = useMediaQuery("(max-width: 480px)");
 
