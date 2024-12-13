@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
 const tajawal = localFont({
   src: "./fonts/Tajawal-Regular.ttf",
   variable: "--font-tajawal",

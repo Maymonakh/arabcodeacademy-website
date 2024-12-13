@@ -1,6 +1,6 @@
 "use client";
 import { ChakraProvider } from "@chakra-ui/react";
-
+import './globals.css';
 import AdsPanel from "../sections/home/AdsPanel/AdsPanel";
 import "../styles/variables.css";
 import ProgrammingTests from "../sections/home/ProgrammingTests/ProgrammingTests";
@@ -14,7 +14,7 @@ import Footer from "./../sections/home/Footer/Footer";
 import Navbar from "@/components/ui/Navbar/Navbar";
 import Sliderpage from "@/sections/home/Slider/Slider";
 import Dad from "@/sections/home/DadSection/Dad";
-import AiTools from "@/components/ui/AiTools/AiTools";
+import AiTools from "@/sections/home/AiTools/AiTools";
 
 export default function Home() {
   return (
@@ -33,13 +33,9 @@ export default function Home() {
       <EduPath />
       <InteractiveTools />
       <CardSection />
-     
-      
-    
-      <AiTools/>
-      {/* <Footer /> */}
-     
+
+      <AiTools />
+      <Footer />
     </ChakraProvider>
-    
   );
 }
