@@ -8,7 +8,7 @@
     justify-content: flex-start; /* لتحديد طريقة توزيع الكروت */
     gap: 20px; /* لإضافة مسافة بين الكروت */
 }
-
+.favoriteButton { position: absolute; top: 10px; right: 10px; background: none; border: none; cursor: pointer; }
 
 
 
@@ -22,6 +22,7 @@
     border-radius:8px;
     margin-bottom:20px;
     /* margin-left: 100px; */
+    position: relative;
 }
  .containerOfContent{
     /* background-color:red */
@@ -63,8 +64,9 @@
     margin-top:20px;
     margin-bottom:20px; 
     width:316px;
-    height:80px;
+    height:85px;
     text-align:right;
+    
 }
 .button{
     justify-items:center;
