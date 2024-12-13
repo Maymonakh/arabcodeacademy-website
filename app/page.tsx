@@ -8,7 +8,6 @@ import CardSection from "../sections/home/CardSection/CardSection";
 import LearningCenter from "@/sections/home/LearningCenter/LearningCenter";
 import Sliderpage from "@/sections/home/Slider/Slider";
 import Dad from "@/sections/home/DadSection/Dad";
-import AiTools from "@/sections/home/AiTools/AiTools";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <EduPath />
       <InteractiveTools />
       <CardSection />
-      <AiTools />
     </>
   );
 }
