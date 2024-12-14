@@ -21,8 +21,7 @@ import SearchBar from "../Courses/Components/SearchBar";
 import Pagination from "../../../components/ui/Pagination/Pagination";
 import prevArrow from "@/public/icons/Polygon 4.svg"; // مسار صورة السهم السابق
 import nextArrow from "@/public/icons/Polygon 3.svg"; // مسار صورة السهم التالي
-import FavoriteButton from '../../../components/ui/FavoriteButton/FavoriteButton'; // تأكد من مسار المكون
-
+import FavoriteButton from '../../../components/ui/FavoriteButton/FavoriteButton'; 
 const cardsData = [
   {
     imageSrc: img4,

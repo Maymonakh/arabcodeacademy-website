@@ -15,11 +15,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between; 
-  width: 90%; /* لملء العرض المتاح */
+  width: 90%; 
 }
 
 .searchBar {
-  flex: 1; /* يملأ المساحة المتاحة */
+  flex: 1;
 }
 
 

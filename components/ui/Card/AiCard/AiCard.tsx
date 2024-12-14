@@ -2,8 +2,8 @@ import React from "react";
 import { ReactElement } from "react";
 import style from './AiCard.module.css';
 import Image from "next/image";
-import heartIcon from '@/public/icons/heart.svg';
-import filledHeartIcon from '@/public/icons/heart.svg';
+import filledHeartIcon from '@/public/icons/filledHeart.svg';
+import emptyHeartIcon from '@/public/icons/emptyHeart.png';
 
 interface CardProps {
   imageSrc: string;
@@ -28,7 +28,7 @@ const AiCard: React.FC<CardProps> = ({
     <div className={style.container}>
       <div className={style.card}>
         <button className={style.favoriteButton} onClick={onFavoriteClick}>
-          <Image src={isFavorite ? filledHeartIcon : heartIcon} alt="Heart Icon" width={24} height={24} />
+          <Image src={isFavorite ? filledHeartIcon : emptyHeartIcon} alt="Heart Icon" width={50} height={50} />
         </button>
         <Image src={imageSrc} alt={heading} width={400} height={193.21} />
         <div className={style.containerOfContent}>
@@ -43,4 +43,4 @@ const AiCard: React.FC<CardProps> = ({
   );
 };
 
-export default AiCard
+export default AiCard;
