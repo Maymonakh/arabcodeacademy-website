@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import {
   Box,
@@ -11,6 +12,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/public/images/Navbar-logo.png";
 import loginIcon from "@/public/icons/icon _log in_.png";
 import profileIcon from "@/public/icons/icon _profile circled_.png";
@@ -69,9 +71,9 @@ const Navbar: React.FC = () => {
                   <Text className={styles.menuItem}>المنتدى</Text>
                   <Text className={styles.menuItem}>قاموس الكلمات</Text>
                   <Text className={styles.menuItem}>دروس فيديو قصيرة</Text>
-                  <Text className={styles.menuItem}>
+                  <Link href="/AiTools" className={styles.menuItem}>
                     دليل أدوات الذكاء الاصطناعي
-                  </Text>
+                  </Link>
                   <Text className={styles.menuItem}>بنك الأسئلة التقنية</Text>
                   <Text className={styles.menuItem}>
                     دروس وأنماط الميدجورني
@@ -125,7 +127,7 @@ const Navbar: React.FC = () => {
                     دروس فيديو قصيرة
                   </MenuItem>
                   <MenuItem className={styles.menuItem}>
-                    دليل أدوات الذكاء الاصطناعي
+                    <Link href="/AiTools">دليل أدوات الذكاء الاصطناعي</Link>
                   </MenuItem>
                   <MenuItem className={styles.menuItem}>
                     بنك الأسئلة التقنية

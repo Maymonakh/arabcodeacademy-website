@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import style from "./AiTools.module.css";
-import AiCard from "../../../components/ui/Card/AiCard/AiCard";
+import AiCard from "../../components/ui/Card/AiCard/AiCard";
 import img1 from "@/public/images/Rectangle 22.svg";
-import CustomButton from "../../../components/ui/CustomButton/CustomButton";
+import CustomButton from "../../components/ui/CustomButton/CustomButton";
 import Image from "next/image";
 import iconMore from "@/public/images/🦆 icon _more horiz circled outline_.svg";
 import img2 from "@/public/images/Rectangle 19.svg";
@@ -17,11 +17,12 @@ import img9 from "@/public/images/Rectangle 31.svg";
 import img10 from "@/public/images/Rectangle 29.svg";
 import img11 from "@/public/images/Rectangle 30.svg";
 import img12 from "@/public/images/Rectangle 25.svg";
-import SearchBar from "../Courses/Components/SearchBar";
-import Pagination from "../../../components/ui/Pagination/Pagination";
-import prevArrow from "@/public/icons/Polygon 4.svg"; // مسار صورة السهم السابق
-import nextArrow from "@/public/icons/Polygon 3.svg"; // مسار صورة السهم التالي
-import FavoriteButton from '../../../components/ui/FavoriteButton/FavoriteButton'; 
+import SearchBar from "../../sections/home/Courses/Components/SearchBar";
+import Pagination from "../../components/ui/Pagination/Pagination";
+import prevArrow from "@/public/icons/Polygon 4.svg";
+import nextArrow from "@/public/icons/Polygon 3.svg";
+import FavoriteButton from "../../components/ui/FavoriteButton/FavoriteButton";
+
 const cardsData = [
   {
     imageSrc: img4,
@@ -112,18 +113,18 @@ const cardsData = [
 const AiTools: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showFavorites, setShowFavorites] = useState(false);
-  const totalPages = 5; // تحديد العدد الإجمالي للصفحات ليكون 5
+  const totalPages = 5;
   const [favorites, setFavorites] = useState<string[]>([]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    setShowFavorites(page === 2); // إظهار المفضلة عند الصفحة الثانية
+    setShowFavorites(page === 2);
   };
 
   const handleFavoriteClick = (heading: string) => {
-    setFavorites(prevFavorites => {
+    setFavorites((prevFavorites) => {
       if (prevFavorites.includes(heading)) {
-        return prevFavorites.filter(fav => fav !== heading);
+        return prevFavorites.filter((fav) => fav !== heading);
       } else {
         return [...prevFavorites, heading];
       }
@@ -131,16 +132,18 @@ const AiTools: React.FC = () => {
   };
 
   const displayedCards = showFavorites ? [] : cardsData;
-  const favoriteCards = cardsData.filter(card => favorites.includes(card.heading));
+  const favoriteCards = cardsData.filter((card) =>
+    favorites.includes(card.heading)
+  );
 
   return (
-    <section>
+    <section className={style.section}>
       <div className={style.searchBarContainer}>
         <div className={style.searchBar}>
           <SearchBar placeholder="chatgpt" />
         </div>
         <div className={style.favoritButton}>
-        <FavoriteButton />
+          <FavoriteButton />
         </div>
       </div>
 
@@ -166,34 +169,35 @@ const AiTools: React.FC = () => {
             isFavorite={favorites.includes(card.heading)}
           />
         ))}
-        {showFavorites && favoriteCards.map((card, index) => (
-          <AiCard
-            key={index}
-            imageSrc={card.imageSrc}
-            heading={card.heading}
-            hashtag={card.hashtag}
-            paragraph={card.paragraph}
-            button={
-              <CustomButton
-                text="المزيد"
-                icon={
-                  <Image src={iconMore} alt="icon" width={25} height={25} />
-                }
-                buttonType="secondaryOne"
-                color="green"
-              />
-            }
-            onFavoriteClick={() => handleFavoriteClick(card.heading)}
-            isFavorite={favorites.includes(card.heading)}
-          />
-        ))}
+        {showFavorites &&
+          favoriteCards.map((card, index) => (
+            <AiCard
+              key={index}
+              imageSrc={card.imageSrc}
+              heading={card.heading}
+              hashtag={card.hashtag}
+              paragraph={card.paragraph}
+              button={
+                <CustomButton
+                  text="المزيد"
+                  icon={
+                    <Image src={iconMore} alt="icon" width={25} height={25} />
+                  }
+                  buttonType="secondaryOne"
+                  color="green"
+                />
+              }
+              onFavoriteClick={() => handleFavoriteClick(card.heading)}
+              isFavorite={favorites.includes(card.heading)}
+            />
+          ))}
       </div>
-      <Pagination 
-        currentPage={currentPage} 
-        totalPages={totalPages} 
-        onPageChange={handlePageChange} 
-        prevArrowSrc={prevArrow} 
-        nextArrowSrc={nextArrow} 
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        prevArrowSrc={prevArrow}
+        nextArrowSrc={nextArrow}
       />
     </section>
   );
