@@ -1,12 +1,13 @@
 import React from "react";
 import { ReactElement } from "react";
-import style from './AiCard.module.css';
+import style from "./AiCard.module.css";
 import Image from "next/image";
-import filledHeartIcon from '@/public/icons/filledHeart.svg';
-import emptyHeartIcon from '@/public/icons/emptyHeart.png';
+import filledHeartIcon from "@/public/icons/filledHeart.svg";
+import emptyHeartIcon from "@/public/icons/emptyHeart.png";
+import defaultImage from "@/public/images/InteractiveTools-img.png"; 
 
 interface CardProps {
-  imageSrc: string;
+  imageSrc?: string;
   heading: string;
   hashtag: string;
   paragraph: string;
@@ -22,15 +23,25 @@ const AiCard: React.FC<CardProps> = ({
   paragraph,
   button,
   onFavoriteClick,
-  isFavorite
+  isFavorite,
 }) => {
   return (
     <div className={style.container}>
       <div className={style.card}>
         <button className={style.favoriteButton} onClick={onFavoriteClick}>
-          <Image src={isFavorite ? filledHeartIcon : emptyHeartIcon} alt="Heart Icon" width={50} height={50} />
+          <Image
+            src={isFavorite ? filledHeartIcon : emptyHeartIcon}
+            alt="Heart Icon"
+            width={50}
+            height={50}
+          />
         </button>
-        <Image src={imageSrc} alt={heading} width={400} height={193.21} />
+        <Image
+          src={defaultImage} 
+          alt={heading}
+          width={400}
+          height={193.21}
+        />
         <div className={style.containerOfContent}>
           <div className={style.heading}>{heading}</div>
           <div className={style.hashtag}>{hashtag}</div>

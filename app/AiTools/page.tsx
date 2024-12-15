@@ -1,140 +1,74 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./AiTools.module.css";
 import AiCard from "../../components/ui/Card/AiCard/AiCard";
-import img1 from "@/public/images/Rectangle 22.svg";
 import CustomButton from "../../components/ui/CustomButton/CustomButton";
 import Image from "next/image";
 import iconMore from "@/public/images/🦆 icon _more horiz circled outline_.svg";
-import img2 from "@/public/images/Rectangle 19.svg";
-import img3 from "@/public/images/Rectangle 18.svg";
-import img4 from "@/public/images/Rectangle 17.svg";
-import img5 from "@/public/images/Rectangle 24.svg";
-import img6 from "@/public/images/Rectangle 23.svg";
-import img7 from "@/public/images/Rectangle 21.svg";
-import img8 from "@/public/images/Rectangle 20.svg";
-import img9 from "@/public/images/Rectangle 31.svg";
-import img10 from "@/public/images/Rectangle 29.svg";
-import img11 from "@/public/images/Rectangle 30.svg";
-import img12 from "@/public/images/Rectangle 25.svg";
 import SearchBar from "../../sections/home/Courses/Components/SearchBar";
 import Pagination from "../../components/ui/Pagination/Pagination";
 import prevArrow from "@/public/icons/Polygon 4.svg";
 import nextArrow from "@/public/icons/Polygon 3.svg";
 import FavoriteButton from "../../components/ui/FavoriteButton/FavoriteButton";
 
-const cardsData = [
-  {
-    imageSrc: img4,
-    heading: "Upword",
-    hashtag: "#summarizer",
-    paragraph:
-      "قم بإنشاء ملخصات بشكل أسرع باستخدام أدوات الذكاء الاصطناعي الخاصة بـ Upword. Upword هي أداة بحث مدعومة بالذكاء الاصطناعي للأفراد .......",
-  },
-  {
-    imageSrc: img3,
-    heading: "GitMind AI",
-    hashtag: "#productivity",
-    paragraph:
-      "GitMind هو أداة إنتاجية تساعدك على إنشاء خرائط ذهنية وإدارة الأفكار بسهولة.",
-  },
-  {
-    imageSrc: img2,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "أندي هو محرك بحث يعتمد على التكنولوجيا الذكية التي تعززها الذكاء الاصطناعي، ويوفر إجابات مباشرة بدلاً من مجرد روابط. يقوم أندي .....",
-  },
-  {
-    imageSrc: img1,
-    heading: "Free Essay Generator",
-    hashtag: "#writing generators",
-    paragraph:
-      " هل تعاني من كتابة الأوراق الأكاديمية؟ مولد المقالات المجاني هنا للمساعدة!....  يساعد الطلاب والكتّاب في إنشاء مقالات عالية الجودة بسهولة ",
-  },
-  {
-    imageSrc: img8,
-    heading: "AI Studios",
-    hashtag: "#video generators",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-  {
-    imageSrc: img7,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-  {
-    imageSrc: img6,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-  {
-    imageSrc: img5,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-  {
-    imageSrc: img12,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-  {
-    imageSrc: img11,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-  {
-    imageSrc: img10,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-  {
-    imageSrc: img9,
-    heading: "Andi",
-    hashtag: "#search engine",
-    paragraph:
-      "Andi هو محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم نتائج دقيقة وسريعة.",
-  },
-];
+interface CardData {
+  tool_id: number;
+  imageURL: string;
+  title: string;
+  tags: string[];
+  description: string;
+}
 
 const AiTools: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(12);
+  const [totalPages, setTotalPages] = useState(0);
+  const [cardsData, setCardsData] = useState<CardData[]>([]);
+  const [favorites, setFavorites] = useState<number[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
-  const totalPages = 5;
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchAiTools = async (page: number, pageSize: number) => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${page}&page_size=${pageSize}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch AI tools");
+      }
+      const data = await response.json();
+      setCardsData(data.data);
+      setTotalPages(data.total_pages);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchAiTools(currentPage, pageSize);
+  }, [currentPage, pageSize]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     setShowFavorites(page === 2);
   };
 
-  const handleFavoriteClick = (heading: string) => {
+  const handleFavoriteClick = (toolId: number) => {
     setFavorites((prevFavorites) => {
-      if (prevFavorites.includes(heading)) {
-        return prevFavorites.filter((fav) => fav !== heading);
+      if (prevFavorites.includes(toolId)) {
+        return prevFavorites.filter((fav) => fav !== toolId);
       } else {
-        return [...prevFavorites, heading];
+        return [...prevFavorites, toolId];
       }
     });
   };
 
-  const displayedCards = showFavorites ? [] : cardsData;
-  const favoriteCards = cardsData.filter((card) =>
-    favorites.includes(card.heading)
-  );
+  const displayedCards = showFavorites
+    ? cardsData.filter((card) => favorites.includes(card.tool_id))
+    : cardsData;
 
   return (
     <section className={style.section}>
@@ -148,35 +82,16 @@ const AiTools: React.FC = () => {
       </div>
 
       <div className={style.cardSectionContainer}>
-        {displayedCards.map((card, index) => (
-          <AiCard
-            key={index}
-            imageSrc={card.imageSrc}
-            heading={card.heading}
-            hashtag={card.hashtag}
-            paragraph={card.paragraph}
-            button={
-              <CustomButton
-                text="المزيد"
-                icon={
-                  <Image src={iconMore} alt="icon" width={25} height={25} />
-                }
-                buttonType="secondaryOne"
-                color="green"
-              />
-            }
-            onFavoriteClick={() => handleFavoriteClick(card.heading)}
-            isFavorite={favorites.includes(card.heading)}
-          />
-        ))}
-        {showFavorites &&
-          favoriteCards.map((card, index) => (
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          displayedCards.map((card) => (
             <AiCard
-              key={index}
-              imageSrc={card.imageSrc}
-              heading={card.heading}
-              hashtag={card.hashtag}
-              paragraph={card.paragraph}
+              key={card.tool_id}
+              imageSrc={card.imageURL}
+              heading={card.title}
+              hashtag={card.tags.join(", ")}
+              paragraph={card.description}
               button={
                 <CustomButton
                   text="المزيد"
@@ -187,10 +102,11 @@ const AiTools: React.FC = () => {
                   color="green"
                 />
               }
-              onFavoriteClick={() => handleFavoriteClick(card.heading)}
-              isFavorite={favorites.includes(card.heading)}
+              onFavoriteClick={() => handleFavoriteClick(card.tool_id)}
+              isFavorite={favorites.includes(card.tool_id)}
             />
-          ))}
+          ))
+        )}
       </div>
       <Pagination
         currentPage={currentPage}
