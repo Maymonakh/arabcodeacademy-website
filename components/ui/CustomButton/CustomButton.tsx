@@ -54,6 +54,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       _hover: { backgroundColor: "var(--darkOrange)" },
     },
   };
+  console.log({ text, icon, buttonType, color });
 
   return (
     <Button

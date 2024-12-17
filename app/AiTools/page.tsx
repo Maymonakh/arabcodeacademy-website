@@ -53,7 +53,6 @@ const AiTools: React.FC = () => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    setShowFavorites(page === 2);
   };
 
   const handleFavoriteClick = (toolId: number) => {
@@ -77,7 +76,8 @@ const AiTools: React.FC = () => {
           <SearchBar placeholder="chatgpt" />
         </div>
         <div className={style.favoritButton}>
-          <FavoriteButton />
+          {/* عند النقر على زر المفضلة يتم تغيير حالة showFavorites */}
+          <FavoriteButton onClick={() => setShowFavorites(!showFavorites)} />
         </div>
       </div>
 
@@ -108,13 +108,17 @@ const AiTools: React.FC = () => {
           ))
         )}
       </div>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-        prevArrowSrc={prevArrow}
-        nextArrowSrc={nextArrow}
-      />
+
+      {/* التنقل بين الصفحات */}
+      {!showFavorites && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          prevArrowSrc={prevArrow}
+          nextArrowSrc={nextArrow}
+        />
+      )}
     </section>
   );
 };
