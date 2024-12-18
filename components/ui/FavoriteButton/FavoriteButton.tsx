@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './FavoriteButton.module.css';
 import Image from 'next/image';
-import filledHeartIcon from '@/public/icons/heart (3).svg';
+import empty from '@/public/icons/heart (3).svg';
+import filled from "@/public/icons/filled.png";
 
 interface FavoriteButtonProps {
-  onClick: () => void; 
+  onClick?: () => void; // يمكنك جعله اختياريًا
 }
+
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({ onClick }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleClick = () => {
+    setIsFavorite(!isFavorite); // تبديل الحالة
+    if (onClick) onClick(); // استدعاء الدالة الخارجية إذا كانت موجودة
+  };
+
   return (
-    <button className={styles.favoriteButton} onClick={onClick}>
-      <Image src={filledHeartIcon} className={styles.heart} alt="Heart Icon" width={19} height={15} />
+    <button className={styles.favoriteButton} onClick={handleClick}>
+      <Image
+        src={isFavorite ? filled :empty} // تبديل الصورة بناءً على الحالة
+        className={styles.heart}
+        alt="Heart Icon"
+        width={19}
+        height={15}
+      />
       المفضلة
     </button>
   );
