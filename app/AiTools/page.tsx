@@ -12,8 +12,8 @@ import Pagination from "../../components/ui/Pagination/Pagination";
 import prevArrow from "@/public/icons/Polygon 4.svg";
 import nextArrow from "@/public/icons/Polygon 3.svg";
 import FavoriteButton from "../../components/ui/FavoriteButton/FavoriteButton";
-import Loading from "../../components/ui/Loading/Loading";
-import Error from "../../components/ui/Error/Error";
+import Loading from "@/components/ui/Loading/Loading";
+import Error from "@/components/ui/Error/Error";
 
 interface CardData {
   tool_id: number;
@@ -51,7 +51,9 @@ const AiTools: React.FC = () => {
   };
 
   const displayedCards = showFavorites
-    ? (data?.data ?? []).filter((card: CardData) => favorites.includes(card.tool_id))
+    ? (data?.data ?? []).filter((card: CardData) =>
+        favorites.includes(card.tool_id)
+      )
     : data?.data ?? [];
 
   return (
