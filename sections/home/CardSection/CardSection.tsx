@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SimpleCard from "../../../components/ui/SimpleCard/simpleCard";
 import styles from "./CardSection.module.css";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
@@ -6,6 +6,9 @@ import ArrowButton from "../../../components/ui/CustomSwiper/ArrowButton";
 import { Swiper as SwiperType } from "swiper/types";
 import { useMediaQuery } from "@chakra-ui/react";
 import img3 from "@/public/images/3.svg";
+import useSWR from "swr";
+import Loading from "../../../components/ui/Loading/Loading"; 
+import Error from "../../../components/ui/Error/Error"; 
 
 interface Review {
   reviewText: string;
@@ -16,25 +19,21 @@ interface Review {
   date: string;
 }
 
+const fetchReviews = async (url: string) => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    console.log("error fetching review")
+  }
+  return response.json();
+};
+
 const CardSection: React.FC = () => {
-  const [reviews, setReviews] = useState<Review[]>([]);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await fetch(
-          "https://sitev2.arabcodeacademy.com/wp-json/aca/v1/reviews"
-        );
-        const data = await response.json();
-        setReviews(data.reviews);
-      } catch (error) {
-        console.error("Error fetching reviews:", error);
-      }
-    };
-
-    fetchReviews();
-  }, []);
+  const { data, error } = useSWR(
+    "https://sitev2.arabcodeacademy.com/wp-json/aca/v1/reviews", 
+    fetchReviews
+  );
 
   const handleNext = () => {
     swiperInstance?.slideNext();
@@ -50,11 +49,21 @@ const CardSection: React.FC = () => {
     "(min-width: 900px) and (max-width: 1441px)",
   ]);
 
+  if (!data) {
+    return <Loading />; 
+  }
+
+  if (error) {
+    return <Error />; 
+  }
+
+  const reviews: Review[] = data.reviews;
+
   return (
     <div className={styles.section}>
       <div className={styles.cardSectionContainer}>
         <CustomSwiper
-          data={reviews} 
+          data={reviews}
           renderItem={(review) => (
             <SimpleCard
               key={review.reviewerName + review.date}
@@ -62,7 +71,7 @@ const CardSection: React.FC = () => {
               paragraph={review.reviewText}
               imageSrc={img3}
               date={review.date}
-              rating={Math.round(review.rating)} 
+              rating={Math.round(review.rating)}
             />
           )}
           spaceBetween={10}

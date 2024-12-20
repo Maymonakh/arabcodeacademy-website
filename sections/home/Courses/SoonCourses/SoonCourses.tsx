@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useSWR from "swr";  
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import { Swiper as SwiperType } from "swiper/types";
 import ProductsCard from "../../../../components/ui/Card/ProductCard";
@@ -23,31 +24,17 @@ interface Course {
 }
 
 const SoonCourses = () => {
-  const [courses, setCourses] = useState<Course[]>([]);  
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [hasError, setHasError] = useState<boolean>(false);
+
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data, error } = useSWR("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses", fetcher);
 
   const [isMobile, isTablet1, isTablet2] = useMediaQuery([
     "(max-width: 550px)",
     "(min-width: 550px) and (max-width: 900px)",
     "(min-width: 900px) and (max-width: 1441px)",
   ]);
-
-  useEffect(() => {
-    fetch("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses")
-      .then((response) => response.json())
-      .then((data) => {
-        const comingSoonCourses = data.courses.filter((course: Course) => course.status === "coming_soon");
-        setCourses(comingSoonCourses);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching courses:", error);
-        setIsLoading(false);
-        setHasError(true);
-      });
-  }, []);
 
   const handleNext = () => {
     swiperInstance?.slideNext();
@@ -57,18 +44,15 @@ const SoonCourses = () => {
     swiperInstance?.slidePrev();
   };
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  if (!data) return <Loading />;
+  if (error) return <Error />;
 
-  if (hasError) {
-    return <Error />;
-  }
+  const comingSoonCourses = data.courses.filter((course: Course) => course.status === "coming_soon");
 
   return (
     <div className={styles.CardsContainer}>
       <CustomSwiper
-        data={courses}
+        data={comingSoonCourses}
         spaceBetween={10}
         breakpoints={{
           1441: { slidesPerView: 4 },
@@ -76,7 +60,7 @@ const SoonCourses = () => {
           550: { slidesPerView: 2 },
           0: { slidesPerView: 1 },
         }}
-        renderItem={(course) => (
+        renderItem={(course: Course) => (
           <ProductsCard
             title={course.title}
             Coachname={`${course.trainers[0]?.first_name} ${course.trainers[0]?.last_name}`}
@@ -90,16 +74,12 @@ const SoonCourses = () => {
       />
       <ArrowButton
         direction="left"
-        positionValue={
-          isMobile ? "-0%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"
-        }
+        positionValue={isMobile ? "-0%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"}
         onClick={handlePrev}
       />
       <ArrowButton
         direction="right"
-        positionValue={
-          isMobile ? "-8%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"
-        }
+        positionValue={isMobile ? "-8%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"}
         onClick={handleNext}
       />
     </div>

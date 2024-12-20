@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useSWR from "swr";  
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import { Swiper as SwiperType } from "swiper/types";
 import ProductsCard from "../../../../components/ui/Card/ProductCard";
@@ -18,25 +19,20 @@ interface Course {
 }
 
 const TrainingCourses = () => {
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [hasError, setHasError] = useState<boolean>(false);
+  const [isMobile, isTablet1, isTablet2] = useMediaQuery([
+    "(max-width: 550px)",
+    "(min-width: 550px) and (max-width: 900px)",
+    "(min-width: 900px) and (max-width: 1441px)",
+  ]);
 
-  useEffect(() => {
-    fetch("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses")
-      .then((response) => response.json())
-      .then((data) => {
-        const comingSoonCourses = data.courses.filter((course: Course) => course.status === "available");
-        setCourses(comingSoonCourses);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching courses:", error);
-        setIsLoading(false);
-        setHasError(true);
-      });
-  }, []);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data, error } = useSWR("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses", fetcher);
+
+  if (!data) return <Loading />;
+  if (error) return <Error />;
+
+  const courses: Course[] = data.courses.filter((course: Course) => course.status === "available");
 
   const handleNext = () => {
     swiperInstance?.slideNext();
@@ -45,20 +41,6 @@ const TrainingCourses = () => {
   const handlePrev = () => {
     swiperInstance?.slidePrev();
   };
-
-  const [isMobile, isTablet1, isTablet2] = useMediaQuery([
-    "(max-width: 550px)",
-    "(min-width: 550px) and (max-width: 900px)",
-    "(min-width: 900px) and (max-width: 1441px)",
-  ]);
-
-  if (isLoading) {
-    return <Loading />;
-  }
-
-  if (hasError) {
-    return <Error />;
-  }
 
   return (
     <div className={styles.CardsContainer}>
