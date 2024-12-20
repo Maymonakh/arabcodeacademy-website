@@ -26,6 +26,7 @@ const AiTools: React.FC = () => {
   const [cardsData, setCardsData] = useState<CardData[]>([]);
   const [favorites, setFavorites] = useState<number[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
 
   const fetchAiTools = async (page: number, pageSize: number) => {
@@ -65,18 +66,28 @@ const AiTools: React.FC = () => {
     });
   };
 
+  const filteredCards = cardsData.filter((card) => {
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      card.title.toLowerCase().includes(searchLower) ||
+      card.tags.some((tag) => tag.toLowerCase().includes(searchLower))
+    );
+  });
+
   const displayedCards = showFavorites
-    ? cardsData.filter((card) => favorites.includes(card.tool_id))
-    : cardsData;
+    ? filteredCards.filter((card) => favorites.includes(card.tool_id))
+    : filteredCards;
 
   return (
     <section className={style.section}>
       <div className={style.searchBarContainer}>
         <div className={style.searchBar}>
-          <SearchBar placeholder="chatgpt" />
+          <SearchBar
+            placeholder=" Chatgpt"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
         <div className={style.favoritButton}>
-          {/* عند النقر على زر المفضلة يتم تغيير حالة showFavorites */}
           <FavoriteButton onClick={() => setShowFavorites(!showFavorites)} />
         </div>
       </div>
@@ -95,9 +106,7 @@ const AiTools: React.FC = () => {
               button={
                 <CustomButton
                   text="المزيد"
-                  icon={
-                    <Image src={iconMore} alt="icon" width={25} height={25} />
-                  }
+                  icon={<Image src={iconMore} alt="icon" width={25} height={25} />}
                   buttonType="secondaryOne"
                   color="green"
                 />
@@ -109,7 +118,6 @@ const AiTools: React.FC = () => {
         )}
       </div>
 
-      {/* التنقل بين الصفحات */}
       {!showFavorites && (
         <Pagination
           currentPage={currentPage}

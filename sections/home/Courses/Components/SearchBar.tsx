@@ -4,9 +4,10 @@ import { SearchIcon } from "@chakra-ui/icons";
 
 interface SearchBarProps {
   placeholder: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onChange }) => {
   return (
     <InputGroup width={{ base: "100%", md: "100%", lg: "50%" }}>
       <InputLeftElement
@@ -28,6 +29,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
         paddingY="6"
         fontFamily={" var(--font-tajawal)"}
         dir="rtl"
+        onChange={onChange}
       />
     </InputGroup>
   );
