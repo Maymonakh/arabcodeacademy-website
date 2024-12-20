@@ -5,16 +5,29 @@ import ProductsCard from "../../../../components/ui/Card/ProductCard";
 import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
-import Loading from "../../../../components/ui/Loading/Loading"
+import Loading from "../../../../components/ui/Loading/Loading";
 import Error from "../../../../components/ui/Error/Error";
 import maskGroup8 from "../../../../public/images/Mask group (8).png";
 
+interface Trainer {
+  first_name: string;
+  last_name: string;
+}
+
+interface Course {
+  title: string;
+  trainers: Trainer[];
+  total_videos: number;
+  total_duration: string;
+  status: string;
+}
+
 const SoonCourses = () => {
-  const [courses, setCourses] = useState<[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);  
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true); 
-  const [hasError, setHasError] = useState<boolean>(false); 
-  
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasError, setHasError] = useState<boolean>(false);
+
   const [isMobile, isTablet1, isTablet2] = useMediaQuery([
     "(max-width: 550px)",
     "(min-width: 550px) and (max-width: 900px)",
@@ -25,14 +38,14 @@ const SoonCourses = () => {
     fetch("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses")
       .then((response) => response.json())
       .then((data) => {
-        const comingSoonCourses = data.courses.filter((course) => course.status === "coming_soon");
+        const comingSoonCourses = data.courses.filter((course: Course) => course.status === "coming_soon");
         setCourses(comingSoonCourses);
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching courses:", error);
         setIsLoading(false);
-        setHasError(true); 
+        setHasError(true);
       });
   }, []);
 
@@ -44,7 +57,6 @@ const SoonCourses = () => {
     swiperInstance?.slidePrev();
   };
 
-  
   if (isLoading) {
     return <Loading />;
   }

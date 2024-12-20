@@ -125,7 +125,7 @@ const ProductsCard = ({
               fontSize="lg"
               fontWeight="bold"
               style={{
-                fontSize: "23px",
+                fontSize: "20px",
                 overflow: "hidden",
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",

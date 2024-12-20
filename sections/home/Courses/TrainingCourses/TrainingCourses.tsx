@@ -6,27 +6,35 @@ import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
 import maskGroup4 from "../../../../public/images/Mask group (4).png";
-import Loading from "../../../../components/ui/Loading/Loading"
+import Loading from "../../../../components/ui/Loading/Loading";
 import Error from "../../../../components/ui/Error/Error";
 
+interface Course {
+  title: string;
+  trainers: { first_name: string; last_name: string }[];
+  total_videos: number;
+  total_duration: string;
+  status: string;
+}
+
 const TrainingCourses = () => {
-  const [courses, setCourses] = useState<[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true); 
-  const [hasError, setHasError] = useState<boolean>(false); 
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   useEffect(() => {
     fetch("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses")
       .then((response) => response.json())
       .then((data) => {
-        const comingSoonCourses = data.courses.filter((course: course) => course.status === "available");
+        const comingSoonCourses = data.courses.filter((course: Course) => course.status === "available");
         setCourses(comingSoonCourses);
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching courses:", error);
         setIsLoading(false);
-        setHasError(true); 
+        setHasError(true);
       });
   }, []);
 
