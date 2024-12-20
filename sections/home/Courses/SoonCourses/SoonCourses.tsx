@@ -1,48 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import { Swiper as SwiperType } from "swiper/types";
 import ProductsCard from "../../../../components/ui/Card/ProductCard";
 import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
-import maskGroup11 from "../../../../public/images/Mask group (11).png";
-import maskGroup9 from "../../../../public/images/Mask group (9).png";
-import maskGroup10 from "../../../../public/images/Mask group (10).png";
 import maskGroup8 from "../../../../public/images/Mask group (8).png";
 
-const courses = [
-  {
-    title: "اسم الكورس",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup11,
-    isComingSoon: true,
-  },
-  {
-    title: "اسم الكورس",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup9,
-    isComingSoon: true,
-  },
-  {
-    title: "اسم الكورس",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup10,
-    isComingSoon: true,
-  },
-  {
-    title: "اسم الكورس",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup8,
-    isComingSoon: true,
-  },
-];
-
 const SoonCourses = () => {
+  const [courses, setCourses] = useState<[]>([]);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  
+  const [isMobile, isTablet1, isTablet2] = useMediaQuery([
+    "(max-width: 550px)",
+    "(min-width: 550px) and (max-width: 900px)",
+    "(min-width: 900px) and (max-width: 1441px)",
+  ]);
+
+  useEffect(() => {
+    fetch("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses")
+      .then((response) => response.json())
+      .then((data) => {
+        const comingSoonCourses = data.courses.filter((course) => course.status === "coming_soon");
+        setCourses(comingSoonCourses);
+      })
+      .catch((error) => console.error("Error fetching courses:", error));
+  }, []);
 
   const handleNext = () => {
     swiperInstance?.slideNext();
@@ -51,12 +34,6 @@ const SoonCourses = () => {
   const handlePrev = () => {
     swiperInstance?.slidePrev();
   };
-
-  const [isMobile, isTablet1, isTablet2] = useMediaQuery([
-    "(max-width: 550px)",
-    "(min-width: 550px) and (max-width: 900px)",
-    "(min-width: 900px) and (max-width: 1441px)",
-  ]);
 
   return (
     <div className={styles.CardsContainer}>
@@ -72,10 +49,10 @@ const SoonCourses = () => {
         renderItem={(course) => (
           <ProductsCard
             title={course.title}
-            Coachname={course.Coachname}
-            description={course.description}
-            imageSrc={course.imageSrc}
-            isComingSoon={course.isComingSoon}
+            Coachname={`${course.trainers[0]?.first_name} ${course.trainers[0]?.last_name}`}
+            description={`فيديو ${course.total_videos}, ${course.total_duration}`}
+            imageSrc={maskGroup8}
+            isComingSoon={true}
             textAlign={isMobile ? "center" : "right"}
           />
         )}

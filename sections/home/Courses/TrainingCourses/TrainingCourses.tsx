@@ -1,52 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import { Swiper as SwiperType } from "swiper/types";
 import ProductsCard from "../../../../components/ui/Card/ProductCard";
 import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
-import maskGroup6 from "../../../../public/images/Mask group (6).png";
-import maskGroup7 from "../../../../public/images/Mask group (7).png";
-import maskGroup5 from "../../../../public/images/Mask group (5).png";
 import maskGroup4 from "../../../../public/images/Mask group (4).png";
 
-const courses = [
-  {
-    title: "اسم الكورس",
-    price: "$24",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup4,
-    isComingSoon: false,
-  },
-  {
-    title: "اسم الكورس",
-    price: "$24",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup6,
-    isComingSoon: false,
-  },
-  {
-    title: "اسم الكورس",
-    price: "$24",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup7,
-    isComingSoon: false,
-  },
-  {
-    title: "اسم الكورس",
-    price: "$24",
-    Coachname: "اسم المدرب",
-    description: "فيديو 52 , ساعة 24, دقيقة 45",
-    imageSrc: maskGroup5,
-    isComingSoon: false,
-  },
-];
-
 const TrainingCourses = () => {
+  const [courses, setCourses] = useState<[]>([]);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+  useEffect(() => {
+    fetch("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses")
+      .then((response) => response.json())
+      .then((data) => {
+        const comingSoonCourses = data.courses.filter((course: course) => course.status === "available");
+        setCourses(comingSoonCourses);
+      })
+      .catch((error) => console.error("Error fetching courses:", error));
+  }, []);
 
   const handleNext = () => {
     swiperInstance?.slideNext();
@@ -76,11 +49,10 @@ const TrainingCourses = () => {
         renderItem={(course) => (
           <ProductsCard
             title={course.title}
-            price={course.price}
-            Coachname={course.Coachname}
-            description={course.description}
-            imageSrc={course.imageSrc}
-            isComingSoon={course.isComingSoon}
+            Coachname={`${course.trainers[0]?.first_name} ${course.trainers[0]?.last_name}`}
+            description={`فيديو ${course.total_videos}, ${course.total_duration}`}
+            imageSrc={maskGroup4}
+            isComingSoon={false}
             textAlign={isMobile ? "center" : "right"}
           />
         )}
@@ -103,5 +75,4 @@ const TrainingCourses = () => {
     </div>
   );
 };
-
 export default TrainingCourses;

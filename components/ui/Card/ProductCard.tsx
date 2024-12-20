@@ -1,4 +1,3 @@
-
 import { Box, Text, Stack } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
 import CustomButton from "../CustomButton/CustomButton";
@@ -121,9 +120,21 @@ const ProductsCard = ({
           </Text>
         </Stack>
         <Stack spacing={2} textAlign={textAlign}>
-          <Text fontSize="lg" fontWeight="bold" style={{ fontSize: "23px" }}>
-            {title}
-          </Text>
+          <Box maxWidth="250px">
+            <Text
+              fontSize="lg"
+              fontWeight="bold"
+              style={{
+                fontSize: "23px",
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+              }}
+              isTruncated
+            >
+              {title}
+            </Text>
+          </Box>
         </Stack>
       </Stack>
 
