@@ -6,10 +6,14 @@ import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
 import maskGroup4 from "../../../../public/images/Mask group (4).png";
+import Loading from "../../../../components/ui/Loading/Loading"
+import Error from "../../../../components/ui/Error/Error";
 
 const TrainingCourses = () => {
   const [courses, setCourses] = useState<[]>([]);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true); 
+  const [hasError, setHasError] = useState<boolean>(false); 
 
   useEffect(() => {
     fetch("https://sitev2.arabcodeacademy.com/wp-json/aca/v1/courses")
@@ -17,8 +21,13 @@ const TrainingCourses = () => {
       .then((data) => {
         const comingSoonCourses = data.courses.filter((course: course) => course.status === "available");
         setCourses(comingSoonCourses);
+        setIsLoading(false);
       })
-      .catch((error) => console.error("Error fetching courses:", error));
+      .catch((error) => {
+        console.error("Error fetching courses:", error);
+        setIsLoading(false);
+        setHasError(true); 
+      });
   }, []);
 
   const handleNext = () => {
@@ -34,6 +43,14 @@ const TrainingCourses = () => {
     "(min-width: 550px) and (max-width: 900px)",
     "(min-width: 900px) and (max-width: 1441px)",
   ]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (hasError) {
+    return <Error />;
+  }
 
   return (
     <div className={styles.CardsContainer}>
@@ -60,19 +77,16 @@ const TrainingCourses = () => {
       />
       <ArrowButton
         direction="left"
-        positionValue={
-          isMobile ? "-0%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"
-        }
+        positionValue={isMobile ? "-0%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"}
         onClick={handlePrev}
       />
       <ArrowButton
         direction="right"
-        positionValue={
-          isMobile ? "-8%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"
-        }
+        positionValue={isMobile ? "-8%" : isTablet1 ? "-17%" : isTablet2 ? "-35%" : "-13%"}
         onClick={handleNext}
       />
     </div>
   );
 };
+
 export default TrainingCourses;

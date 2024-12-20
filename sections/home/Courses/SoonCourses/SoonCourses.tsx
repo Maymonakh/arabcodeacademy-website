@@ -5,11 +5,15 @@ import ProductsCard from "../../../../components/ui/Card/ProductCard";
 import ArrowButton from "../../../../components/ui/CustomSwiper/ArrowButton";
 import styles from "./../Courses.module.css";
 import { useMediaQuery } from "@chakra-ui/react";
+import Loading from "../../../../components/ui/Loading/Loading"
+import Error from "../../../../components/ui/Error/Error";
 import maskGroup8 from "../../../../public/images/Mask group (8).png";
 
 const SoonCourses = () => {
   const [courses, setCourses] = useState<[]>([]);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true); 
+  const [hasError, setHasError] = useState<boolean>(false); 
   
   const [isMobile, isTablet1, isTablet2] = useMediaQuery([
     "(max-width: 550px)",
@@ -23,8 +27,13 @@ const SoonCourses = () => {
       .then((data) => {
         const comingSoonCourses = data.courses.filter((course) => course.status === "coming_soon");
         setCourses(comingSoonCourses);
+        setIsLoading(false);
       })
-      .catch((error) => console.error("Error fetching courses:", error));
+      .catch((error) => {
+        console.error("Error fetching courses:", error);
+        setIsLoading(false);
+        setHasError(true); 
+      });
   }, []);
 
   const handleNext = () => {
@@ -34,6 +43,15 @@ const SoonCourses = () => {
   const handlePrev = () => {
     swiperInstance?.slidePrev();
   };
+
+  
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (hasError) {
+    return <Error />;
+  }
 
   return (
     <div className={styles.CardsContainer}>
