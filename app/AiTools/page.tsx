@@ -1,5 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
+import useSWR from "swr";
 import style from "./AiTools.module.css";
 import AiCard from "../../components/ui/Card/AiCard/AiCard";
 import CustomButton from "../../components/ui/CustomButton/CustomButton";
@@ -10,6 +12,8 @@ import Pagination from "../../components/ui/Pagination/Pagination";
 import prevArrow from "@/public/icons/Polygon 4.svg";
 import nextArrow from "@/public/icons/Polygon 3.svg";
 import FavoriteButton from "../../components/ui/FavoriteButton/FavoriteButton";
+import Loading from "../../components/ui/Loading/Loading";
+import Error from "../../components/ui/Error/Error";
 
 interface CardData {
   tool_id: number;
@@ -19,37 +23,18 @@ interface CardData {
   description: string;
 }
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const AiTools: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(12);
-  const [totalPages, setTotalPages] = useState(0);
-  const [cardsData, setCardsData] = useState<CardData[]>([]);
   const [favorites, setFavorites] = useState<number[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  const fetchAiTools = async (page: number, pageSize: number) => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${page}&page_size=${pageSize}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch AI tools");
-      }
-      const data = await response.json();
-      setCardsData(data.data);
-      setTotalPages(data.total_pages);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchAiTools(currentPage, pageSize);
-  }, [currentPage, pageSize]);
+  const { data, error, isLoading } = useSWR(
+    `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${currentPage}&page_size=${pageSize}`,
+    fetcher
+  );
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -66,8 +51,8 @@ const AiTools: React.FC = () => {
   };
 
   const displayedCards = showFavorites
-    ? cardsData.filter((card) => favorites.includes(card.tool_id))
-    : cardsData;
+    ? (data?.data ?? []).filter((card: CardData) => favorites.includes(card.tool_id))
+    : data?.data ?? [];
 
   return (
     <section className={style.section}>
@@ -76,16 +61,16 @@ const AiTools: React.FC = () => {
           <SearchBar placeholder="chatgpt" />
         </div>
         <div className={style.favoritButton}>
-          {/* عند النقر على زر المفضلة يتم تغيير حالة showFavorites */}
           <FavoriteButton onClick={() => setShowFavorites(!showFavorites)} />
         </div>
       </div>
 
       <div className={style.cardSectionContainer}>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          displayedCards.map((card) => (
+        {isLoading && <Loading />}
+        {error && <Error />}
+        {!isLoading &&
+          !error &&
+          displayedCards.map((card: CardData) => (
             <AiCard
               key={card.tool_id}
               imageSrc={card.imageURL}
@@ -105,15 +90,13 @@ const AiTools: React.FC = () => {
               onFavoriteClick={() => handleFavoriteClick(card.tool_id)}
               isFavorite={favorites.includes(card.tool_id)}
             />
-          ))
-        )}
+          ))}
       </div>
 
-      {/* التنقل بين الصفحات */}
-      {!showFavorites && (
+      {!showFavorites && !isLoading && !error && (
         <Pagination
           currentPage={currentPage}
-          totalPages={totalPages}
+          totalPages={data?.total_pages ?? 0}
           onPageChange={handlePageChange}
           prevArrowSrc={prevArrow}
           nextArrowSrc={nextArrow}
