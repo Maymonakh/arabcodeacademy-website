@@ -24,17 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ChakraProvider>
-        <body className={`${tajawal.variable}`}>
+      <body className={`${tajawal.variable}`}>
+        <ChakraProvider>
           <AdsPanel
             startDate="2024-10-20T00:00:00Z"
             endDate="2025-01-29T23:59:59Z"
             adText="خصومات بنسبة 20% على الكورسات"
           />
           <Navbar />
-          {children} <Footer />
-        </body>
-      </ChakraProvider>
+          {children}
+          <Footer />
+        </ChakraProvider>
+      </body>
     </html>
   );
 }
