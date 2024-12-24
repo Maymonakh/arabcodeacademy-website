@@ -4,9 +4,9 @@ import { SearchIcon } from "@chakra-ui/icons";
 
 interface SearchBarProps {
   placeholder: string;
-  value: string;
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onSearchClick: () => void;
+  value?: string;
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSearchClick?: () => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
