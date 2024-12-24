@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useSWR from "swr";
 import style from "./AiTools.module.css";
 import AiCard from "../../components/ui/Card/AiCard/AiCard";
@@ -30,10 +29,11 @@ const AiTools: React.FC = () => {
   const [pageSize] = useState(12);
   const [favorites, setFavorites] = useState<number[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
+  const [typedSearchTerm, setTypedSearchTerm] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
   const { data, error, isLoading } = useSWR(
-    `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${currentPage}&page_size=${pageSize}`,
+    `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${currentPage}&page_size=${pageSize}&search=${searchTerm}`,
     fetcher
   );
 
@@ -51,19 +51,22 @@ const AiTools: React.FC = () => {
     });
   };
 
-  const filteredCards = (data?.data ?? []).filter((card: CardData) => {
-    const searchLower = searchTerm.toLowerCase();
-    return (
-      card.title.toLowerCase().includes(searchLower) ||
-      card.tags.some((tag: string) => tag.toLowerCase().includes(searchLower))
+  const handleSearchClick = () => {
+    setSearchTerm(typedSearchTerm);
+    const params = new URLSearchParams(window.location.search);
+    params.set("search", typedSearchTerm);
+    window.history.pushState(
+      {},
+      "",
+      `${window.location.pathname}?${params.toString()}`
     );
-  });
+  };
 
-  const displayedCards = showFavorites
-    ? filteredCards.filter((card: CardData) =>
+  const cardsToDisplay = showFavorites
+    ? (data?.data ?? []).filter((card: CardData) =>
         favorites.includes(card.tool_id)
       )
-    : filteredCards;
+    : data?.data ?? [];
 
   return (
     <section className={style.section}>
@@ -71,7 +74,9 @@ const AiTools: React.FC = () => {
         <div className={style.searchBar}>
           <SearchBar
             placeholder="Chatgpt"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            value={typedSearchTerm}
+            onInputChange={(e) => setTypedSearchTerm(e.target.value)}
+            onSearchClick={handleSearchClick}
           />
         </div>
         <div className={style.favoritButton}>
@@ -84,7 +89,7 @@ const AiTools: React.FC = () => {
         {error && <Error />}
         {!isLoading &&
           !error &&
-          displayedCards.map((card: CardData) => (
+          cardsToDisplay.map((card: CardData) => (
             <AiCard
               key={card.tool_id}
               imageSrc={card.imageURL}
