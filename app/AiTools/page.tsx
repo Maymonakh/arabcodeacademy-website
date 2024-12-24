@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
 import style from "./AiTools.module.css";
 import AiCard from "../../components/ui/Card/AiCard/AiCard";

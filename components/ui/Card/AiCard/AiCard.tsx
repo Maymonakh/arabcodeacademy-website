@@ -18,7 +18,6 @@ interface CardProps {
 }
 
 const AiCard: React.FC<CardProps> = ({
-  imageSrc,
   heading,
   hashtag,
   paragraph,
