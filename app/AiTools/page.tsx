@@ -1,15 +1,12 @@
 "use client";
-import React, { useState } from "react";
-import useSWR from "swr";
+import React, { useState, useEffect, useRef } from "react";
+import useSWRInfinite from "swr/infinite";
 import style from "./AiTools.module.css";
 import AiCard from "../../components/ui/Card/AiCard/AiCard";
 import CustomButton from "../../components/ui/CustomButton/CustomButton";
 import Image from "next/image";
 import iconMore from "@/public/images/🦆 icon _more horiz circled outline_.svg";
 import SearchBar from "../../sections/home/Courses/Components/SearchBar";
-import Pagination from "../../components/ui/Pagination/Pagination";
-import prevArrow from "@/public/icons/Polygon 4.svg";
-import nextArrow from "@/public/icons/Polygon 3.svg";
 import FavoriteButton from "../../components/ui/FavoriteButton/FavoriteButton";
 import Loading from "@/components/ui/Loading/Loading";
 import Error from "@/components/ui/Error/Error";
@@ -25,21 +22,22 @@ interface CardData {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const AiTools: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(12);
   const [favorites, setFavorites] = useState<number[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [typedSearchTerm, setTypedSearchTerm] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-  const { data, error, isLoading } = useSWR(
-    `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${currentPage}&page_size=${pageSize}&search=${searchTerm}`,
+  const { data, error, setSize, isLoading, isValidating } = useSWRInfinite(
+    (pageIndex) =>
+      `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${
+        pageIndex + 1
+      }&page_size=12&search=${searchTerm}`,
     fetcher
   );
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  const cards = data ? data.flatMap((page) => page.data) : [];
+  const isReachingEnd = data && data[data.length - 1]?.data.length < 12;
 
   const handleFavoriteClick = (toolId: number) => {
     setFavorites((prevFavorites) => {
@@ -62,11 +60,30 @@ const AiTools: React.FC = () => {
     );
   };
 
+  useEffect(() => {
+    if (!sentinelRef.current || isReachingEnd || isLoading) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setSize((size) => size + 1);
+        }
+      },
+      { root: null, threshold: 1.0 }
+    );
+
+    observer.observe(sentinelRef.current);
+
+    return () => {
+      if (sentinelRef.current) {
+        observer.unobserve(sentinelRef.current);
+      }
+    };
+  }, [sentinelRef, isReachingEnd, isLoading, setSize]);
+
   const cardsToDisplay = showFavorites
-    ? (data?.data ?? []).filter((card: CardData) =>
-        favorites.includes(card.tool_id)
-      )
-    : data?.data ?? [];
+    ? cards.filter((card: CardData) => favorites.includes(card.tool_id))
+    : cards;
 
   return (
     <section className={style.section}>
@@ -85,41 +102,36 @@ const AiTools: React.FC = () => {
       </div>
 
       <div className={style.cardSectionContainer}>
-        {isLoading && <Loading />}
-        {error && <Error />}
-        {!isLoading &&
-          !error &&
-          cardsToDisplay.map((card: CardData) => (
-            <AiCard
-              key={card.tool_id}
-              imageSrc={card.imageURL}
-              heading={card.title}
-              hashtag={card.tags.join(", ")}
-              paragraph={card.description}
-              button={
-                <CustomButton
-                  text="المزيد"
-                  icon={
-                    <Image src={iconMore} alt="icon" width={25} height={25} />
-                  }
-                  buttonType="secondaryOne"
-                  color="green"
-                />
-              }
-              onFavoriteClick={() => handleFavoriteClick(card.tool_id)}
-              isFavorite={favorites.includes(card.tool_id)}
-            />
-          ))}
+        {cardsToDisplay.map((card: CardData) => (
+          <AiCard
+            key={card.tool_id}
+            imageSrc={card.imageURL}
+            heading={card.title}
+            hashtag={card.tags.join(", ")}
+            paragraph={card.description}
+            button={
+              <CustomButton
+                text="المزيد"
+                icon={
+                  <Image src={iconMore} alt="icon" width={25} height={25} />
+                }
+                buttonType="secondaryOne"
+                color="green"
+              />
+            }
+            onFavoriteClick={() => handleFavoriteClick(card.tool_id)}
+            isFavorite={favorites.includes(card.tool_id)}
+          />
+        ))}
       </div>
 
-      {!showFavorites && !isLoading && !error && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={data?.total_pages ?? 0}
-          onPageChange={handlePageChange}
-          prevArrowSrc={prevArrow}
-          nextArrowSrc={nextArrow}
-        />
+      {(isLoading || isValidating) && <Loading />}
+      {error && <Error />}
+
+      <div ref={sentinelRef} className={style.sentinel} />
+
+      {isReachingEnd && (
+        <p className={style.endMessage}>No more data to load</p>
       )}
     </section>
   );
