@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import useSWR from "swr";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import style from "./AiTools.module.css";
 import AiCard from "../../components/ui/Card/AiCard/AiCard";
 import CustomButton from "../../components/ui/CustomButton/CustomButton";
@@ -23,65 +22,91 @@ interface CardData {
   description: string;
 }
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 const AiTools: React.FC = () => {
+  const [data, setData] = useState<CardData[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(12);
+  const [totalPages, setTotalPages] = useState(0);
   const [favorites, setFavorites] = useState<number[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const { data, error, isLoading } = useSWR(
-    `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${currentPage}&page_size=${pageSize}`,
-    fetcher
-  );
+  const currentRequestRef = useRef(0);
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const requestId = currentRequestRef.current + 1;
+      currentRequestRef.current = requestId;
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch(
+          `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${currentPage}&page_size=12`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const result = await response.json();
+        if (requestId === currentRequestRef.current) {
+          setData(result.data);
+          setTotalPages(result.total_pages);
+        }
+      } catch (err: any) {
+        if (requestId === currentRequestRef.current) {
+          setError(err.message);
+        }
+      } finally {
+        if (requestId === currentRequestRef.current) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    fetchData();
+  }, [currentPage]);
 
   const handleFavoriteClick = (toolId: number) => {
-    setFavorites((prevFavorites) => {
-      if (prevFavorites.includes(toolId)) {
-        return prevFavorites.filter((fav) => fav !== toolId);
-      } else {
-        return [...prevFavorites, toolId];
-      }
-    });
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(toolId)
+        ? prevFavorites.filter((fav) => fav !== toolId)
+        : [...prevFavorites, toolId]
+    );
   };
 
-  const filteredCards = (data?.data ?? []).filter((card: CardData) => {
+  const filteredCards = useMemo(() => {
     const searchLower = searchTerm.toLowerCase();
-    return (
-      card.title.toLowerCase().includes(searchLower) ||
-      card.tags.some((tag: string) => tag.toLowerCase().includes(searchLower))
-    );
-  });
+    return data.filter((card: CardData) => {
+      return (
+        card.title.toLowerCase().includes(searchLower) ||
+        card.tags.some((tag: string) => tag.toLowerCase().includes(searchLower))
+      );
+    });
+  }, [data, searchTerm]);
 
   const displayedCards = showFavorites
-    ? filteredCards.filter((card: CardData) =>
-        favorites.includes(card.tool_id)
-      )
+    ? filteredCards.filter((card: CardData) => favorites.includes(card.tool_id))
     : filteredCards;
 
   return (
     <section className={style.section}>
-      <div className={style.searchBarContainer}>
-        <div className={style.searchBar}>
-          <SearchBar
-            placeholder="Chatgpt"
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-        <div className={style.favoritButton}>
-          <FavoriteButton onClick={() => setShowFavorites(!showFavorites)} />
-        </div>
-      </div>
+      <header className={style.searchBarContainer}>
+        <SearchBar
+          placeholder="Search for tools..."
+          onChange={(e) => setSearchTerm(e.target.value)}
+          value={searchTerm}
+        />
+        <FavoriteButton
+          onClick={() => setShowFavorites(!showFavorites)}
+          text={showFavorites ? "Show All" : "Show Favorites"}
+        />
+      </header>
 
       <div className={style.cardSectionContainer}>
         {isLoading && <Loading />}
-        {error && <Error />}
+        {error && <Error message={error} />}
         {!isLoading &&
           !error &&
           displayedCards.map((card: CardData) => (
@@ -94,9 +119,7 @@ const AiTools: React.FC = () => {
               button={
                 <CustomButton
                   text="المزيد"
-                  icon={
-                    <Image src={iconMore} alt="icon" width={25} height={25} />
-                  }
+                  icon={<Image src={iconMore} alt="More icon" width={25} height={25} />}
                   buttonType="secondaryOne"
                   color="green"
                 />
@@ -107,11 +130,11 @@ const AiTools: React.FC = () => {
           ))}
       </div>
 
-      {!showFavorites && !isLoading && !error && (
+      {!isLoading && !error && (
         <Pagination
           currentPage={currentPage}
-          totalPages={data?.total_pages ?? 0}
-          onPageChange={handlePageChange}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
           prevArrowSrc={prevArrow}
           nextArrowSrc={nextArrow}
         />

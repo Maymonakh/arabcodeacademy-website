@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./CommunicationCard.module.css";
 import { ReactElement } from "react";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../../CustomButton/CustomButton";
 import Image from "next/image";
 import locationIcon from "@/public/icons/Vector (2).svg";
 import PhoneIcon from "@/public/icons/Vector (3).svg";

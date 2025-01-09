@@ -1,8 +1,8 @@
 import { Box, Text, Stack } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../../CustomButton/CustomButton";
 import { useMediaQuery } from "@chakra-ui/react";
-import moreIcon from "../../../public/icons/icon _more horiz circled outline_.png";
+import moreIcon from "@/public/icons/icon _more horiz circled outline_.png";
 
 interface CourseCardProps {
   title: string;
@@ -38,14 +38,14 @@ const ProductsCard = ({
         isMobile
           ? "90%"
           : isTablet1
-          ? "270px"
-          : isTablet2
-          ? "300px"
-          : isDesktop1
-          ? "275px"
-          : isDesktop2
-          ? "290px"
-          : "300px"
+            ? "270px"
+            : isTablet2
+              ? "300px"
+              : isDesktop1
+                ? "275px"
+                : isDesktop2
+                  ? "290px"
+                  : "300px"
       }
       maxHeight={500}
       borderWidth="1px"

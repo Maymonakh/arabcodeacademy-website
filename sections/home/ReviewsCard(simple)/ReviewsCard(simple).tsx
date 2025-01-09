@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SimpleCard from "../../../components/ui/SimpleCard/simpleCard";
-import styles from "./CardSection.module.css";
+import SimpleCard from "../../../components/ui/Card/SimpleCard/simpleCard";
+import styles from "./ReviewsCard(simple).module.css";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import ArrowButton from "../../../components/ui/CustomSwiper/ArrowButton";
 import { Swiper as SwiperType } from "swiper/types";
@@ -77,8 +77,8 @@ const CardSection: React.FC = () => {
           spaceBetween={10}
           breakpoints={{
             1441: { slidesPerView: 3 },
-            900: { slidesPerView: 2 },
-            550: { slidesPerView: 2 },
+            900: { slidesPerView: 1 },
+            550: { slidesPerView: 1 },
             0: { slidesPerView: 1 },
           }}
           setSwiperInstance={setSwiperInstance}

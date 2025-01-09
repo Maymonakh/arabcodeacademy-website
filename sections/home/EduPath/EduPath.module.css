@@ -25,7 +25,6 @@
 }
 
 .Img {
-  /* width: 886.23px; */
   height:650px; 
   width: 100%;
 
@@ -34,12 +33,9 @@
 @media (max-width: 480px) {
   .section {
     flex-direction: column-reverse;
-    background-color: red;
+ 
      
   }
-  /* .Img{
-    
-  } */
 
 
 }

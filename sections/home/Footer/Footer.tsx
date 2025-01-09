@@ -1,8 +1,8 @@
 "use client"
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import CommunicationCard from "./../../../components/ui/CommunicationCard/CommunicationCard";
-import MediaCard from "./../../../components/ui/MediaCard/MediaCard";
+import CommunicationCard from "../../../components/ui/Card/CommunicationCard/CommunicationCard";
+import MediaCard from "../../../components/ui/Card/MediaCard/MediaCard";
 import CustomButton from "@/components/ui/CustomButton/CustomButton";
 import Image from "next/image";
 import icon1 from "@/public/icons/icon _Chalkboard Teacher_.png";
