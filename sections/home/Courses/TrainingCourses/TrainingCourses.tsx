@@ -56,11 +56,11 @@ const TrainingCourses = () => {
         renderItem={(course) => (
           <ProductsCard
             title={course.title}
-            Coachname={`${course.trainers[0]?.first_name} ${course.trainers[0]?.last_name}`}
+            coachName={`${course.trainers[0]?.first_name} ${course.trainers[0]?.last_name}`}
             description={`فيديو ${course.total_videos}, ${course.total_duration}`}
             imageSrc={maskGroup4}
             isComingSoon={false}
-            textAlign={isMobile ? "center" : "right"}
+            textAlign={isMobile ? "CENTER" : "RIGHT"}
           />
         )}
         setSwiperInstance={setSwiperInstance}
