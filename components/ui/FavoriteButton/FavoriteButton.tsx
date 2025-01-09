@@ -5,18 +5,17 @@ import empty from '@/public/icons/heart (3).svg';
 import filled from "@/public/icons/filled.png";
 
 interface FavoriteButtonProps {
-  onClick?: () => void; 
+  onClick?: () => void;
 }
 
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({ onClick }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleClick = () => {
-    setIsFavorite(!isFavorite);
-    if (onClick) onClick();
-  };
 
-  return (
+    setIsFavorite(!isFavorite);
+
+    setIsFavorite(!isFavorite); 
     <button className={styles.favoriteButton} onClick={handleClick}>
       <Image
         src={isFavorite ? filled :empty} 

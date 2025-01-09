@@ -40,8 +40,8 @@ const Dad = () => {
           <p>لغة ضاد</p>
         </div>
 
-        <div className={styles.textHeading}>
-          <p className={styles.textHead}>
+        <div className={styles.textContent}>
+          <p className={styles.descriptionText}>
             في الأكاديمية العربية للبرمجة، نسعى دائمًا إلى تقديم محتوى تعليمي
             يساهم في تمكين وتطوير مهارات المبرمجين الناطقين باللغة العربية. ومن
             هذا المنطلق، يهدف هذا القسم إلى تبسيط المفاهيم البرمجية لأي شخص،
