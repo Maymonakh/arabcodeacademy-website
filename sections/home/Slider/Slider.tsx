@@ -6,35 +6,39 @@ import moreIcon from "../../../public/icons/Vector.png";
 import CustomSwiper from "../../../components/ui/CustomSwiper/CustomSwiper";
 import ArrowButton from "../../../components/ui/CustomSwiper/ArrowButton";
 
-const Sliderpage: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const slides: string[] = [
-    "/images/header-image (1).png",
-    "/images/header-image (1).png",
-  ];
+interface Slide {
+  image: string;
+  textHeading: string;
+  textDescription: string[];
+}
 
-  const renderSlide = (slide: string, index: number) => (
+interface SliderProps {
+  slides: Slide[];
+}
+
+const Slider: React.FC<SliderProps> = ({ slides }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSlideChange = (increment: number) => {
+    setActiveIndex((prevIndex) => (prevIndex + increment + slides.length) % slides.length);
+  };
+
+  const renderSlide = (slide: Slide, index: number) => (
     <div className={styles.heroCarousel} key={index}>
       <Image
-        src={slide}
+        src={slide.image}
         alt={`Slide ${index + 1}`}
         layout="fill"
         objectFit="cover"
       />
       <div className={styles.content}>
-        <h2 className={styles.textPar}>
-          تعمل الأكاديمية العربية للبرمجة كجسر يربط العقول التكنولوجية العربية
-          في المهجر بالطلبة العرب أينما كانوا
-        </h2>
+        <h2 className={styles.textPar}>{slide.textHeading}</h2>
         <div className={styles.textHeading}>
-          <p className={styles.textHead}>
-            تقدم الأكاديمية العربية للبرمجة تجربة تعلم متميزة من خلال مجموعة من
-            الدروس والمناهج الاحترافية بجودة عالية
-          </p>
-          <p className={styles.textHead}>
-            وأسلوب تدريسي ممتع يتناسب مع مختلف الطرق التعليمية للمبتدئين
-            والمحترفين بإشراف مدربين ومبرمجين ذوي خبرة عالمية في المجال التقني
-          </p>
+          {slide.textDescription.map((text, idx) => (
+            <p className={styles.textHead} key={idx}>
+              {text}
+            </p>
+          ))}
           <div className={styles.buttonContainer}>
             <CustomButton
               text="المسارات التعليمية"
@@ -55,25 +59,11 @@ const Sliderpage: React.FC = () => {
     </div>
   );
 
-  const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
-    );
-  };
-
-  const handleDotClick = (index: number) => {
-    setActiveIndex(index);
-  };
-
   return (
     <div>
       <div className={styles.sliderContainer}>
         <ArrowButton
-          onClick={handlePrev}
+          onClick={() => handleSlideChange(-1)}
           direction="left"
           positionValue="20px"
           color="white"
@@ -87,7 +77,7 @@ const Sliderpage: React.FC = () => {
         />
 
         <ArrowButton
-          onClick={handleNext}
+          onClick={() => handleSlideChange(1)} 
           direction="right"
           positionValue="20px"
           color="white"
@@ -101,7 +91,7 @@ const Sliderpage: React.FC = () => {
             className={`${styles.dot} ${
               activeIndex === index ? styles.active : ""
             }`}
-            onClick={() => handleDotClick(index)}
+            onClick={() => handleSlideChange(index - activeIndex)} 
           ></span>
         ))}
       </div>
@@ -109,4 +99,4 @@ const Sliderpage: React.FC = () => {
   );
 };
 
-export default Sliderpage;
+export default Slider;

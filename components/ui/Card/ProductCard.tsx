@@ -7,21 +7,21 @@ import moreIcon from "../../../public/icons/icon _more horiz circled outline_.pn
 interface CourseCardProps {
   title: string;
   price?: string;
-  Coachname: string;
+  coachName: string;
   description: string;
   imageSrc: StaticImageData;
   isComingSoon: boolean;
-  textAlign?: "right" | "center";
+  textAlign?: "RIGHT" | "CENTER";
 }
 
 const ProductsCard = ({
   title,
   price,
-  Coachname,
+  coachName,
   description,
   imageSrc,
   isComingSoon,
-  textAlign = "right",
+  textAlign = "RIGHT",
 }: CourseCardProps) => {
   const [isMobile, isTablet1, isTablet2, isDesktop1, isDesktop2] =
     useMediaQuery([
@@ -112,14 +112,15 @@ const ProductsCard = ({
         justify="flex-end"
         align="center"
         justifyContent={"space-between"}
-        textAlign={textAlign}
+        textAlign={textAlign.toLowerCase() as "right" | "center"}
+
       >
-        <Stack spacing={2} textAlign={textAlign}>
+        <Stack spacing={2} textAlign={textAlign.toLowerCase() as "right" | "center"}>
           <Text fontSize="md" fontWeight="bold" style={{ fontSize: "30px" }}>
             {price}
           </Text>
         </Stack>
-        <Stack spacing={2} textAlign={textAlign}>
+        <Stack spacing={2} textAlign={textAlign.toLowerCase() as "right" | "center"}>
           <Box maxWidth="250px">
             <Text
               fontSize="lg"
@@ -138,8 +139,8 @@ const ProductsCard = ({
         </Stack>
       </Stack>
 
-      <Stack pr={3} textAlign={textAlign} spacing={2} fontSize="18px">
-        <Text fontSize="sm">{Coachname}</Text>
+      <Stack pr={3} textAlign={textAlign.toLowerCase() as "right" | "center"} spacing={2} fontSize="18px">
+        <Text fontSize="sm">{coachName}</Text>
         <Text fontSize="sm">{description}</Text>
       </Stack>
 
