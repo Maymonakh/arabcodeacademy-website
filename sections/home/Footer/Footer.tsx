@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import CommunicationCard from "../../../components/ui/Card/CommunicationCard/CommunicationCard";
@@ -37,7 +37,7 @@ const Footer = () => {
           <CustomButton
             text="المسارات التعليمية"
             icon={
-              <Image src={icon1} alt="صورة ايقونة" width={42} height={33} />
+              <Image src={icon1} alt="صورة ايقونة" width={30} height={24} />
             }
             buttonType="primary"
             color="green"
@@ -55,7 +55,7 @@ const Footer = () => {
           location="المقر الرئيسي: بريطانيا، لندن"
           number="+447918713367"
           email="info@arabcodeacademy.com"
-          button={<button>تواصل معنا</button>} // يمكن استبداله بـ CustomButton إذا أردت
+          button={<button>تواصل معنا</button>}
         />
       </Box>
       <section className={styles.resources}>

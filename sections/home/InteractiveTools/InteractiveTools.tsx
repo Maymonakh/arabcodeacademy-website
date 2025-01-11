@@ -22,10 +22,6 @@ const InteractiveTools = () => {
               onClick={() => console.log("Button Clicked!")}
             />
           }
-          width="650px"
-          padding="60px"
-          titleMarginBottom="60px"
-          paragraphMarginBottom="50px"
           opacity={0.83}
         />
       </Box>

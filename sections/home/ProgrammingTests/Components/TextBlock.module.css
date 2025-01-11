@@ -2,85 +2,94 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: 27.6px;
   font-family: var(--font-tajawal);
   color: var(--background);
   direction: rtl;
+  margin-bottom: 40px;
 }
 
 .titleContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .textBlock h3 {
   font-size: 23px;
-  margin-bottom: 0%;
   font-weight: 700;
-  margin: 0;
+  line-height: 27.6px;
 }
 
 .textBlock p {
   font-size: 19px;
-  margin-bottom: 22.8px;
-  margin-right: 8%;
+  margin-right: 10%;
   font-weight: 500;
 }
 
-@media (min-width: 768) and (max-width: 1024px) {
+@media ((min-width: 768px) and (max-width: 1440px)) {
+  .textBlock {
+    align-items: center;
+  }
+
   .titleContainer {
-    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .textBlock h3 {
     text-align: center;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   .textBlock p {
-    text-align: right;
-    margin-right: 20%;
+    margin-right: 0;
+    line-height: 22.8px;
   }
 }
 
-@media (max-width: 768px) {
+@media ((min-width: 480px) and (max-width: 768px)) {
   .textBlock {
     gap: 10px;
     text-align: center;
   }
 
   .titleContainer {
-    align-items: flex-start;
     margin: 0 auto;
     width: 80%;
   }
 
   .textBlock h3 {
     margin: 0;
-    font-size: 25px;
-    margin-bottom: 1px;
+    font-size: 20px;
   }
+
   .textBlock p {
-    margin-bottom: 8%;
-    font-size: 17px;
+    font-size: 12px;
     width: 80%;
   }
 }
 
 @media (max-width: 481px) {
+  .textBlock {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
   .titleContainer {
     margin: 10px auto;
-    align-items: flex-start;
+    align-items: flex-end;
   }
 
   .textBlock h3 {
-    font-size: 23px;
-    margin-bottom: 2px;
-    font-weight: 500;
+    font-size: 18px;
+    line-height: 21.6px;
   }
 
   .textBlock p {
-    font-size: 16px;
+    font-size: 15.5px;
+    line-height: 19.2px;
+    margin-right: 0;
   }
 }

@@ -6,43 +6,22 @@ interface PromoTextProps {
   title: string;
   paragraph: string;
   button?: ReactElement;
-  width?: string | number;
-  padding?: string | number;
-  titleMarginBottom?: string | number;
-  paragraphMarginBottom?: string | number;
   opacity?: string | number;
-  height?:string | number;
 }
 
 const PromoText: React.FC<PromoTextProps> = ({
   title,
   paragraph,
   button,
-  width,
-  height,
-  padding = "20px",
-  titleMarginBottom = "20px",
-  paragraphMarginBottom = "20px",
   opacity = 1,
-
 }) => {
   return (
-    <Box
-      width={{ base: "100%", md: width, lg: width }}
-      height={height}
-      padding={{base: "20px", md:padding, lg: padding}}
-      opacity={opacity}
-      className={styles.promoBox}
-    >
+    <Box opacity={opacity} className={styles.promoBox}>
       <Box className={styles.promoText}>
-        <Text marginBottom={titleMarginBottom} className={styles.title}>
-          {title}
-        </Text>
-        <Text marginBottom={paragraphMarginBottom} className={styles.paragraph}>
-          {paragraph}
-        </Text>
+        <Text className={styles.title}>{title}</Text>
+        <Text className={styles.paragraph}>{paragraph}</Text>
       </Box>
-      {button}
+      <div className={styles.promoBoxButton}>{button}</div>
     </Box>
   );
 };
