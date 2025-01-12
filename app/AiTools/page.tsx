@@ -26,6 +26,8 @@ const AiTools: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const sentinelRef = useRef<HTMLDivElement>(null);
 
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
   const { data, error, setSize, isLoading, isValidating } = useSWRInfinite(
     (pageIndex) =>
       `https://sitev2.arabcodeacademy.com/wp-json/aca/v1/aitools?page=${

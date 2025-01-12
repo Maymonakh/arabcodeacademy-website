@@ -41,7 +41,7 @@ const Login: React.FC = () => {
     <div className="container">
       <div className="card">
         <div className="image-section">
-          <Image src="/images/login.png" alt="Login" width={500} height={500} />
+          <Image src="/images/login.svg" alt="Login" width={500} height={500} />
         </div>
 
         <div className="form-section">
