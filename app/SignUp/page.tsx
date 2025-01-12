@@ -99,7 +99,6 @@ const SignUp: React.FC = () => {
                   label="كلمة المرور"
                   placeholder="قم بإنشاء كلمة سر قوية"
                   iconSrc="/icons/lock.svg"
-                  showEyeIcon={true}
                   errorMessage={
                     (isSubmitted || passwordTouched) &&
                     !isPasswordValid(password)
@@ -113,9 +112,8 @@ const SignUp: React.FC = () => {
                 <InputField
                   id="confirm-password"
                   label="تأكيد كلمة المرور"
-                  placeholder="كلمات المرور غير متطابقة. يرجى المحاولة مرة أخرى"
+                  placeholder="أعد إدخال كلمة المرور للتأكد من مطابقتها"
                   iconSrc="/icons/lock.svg"
-                  showEyeIcon={true}
                   errorMessage={
                     (isSubmitted || confirmPasswordTouched) &&
                     confirmPassword !== password

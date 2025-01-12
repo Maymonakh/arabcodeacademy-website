@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   background-color: #fff;
   margin-top: 50px;
   margin-bottom: 100px;
@@ -10,11 +9,9 @@
 
 .card {
   display: flex;
-  height: 660px;
-  width: 1300px;
+  width: 80%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   background-color: var(--background);
-  overflow: hidden;
   border-radius: 8px;
 }
 
@@ -123,4 +120,53 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .card .image-section {
+    width: 100%;
+  }
+
+  .card .form-section {
+    width: 100%;
+  }
+
+  .forget-pass {
+    justify-content: center;
+  }
+
+  .checkbox-group {
+    justify-content: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .social-login::before,
+  .social-login::after {
+    height: 0px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .card .image-section {
+    width: 100%;
+  }
+
+  .card .form-section {
+    width: 100%;
+  }
+
+ 
 }
