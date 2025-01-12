@@ -9,6 +9,7 @@ import profileIcon from "@/public/icons/icon _profile circled_.png";
 import CustomButton from "@/components/ui/CustomButton/CustomButton";
 import SocialButton from "../../components/ui/SocialButton/SocialButton";
 import InputField from "../../components/ui/InputField/InputField";
+import Link from "next/link";
 
 const SignUp: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -248,7 +249,9 @@ const SignUp: React.FC = () => {
             )}
 
             <div className="have-account">
-              <text>لديك حساب مسبقاً</text>
+              <Link href={"/Login"}>
+                <text>لديك حساب مسبقاً</text>
+              </Link>
             </div>
 
             <div className="social-login">

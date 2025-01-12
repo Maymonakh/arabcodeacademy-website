@@ -36,22 +36,28 @@ const Navbar: React.FC = () => {
       {!isMobile ? (
         <>
           <HStack spacing={{ md: 2, lg: 6 }}>
-            <CustomButton
-              text="تسجيل دخول"
-              buttonType="secondaryOne"
-              color="orange"
-              icon={<Image src={loginIcon} alt="icon" width={25} height={25} />}
-              onClick={() => console.log("Button Clicked!")}
-            />
-            <CustomButton
-              text="إنشاء حساب"
-              buttonType="secondaryOne"
-              color="green"
-              icon={
-                <Image src={profileIcon} alt="icon" width={30} height={30} />
-              }
-              onClick={() => console.log("Button Clicked!")}
-            />
+            <Link href={"/Login"}>
+              <CustomButton
+                text="تسجيل دخول"
+                buttonType="secondaryOne"
+                color="orange"
+                icon={
+                  <Image src={loginIcon} alt="icon" width={25} height={25} />
+                }
+                onClick={() => console.log("Button Clicked!")}
+              />
+            </Link>
+            <Link href={"/SignUp"}>
+              <CustomButton
+                text="إنشاء حساب"
+                buttonType="secondaryOne"
+                color="green"
+                icon={
+                  <Image src={profileIcon} alt="icon" width={30} height={30} />
+                }
+                onClick={() => console.log("Button Clicked!")}
+              />
+            </Link>
           </HStack>
 
           <HStack spacing={{ md: 4, lg: 8 }}>
@@ -94,16 +100,25 @@ const Navbar: React.FC = () => {
             />
             <MenuList className={styles.menuList}>
               <MenuItem className={styles.menuItem}>
-                <HStack spacing={2}>
-                  <Text>تسجيل دخول</Text>
-                  <Image src={loginIcon2} alt="icon" width={20} height={20} />
-                </HStack>
+                <Link href={"/Login"}>
+                  <HStack spacing={2}>
+                    <Text>تسجيل دخول</Text>
+                    <Image src={loginIcon2} alt="icon" width={20} height={20} />
+                  </HStack>
+                </Link>
               </MenuItem>
               <MenuItem className={styles.menuItem}>
-                <HStack spacing={2}>
-                  <Text>إنشاء حساب</Text>
-                  <Image src={profileIcon2} alt="icon" width={20} height={20} />
-                </HStack>
+                <Link href={"/SignUp"}>
+                  <HStack spacing={2}>
+                    <Text>إنشاء حساب</Text>
+                    <Image
+                      src={profileIcon2}
+                      alt="icon"
+                      width={20}
+                      height={20}
+                    />
+                  </HStack>
+                </Link>
               </MenuItem>
               <MenuItem className={styles.menuItem}>
                 <Text>المسارات التعليمية</Text>

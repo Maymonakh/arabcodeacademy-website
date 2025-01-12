@@ -8,6 +8,7 @@ import profileIcon from "../../public/icons/icon _profile circled_.svg";
 import CustomButton from "@/components/ui/CustomButton/CustomButton";
 import SocialButton from "../../components/ui/SocialButton/SocialButton";
 import InputField from "../../components/ui/InputField/InputField";
+import Link from "next/link";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -105,19 +106,21 @@ const Login: React.FC = () => {
                 buttonType="secondaryOne"
                 color="green"
               />
-              <CustomButton
-                text="إنشاء حساب جديد"
-                icon={
-                  <Image
-                    src={profileIcon}
-                    alt="More Options"
-                    width={20}
-                    height={20}
-                  />
-                }
-                buttonType="secondaryOne"
-                color="orange"
-              />
+              <Link href={"/SignUp"}>
+                <CustomButton
+                  text="إنشاء حساب جديد"
+                  icon={
+                    <Image
+                      src={profileIcon}
+                      alt="More Options"
+                      width={20}
+                      height={20}
+                    />
+                  }
+                  buttonType="secondaryOne"
+                  color="orange"
+                />
+              </Link>
             </div>
 
             <div className="social-login">
