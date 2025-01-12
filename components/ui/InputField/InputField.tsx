@@ -13,6 +13,7 @@ interface InputFieldProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isDropdown?: boolean;
+  type?: "text" | "password";
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -26,6 +27,7 @@ const InputField: React.FC<InputFieldProps> = ({
   value,
   onChange,
   isDropdown = false,
+  type = "text", 
 }) => {
   const labelClass = errorMessage ? "label-with-icon error" : "label-with-icon";
 
@@ -37,7 +39,7 @@ const InputField: React.FC<InputFieldProps> = ({
       </label>
       <div className="input-container">
         <input
-          type="text"
+          type={type} 
           id={id}
           placeholder={placeholder}
           onFocus={onFocus}

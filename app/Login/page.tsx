@@ -71,6 +71,7 @@ const Login: React.FC = () => {
               placeholder="أدخل كلمة المرور"
               iconSrc="/icons/lock.svg"
               showEyeIcon={true}
+              type="password"
               errorMessage={
                 isSubmitted || passwordTouched
                   ? password

@@ -99,6 +99,7 @@ const SignUp: React.FC = () => {
                   label="كلمة المرور"
                   placeholder="قم بإنشاء كلمة سر قوية"
                   iconSrc="/icons/lock.svg"
+                  type="password"
                   errorMessage={
                     (isSubmitted || passwordTouched) &&
                     !isPasswordValid(password)
@@ -114,6 +115,7 @@ const SignUp: React.FC = () => {
                   label="تأكيد كلمة المرور"
                   placeholder="أعد إدخال كلمة المرور للتأكد من مطابقتها"
                   iconSrc="/icons/lock.svg"
+                  type="password"
                   errorMessage={
                     (isSubmitted || confirmPasswordTouched) &&
                     confirmPassword !== password
@@ -241,6 +243,7 @@ const SignUp: React.FC = () => {
                     }
                     buttonType="secondaryOne"
                     color="green"
+                    type="submit"
                   />
                 </div>
               </>
