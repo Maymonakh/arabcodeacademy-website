@@ -1,6 +1,6 @@
 import React from "react";
 import "./SocialButton.css";
-import separatorImage from '../../../public/icons/Line 10.svg'
+import separatorImage from '@/public/icons/Line 10.svg'
 import Image from "next/image";
 
 interface SocialButtonProps {

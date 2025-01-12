@@ -6,8 +6,8 @@ import "./Login.css";
 import logIcon from "../../public/icons/icon _log in_.svg";
 import profileIcon from "../../public/icons/icon _profile circled_.svg";
 import CustomButton from "@/components/ui/CustomButton/CustomButton";
-import SocialButton from "../Components/SocialButton/page";
-import InputField from "../Components/InputField/page";
+import SocialButton from "../../components/ui/SocialButton/SocialButton";
+import InputField from "../../components/ui/InputField/InputField";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState("");

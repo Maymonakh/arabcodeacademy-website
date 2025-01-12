@@ -7,8 +7,8 @@ import rightIcon from "../../public/icons/arrow-right.png";
 import leftIcon from "../../public/icons/arrow-left.png";
 import profileIcon from "@/public/icons/icon _profile circled_.png";
 import CustomButton from "@/components/ui/CustomButton/CustomButton";
-import SocialButton from "../Components/SocialButton/page";
-import InputField from "../Components/InputField/page";
+import SocialButton from "../../components/ui/SocialButton/SocialButton";
+import InputField from "../../components/ui/InputField/InputField";
 
 const SignUp: React.FC = () => {
   const [step, setStep] = useState(1);
