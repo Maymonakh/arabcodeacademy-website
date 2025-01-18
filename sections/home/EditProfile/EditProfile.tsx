@@ -10,8 +10,19 @@ import {
   Select,
   Flex,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
 const EditProfile = () => {
+  const [profileImage, setProfileImage] = useState<string>("/images/user-circle.svg");
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageURL = URL.createObjectURL(file); 
+      setProfileImage(imageURL);
+    }
+  };
+
   return (
     <Box
       minHeight="100vh"
@@ -36,40 +47,44 @@ const EditProfile = () => {
 
       <Flex justify="center" align="center" width="100%" maxWidth="1000px">
         {/* Image on the right */}
-        <Box width="300px" ml="30px">
+        <Box width="300px" ml="30px" textAlign="center">
           <Image
-            src="/images/user-circle.svg"
+            src={profileImage}
             alt="Profile Image"
             width={200}
             height={200}
+           
           />
-         <Heading
-        size="md"
-        fontSize="20px"
-        color="#783BA2"
-        width="320px"
-        height="22px"
-        marginTop='20px'
-        marginBottom='20px'
-
-        fontWeight="700"
-        fontFamily="var(--font-tajawal)"
-        textAlign="right"
-      >
-        تغيير صورة الملف الشخصي
-      </Heading>
-      <Heading
-        size="md"
-        fontSize="20px"
-        color="#783BA2"
-        width="220px"
-        height="22px"
-        fontWeight="700"
-        fontFamily="var(--font-tajawal)"
-        textAlign="center"
-      >
-        تغيير كلمة السر 
-      </Heading>
+          <Input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            display="none"
+            id="upload-image"
+          />
+          <FormLabel
+            htmlFor="upload-image"
+            cursor="pointer"
+            mt="20px"
+            color="#783BA2"
+            fontWeight="700"
+            fontSize="20px"
+            fontFamily="var(--font-tajawal)"
+          >
+            تغيير صورة الملف الشخصي
+          </FormLabel>
+          <Heading
+            size="md"
+            fontSize="20px"
+            color="#783BA2"
+            width="220px"
+            height="22px"
+            fontWeight="700"
+            fontFamily="var(--font-tajawal)"
+            textAlign="center"
+          >
+            تغيير كلمة السر 
+          </Heading>
         </Box>
 
         {/* Form on the left */}
@@ -91,8 +106,8 @@ const EditProfile = () => {
                 dir="rtl"
                 height={55}
                 placeholder="الاسم الأول"
-                borderColor="#783BA2" 
-                color="#783BA2" 
+                borderColor="#783BA2"
+                color="#783BA2"
               />
             </FormControl>
 
@@ -102,7 +117,7 @@ const EditProfile = () => {
                 fontSize="lg"
                 textAlign="right"
                 fontWeight="500"
-                color="#783BA2" 
+                color="#783BA2"
                 requiredIndicator={<></>}
               >
                 الاسم الأخير:
@@ -112,7 +127,7 @@ const EditProfile = () => {
                 dir="rtl"
                 height={55}
                 placeholder="الاسم الأخير"
-                borderColor="#783BA2" 
+                borderColor="#783BA2"
                 color="#783BA2"
               />
             </FormControl>
@@ -123,9 +138,8 @@ const EditProfile = () => {
             <FormLabel
               fontSize="lg"
               textAlign="right"
-              
               fontWeight="500"
-              color="#783BA2" 
+              color="#783BA2"
               requiredIndicator={<></>}
             >
               البلد:
@@ -134,8 +148,8 @@ const EditProfile = () => {
               textAlign="right"
               dir="rtl"
               height={55}
-              borderColor="#783BA2" 
-              color="#783BA2" 
+              borderColor="#783BA2"
+              color="#783BA2"
             >
               <option dir="rtl">فلسطين</option>
               <option dir="rtl">الأردن</option>
@@ -150,7 +164,7 @@ const EditProfile = () => {
               fontSize="lg"
               textAlign="right"
               fontWeight="500"
-              color="#783BA2" 
+              color="#783BA2"
               requiredIndicator={<></>}
             >
               البريد الإلكتروني:
@@ -160,12 +174,12 @@ const EditProfile = () => {
               height={55}
               dir="rtl"
               placeholder="البريد الإلكتروني"
-              borderColor="#783BA2" 
-              color="#783BA2" 
-              
+              borderColor="#783BA2"
+              color="#783BA2"
             />
           </FormControl>
         </Stack>
+        
       </Flex>
     </Box>
   );

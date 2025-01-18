@@ -2,8 +2,6 @@
 .card {
   border: 1px solid hsl(0, 0%, 90%);
   box-shadow: 3px 50px 120px 150px rgba(50, 50, 50, 0.9);
-
- 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +60,6 @@
   width: 127.38px;
   height: 24.7px;
  }
-/* //////////////////////////////////// media */
 
 @media (max-width: 414px) {
   .card {
@@ -199,7 +196,6 @@
   }
   .footer {
     margin: 2px;
-    /* margin-top: 60px; */
   }
   .date {
     width: 144px;
@@ -222,11 +218,6 @@
   }
 }
 
-/* new media query  */
-/* @media(min-width:1025px) and (max-width:1366px){
-.card{
-  width:600px;
-  background-color: red;
-} */
+
 
 

@@ -19,13 +19,14 @@ const SimpleCard = ({ name, paragraph, imageSrc, date, rating }: Props) => {
       <Image
         key={i}
         src={i <= rating ? filledStar : emptyStar}
-        alt="star"
+        alt="نجوم"
         width={24}
         height={24}
         className={style.stars}
       />
     ));
   };
+  
 
   return (
     <Flex
@@ -45,7 +46,6 @@ const SimpleCard = ({ name, paragraph, imageSrc, date, rating }: Props) => {
         bg="white"
         className={style.card}
       >
-        {/* Rectangle Image */}
         <Box
           mb={4}
           sx={{
@@ -64,7 +64,7 @@ const SimpleCard = ({ name, paragraph, imageSrc, date, rating }: Props) => {
         <Flex justify="center" align="center" mb={4}>
           <Image
             src={imageSrc}
-            alt="User Avatar"
+            alt="صورة المستخدم "
             // width={100}
             // height={100}
             className={style.img}

@@ -42,8 +42,8 @@
 .iconContainer,
 .iconContainer2 {
   display: flex;
-  justify-content: center; /* لضبط الأيقونات في المنتصف أفقياً */
-  align-items: center; /* لضبط الأيقونات عمودياً */
+  justify-content: center; 
+  align-items: center; 
   gap: 15px;
 }
 
@@ -79,8 +79,8 @@
   .iconContainer,
   .iconContainer2 {
     display: flex;
-    justify-content: center; /* لضبط الأيقونات في المنتصف أفقياً */
-    align-items: center; /* لضبط الأيقونات عمودياً */
+    justify-content: center;
+    align-items: center; 
     gap: 15px;
   }
 
