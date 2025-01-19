@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 
 interface InfoItemProps {
-  image: JSX.Element; 
+  image?: JSX.Element; 
   text: string; 
   textColor?: string; 
   textWidth?: string; 
@@ -17,7 +17,7 @@ const InfoItem: React.FC<InfoItemProps> = ({
 }) => {
   return (
     <Flex align="center" mb={4}>
-      <Flex mr={4}>{image}</Flex>
+      <Flex >{image}</Flex>
       <Text
         marginRight='10px'
         mb='6px'

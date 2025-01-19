@@ -5,7 +5,7 @@ import style from "./AiTools.module.css";
 import AiCard from "../../components/ui/Card/AiCard/AiCard";
 import CustomButton from "../../components/ui/CustomButton/CustomButton";
 import Image from "next/image";
-import iconMore from "@/public/images/icon _more horiz circled outline_.svg";
+import iconMore from "@/public/images/Mask group (10).png";
 import SearchBar from "../../sections/home/Courses/Components/SearchBar";
 import FavoriteButton from "../../components/ui/FavoriteButton/FavoriteButton";
 import Loading from "@/components/ui/Loading/Loading";

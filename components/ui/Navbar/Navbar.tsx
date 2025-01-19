@@ -85,6 +85,9 @@ const Navbar: React.FC = () => {
                     دروس وأنماط الميدجورني
                   </Text>
                   <Text className={styles.menuItem}>لغة ضاد</Text>
+                  <Link href="/Profile" className={styles.menuItem}>
+                    الحساب الشخصي
+                  </Link>
                 </Box>
               )}
             </HStack>
@@ -151,6 +154,9 @@ const Navbar: React.FC = () => {
                     دروس وأنماط الميدجورني
                   </MenuItem>
                   <MenuItem className={styles.menuItem}>لغة ضاد</MenuItem>
+                  <MenuItem className={styles.menuItem}>
+                    <Link href="/Profile"> الحساب الشخصي</Link>
+                  </MenuItem>
                 </Box>
               )}
               <MenuItem className={styles.menuItem}>
@@ -161,7 +167,9 @@ const Navbar: React.FC = () => {
         </>
       )}
       <Box>
-        <Image src={logo} alt="Navbar-logo" className={styles.logo} />
+        <Link href={"/"}>
+          <Image src={logo} alt="Navbar-logo" className={styles.logo} />
+        </Link>
       </Box>
     </Box>
   );
