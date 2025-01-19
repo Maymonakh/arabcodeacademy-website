@@ -1,0 +1,183 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, var(--primary), #783ba2);
+  color: #fff;
+  width: 100%;
+  height: 740px;
+  gap: 7%;
+}
+
+.textContainer {
+  width: 539px;
+  text-align: right;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 91%;
+}
+
+.imageContainer {
+  position: relative;
+  width: 600px;
+  height: 545px;
+}
+
+.firstImage {
+  position: relative;
+  width: 358px;
+  height: 339px;
+  top: 38%;
+  z-index: 1;
+}
+
+.secondImage {
+  position: absolute;
+  width: 358px;
+  height: 326px;
+  left: 40%;
+  top: 0%;
+  z-index: 0;
+}
+
+@media ((min-width: 1024px) and (max-width: 1440px)) {
+  .section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .textContainer {
+    text-align: center;
+    width: 485px;
+    margin: 49px 0;
+  }
+
+  .imageContainer {
+    order: -1;
+    width: 771px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+  }
+
+  .firstImage {
+    left: 10%;
+    width: 460px;
+    height: 436px;
+  }
+
+  .secondImage {
+    position: relative;
+    left: -10%;
+    width: 460px;
+    height: 419px;
+  }
+
+  .buttonContainer {
+    width: 82%;
+    margin-top: 53px;
+  }
+}
+
+@media ((min-width: 768px) and (max-width: 1024px)) {
+  .imageContainer {
+    order: -1;
+    width: 569px;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+  }
+
+  .firstImage {
+    position: relative;
+    left: 10%;
+    top: 40%;
+    width: 340px;
+    height: 336px;
+  }
+
+  .secondImage {
+    position: relative;
+    left: -10%;
+    width: 340px;
+    height: 328px;
+  }
+}
+
+@media ((min-width: 480px) and (max-width: 768px)) {
+  .section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .textContainer {
+    text-align: center;
+    width: 320px;
+    margin: 48px 0;
+  }
+
+  .imageContainer {
+    order: -1;
+    width: 368px;
+    height: 380px;
+    margin-top: 44px;
+  }
+
+  .firstImage {
+    left: 10%;
+    top: 40%;
+    width: 220px;
+    height: 236px;
+  }
+
+  .secondImage {
+    left: -10%;
+    width: 220px;
+    height: 236px;
+  }
+
+  .buttonContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 481px) {
+  .section {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    min-height: 920px;
+    gap: 0;
+  }
+
+  .textContainer {
+    width: 258px;
+  }
+
+  .imageContainer {
+    width: 297px;
+    height: 270px;
+    margin: 47px 0 25px;
+  }
+
+  .firstImage {
+    top: 37.5%;
+    width: 177px;
+    height: 168px;
+  }
+
+  .secondImage {
+    left: 40%;
+    width: 177px;
+    height: 162px;
+  }
+
+  .buttonContainer {
+    width: 100%;
+    justify-content: center;
+  }
+}

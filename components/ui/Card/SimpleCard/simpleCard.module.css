@@ -1,0 +1,146 @@
+.card {
+  border: 1px solid hsl(0, 0%, 90%);
+  box-shadow: 3px 50px 120px 150px rgba(50, 50, 50, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-tajawal);
+  position: relative;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.img {
+  width: 100%;
+  height: 100px;
+  margin-top: 13px;
+}
+.heading {
+  color: #723689;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 22.8px;
+  width: 100%;
+}
+.paragraph {
+  color: #723689;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  width: 295px;
+  height: 108px;
+  direction: rtl;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.date {
+  color: #723689;
+  width: 115px;
+  height: 21.98px;
+  font-family: var(--font-tajawal);
+  font-size: 18px;
+  font-weight: 500 !important;
+  line-height: 21.6px;
+  text-align: left;
+}
+.starsContainer {
+  display: flex;
+  width: 127.38px;
+  height: 24.7px;
+}
+
+@media (max-width: 414px) {
+  .card {
+    width: 50px;
+    height: 50.71px;
+    margin: 5px;
+    margin-left: 10px;
+    gap: 10px;
+  }
+  .footer {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .date {
+    width: 70px;
+    height: 16px;
+    font-weight: 500;
+    font-family: var(--font-tajawal);
+    font-size: 14px;
+    line-height: 16.8px;
+    margin-right: 40px;
+    margin-top: 5px;
+  }
+  .starsContainer {
+    width: 65px;
+    height: 15.34px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card {
+    width: 340px;
+    height: 380px;
+    margin: 5px 0;
+  }
+  .img {
+    width: 92.23px;
+    height: 92.23px;
+    position: relative;
+    top: 1px;
+  }
+  .heading {
+    width: 138px;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    font-family: var(--font-tajawal);
+  }
+  .paragraph {
+    width: 272.39px;
+    height: 81.63px;
+    font-family: var(--font-tajawal);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+  }
+  .footer {
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .date {
+    width: 144px;
+    height: 19px;
+    font-weight: 500;
+    font-family: var(--font-tajawal);
+    font-size: 19px;
+    line-height: 22.8px;
+    margin-right: 50px;
+    margin-top: 5px;
+  }
+  .starsContainer {
+    width: 117.2px;
+    height: 22.74px;
+    margin-left: 18px;
+  }
+  .starsContainer img {
+    width: 21.36px;
+    height: 22.74px;
+  }
+}

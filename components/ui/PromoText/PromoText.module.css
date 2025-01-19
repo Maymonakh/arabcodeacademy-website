@@ -1,0 +1,110 @@
+.promoBox {
+  border-radius: 10px;
+  box-shadow: 0px 1px 20px 1px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-tajawal);
+  color: var(--primary);
+  background-color: rgba(255, 254, 254, 0.9);
+  text-align: center;
+  height: 550px;
+  width: 700px;
+}
+
+.promoText {
+  direction: rtl;
+}
+
+.title {
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 40px;
+  margin: 50px 0;
+}
+
+.paragraph {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 40px;
+  margin: 0 70px 56px 66px;
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .title {
+    font-size: 30px;
+    margin: 94px 0 40px;
+  }
+
+  .paragraph {
+    padding: 0 17px;
+    margin: 0 70px 39px 66px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .promoBox {
+    height: 520px;
+    width: 690px;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 25px;
+    margin: 45px 0 35px;
+  }
+
+  .paragraph {
+    font-size: 19px;
+    margin: 0 50px 40px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .promoBox {
+    box-shadow: none;
+    border: 1px solid var(--primary);
+    height: 75%;
+    width: 80%;
+  }
+
+  .title {
+    font-size: 16px;
+    margin: 45px 0 25px;
+  }
+
+  .paragraph {
+    font-size: 15px;
+    margin: 0 35px 30px;
+  }
+
+  .promoBoxButton {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promoBox {
+    box-shadow: none;
+    border: 1px solid var(--primary);
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 16px;
+    margin: 7px 0 0;
+  }
+
+  .paragraph {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 20px 9px 14px;
+  }
+
+  .promoBoxButton {
+    margin-bottom: 30px;
+  }
+}

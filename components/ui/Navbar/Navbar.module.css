@@ -1,0 +1,121 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 60px;
+  height: 100px;
+  color: var(--background);
+  background-color: var(--secondary);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  font-family: var(--font-tajawal);
+}
+
+.logo {
+  width: 280px;
+  height: 60px;
+}
+
+.menuList {
+  border-radius: 5px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: -30px;
+  position: absolute;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary) !important;
+  padding: 15px !important;
+  width: 100%;
+  position: relative;
+}
+
+.menuItem::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  width: 80%;
+  height: 1px;
+  background-color: var(--primary);
+}
+
+.menuItem:last-child::after {
+  display: none;
+}
+
+.menuItem:hover {
+  background-color: var(--primary);
+  color: white !important;
+  border-radius: 5px !important;
+}
+
+.menuItem:active {
+  background-color: var(--primary);
+  color: white !important;
+  border-radius: 5px !important;
+}
+
+.menuItem:last-child {
+  border-bottom: none;
+}
+
+.subMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  font-family: var(--font-tajawal);
+  background-color: rgba(113, 52, 136, 0.08) !important;
+}
+
+.desktopSubMenu {
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding-inline: 30px;
+    height: 55px;
+  }
+  .logo {
+    width: 170px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .nav {
+    padding-inline: 5px;
+    gap: 40px;
+  }
+
+  .logo {
+    width: 200px;
+    height: 60px;
+  }
+}

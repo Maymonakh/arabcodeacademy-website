@@ -1,0 +1,101 @@
+.container {
+    height: auto; 
+    flex-direction: row-reverse;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    gap: 20px; 
+}
+.favoriteButton {
+    position: absolute; 
+    top: 10px;
+    right: 0px; 
+    left: 0;
+    cursor: pointer; 
+    margin-left: 7px;
+    background-color:red
+}
+
+.card {
+    width: 350px;
+    height: 528.3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.containerOfContent {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.heading {
+    color: rgba(120, 59, 162, 1);
+    font-family: var(--font-tajawal);
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 27.6px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 28px;
+}
+
+.hashtag {
+    color: rgba(120, 59, 162, 1);
+    font-family: var(--font-tajawal);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.6px;
+    margin-bottom: 20px; 
+    width: 100%;
+    height: 22px;
+}
+
+.textbox {
+    width: 320px;
+    height: 50px; 
+    border-radius: 10px;
+    border: 3px solid rgba(120, 59, 162, 1);
+    margin-top: 15px;
+}
+
+.paragraph {
+    color: rgba(120, 59, 162, 1);
+    font-family: var(--font-tajawal);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20.4px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    width: 316px;
+    height: 85px;
+    text-align: right;
+}
+
+.button {
+    justify-items: center;
+    margin-top: -6px; 
+
+}
+.favoriteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+
+  }
+  .heartIcon {
+    width: 24px;
+    height: 24px;
+    
+  }

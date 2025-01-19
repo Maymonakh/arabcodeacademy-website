@@ -1,0 +1,172 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.card {
+  display: flex;
+  width: 80%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--background);
+  border-radius: 8px;
+}
+
+.form-section h1 {
+  font-size: 23px;
+  text-align: right;
+  font-family: var(--font-tajawal);
+  color: var(--secondary);
+  margin-bottom: 30px;
+}
+.card .image-section {
+  width: 50%;
+}
+
+.card .image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .form-section {
+  width: 50%;
+  padding: 2rem;
+}
+
+.forget-pass {
+  color: var(--secondary);
+  font-size: 18px;
+  font-family: var(--font-tajawal);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 21.6px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  font-size: 18px;
+  font-family: var(--font-tajawal);
+}
+
+.checkbox-group input {
+  margin-left: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 18px;
+  height: 18px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 100%;
+  position: relative;
+}
+
+.social-login::before,
+.social-login::after {
+  content: "";
+  width: 25%;
+  height: 1px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.social-login::before {
+  background-image: url("/images/Line 12.png");
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.social-login::after {
+  background-image: url("/images/Line 13.png");
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.social-login span {
+  font-size: 18px;
+  font-family: var(--font-tajawal);
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.social-login-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .card .image-section {
+    width: 100%;
+  }
+
+  .card .form-section {
+    width: 100%;
+  }
+
+  .forget-pass {
+    justify-content: center;
+  }
+
+  .checkbox-group {
+    justify-content: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .social-login::before,
+  .social-login::after {
+    height: 0px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .card .image-section {
+    width: 100%;
+  }
+
+  .card .form-section {
+    width: 100%;
+  }
+
+ 
+}

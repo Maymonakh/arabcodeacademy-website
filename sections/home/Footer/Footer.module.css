@@ -1,0 +1,387 @@
+.ContactSocialMediacontainer {
+  display: flex;
+  position: relative;
+  right: 37%;
+  top: -160px;
+  justify-content: flex-end;
+}
+
+.footer {
+  background-color: rgba(70, 37, 118, 1);
+  color: white;
+  padding: 0 20px;
+  position: relative;
+  min-height: 1065px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.informationAndPolicies {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  position: absolute;
+  top: 133px;
+  right: 294px;
+  gap: 70px;
+  text-align: right;
+}
+
+.informationAndPolicies div h3 {
+  font-family: var(--font-tajawal);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 27.6px;
+  text-align: -webkit-right;
+}
+
+.informationAndPolicies div h3::after {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 2px;
+  background-color: white;
+  margin-top: 14px;
+  margin-bottom: 50px;
+}
+
+.informationAndPolicies div ul li {
+  font-family: var(--font-tajawal);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 22.8px;
+  margin-bottom: 30px;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+  display: flex;
+  position: absolute;
+  top: 42%;
+  right: 294px;
+}
+
+.resources {
+  width: 67%;
+  text-align: right;
+  margin-right: 260px;
+  position: absolute;
+  bottom: 165px;
+}
+
+.resources h3 {
+  font-family: var(--font-tajawal);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 27.6px;
+  position: relative;
+  bottom: 80px;
+}
+
+.resources h3::after {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 2px;
+  background-color: white;
+  margin-top: 18px;
+  margin-bottom: 49px;
+  position: absolute;
+  right: 0;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 14px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 1);
+  align-items: center;
+}
+
+.copyrightText {
+  font-family: var(--font-tajawal);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 22.8px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1500px) and (max-width: 1800px) {
+  .informationAndPolicies {
+    right: 9%;
+  }
+
+  .buttonContainer {
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    top: 42%;
+    right: 9%;
+  }
+
+  .ContactSocialMediacontainer {
+    right: 32%;
+    top: -138px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1500px) {
+  .footer {
+    min-height: 1606px;
+  }
+
+  .ContactSocialMediacontainer {
+    display: flex;
+    position: relative;
+    right: 20%;
+    justify-content: flex-end;
+    top: 100%;
+  }
+
+  .informationAndPolicies {
+    right: 39%;
+  }
+
+  .informationAndPolicies div h3 {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  .informationAndPolicies div h3::after {
+    width: 146.5px;
+    height: 1.3px;
+  }
+
+  .buttonContainer {
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 39%;
+  }
+
+  .resources {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    position: absolute;
+    bottom: 190px;
+    align-items: center;
+  }
+
+  .resources h3 {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    left: -13%;
+  }
+
+  .resources h3::after {
+    width: 97.5px;
+    height: 1px;
+    margin-top: 16px;
+    margin-bottom: 63px;
+    position: absolute;
+    right: -5px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .footer {
+    min-height: 1606px;
+  }
+
+  .ContactSocialMediacontainer {
+    right: 3%;
+    top: 40px;
+  }
+
+  .informationAndPolicies {
+    right: 28%;
+  }
+
+  .buttonContainer {
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 28%;
+  }
+
+  .resources {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    position: absolute;
+    bottom: 170px;
+    align-items: center;
+  }
+
+  .resources h3 {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    left: 15%;
+    top: -55px;
+  }
+
+  .resources h3::after {
+    width: 97.5px;
+    height: 1px;
+    margin-top: 16px;
+    margin-bottom: 63px;
+    position: absolute;
+    right: -5px;
+  }
+
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 14px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    align-items: center;
+  }
+
+  .copyrightText {
+    width: 40%;
+    text-wrap: wrap;
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .ContactSocialMediacontainer {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    right: -10%;
+    top: -200px;
+    justify-content: flex-end;
+  }
+
+  .footer {
+    height: 2100px;
+  }
+
+  .informationAndPolicies {
+    right: 20%;
+    top: 71px;
+    gap: 50px;
+  }
+
+  .informationAndPolicies div h3 {
+    font-family: var(--font-tajawal);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    text-align: -webkit-right;
+  }
+
+  .informationAndPolicies div h3::after {
+    width: 80px;
+    height: 1.3px;
+    margin-top: 18px;
+    margin-bottom: 39px;
+  }
+
+  .informationAndPolicies div ul li {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+
+  .buttonContainer {
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    top: 15%;
+    right: 27%;
+  }
+
+  .resources {
+    width: 90%;
+    text-align: right;
+    margin-right: -81px;
+    position: absolute;
+    bottom: 170px;
+  }
+
+  .resources h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.6px;
+    top: -55px;
+    left: -60%;
+  }
+
+  .resources h3::after {
+    width: 97.5px;
+    height: 1px;
+    margin-top: 24px;
+    margin-bottom: 34px;
+    position: absolute;
+    right: -4%;
+  }
+
+  .footerContent {
+    flex-direction: column;
+  }
+
+  .copyrightText {
+    font-family: var(--font-tajawal);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13.2px;
+    margin-top: 26px;
+    margin-bottom: 19px;
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    width: 75px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ContactSocialMediacontainer {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    right: -5%;
+    top: -200px;
+    justify-content: flex-end;
+  }
+
+  .resources {
+    margin-right: -45px;
+  }
+
+  .resources h3 {
+    left: -50%;
+  }
+}
