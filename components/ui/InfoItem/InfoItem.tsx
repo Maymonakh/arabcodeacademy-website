@@ -11,7 +11,6 @@ interface InfoItemProps {
 const InfoItem: React.FC<InfoItemProps> = ({
   image,
   text,
-  textColor = "gray.700", 
   textWidth = "auto", 
   textHeight = "auto", 
 }) => {
