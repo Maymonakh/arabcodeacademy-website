@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import {
   Box,
@@ -11,6 +12,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/public/images/Navbar-logo.png";
 import loginIcon from "@/public/icons/icon _log in_.png";
 import profileIcon from "@/public/icons/icon _profile circled_.png";
@@ -34,22 +36,28 @@ const Navbar: React.FC = () => {
       {!isMobile ? (
         <>
           <HStack spacing={{ md: 2, lg: 6 }}>
-            <CustomButton
-              text="تسجيل دخول"
-              buttonType="secondaryOne"
-              color="orange"
-              icon={<Image src={loginIcon} alt="icon" width={25} height={25} />}
-              onClick={() => console.log("Button Clicked!")}
-            />
-            <CustomButton
-              text="إنشاء حساب"
-              buttonType="secondaryOne"
-              color="green"
-              icon={
-                <Image src={profileIcon} alt="icon" width={30} height={30} />
-              }
-              onClick={() => console.log("Button Clicked!")}
-            />
+            <Link href={"/Login"}>
+              <CustomButton
+                text="تسجيل دخول"
+                buttonType="secondaryOne"
+                color="orange"
+                icon={
+                  <Image src={loginIcon} alt="icon" width={25} height={25} />
+                }
+                onClick={() => console.log("Button Clicked!")}
+              />
+            </Link>
+            <Link href={"/SignUp"}>
+              <CustomButton
+                text="إنشاء حساب"
+                buttonType="secondaryOne"
+                color="green"
+                icon={
+                  <Image src={profileIcon} alt="icon" width={30} height={30} />
+                }
+                onClick={() => console.log("Button Clicked!")}
+              />
+            </Link>
           </HStack>
 
           <HStack spacing={{ md: 4, lg: 8 }}>
@@ -69,14 +77,17 @@ const Navbar: React.FC = () => {
                   <Text className={styles.menuItem}>المنتدى</Text>
                   <Text className={styles.menuItem}>قاموس الكلمات</Text>
                   <Text className={styles.menuItem}>دروس فيديو قصيرة</Text>
-                  <Text className={styles.menuItem}>
+                  <Link href="/AiTools" className={styles.menuItem}>
                     دليل أدوات الذكاء الاصطناعي
-                  </Text>
+                  </Link>
                   <Text className={styles.menuItem}>بنك الأسئلة التقنية</Text>
                   <Text className={styles.menuItem}>
                     دروس وأنماط الميدجورني
                   </Text>
                   <Text className={styles.menuItem}>لغة ضاد</Text>
+                  <Link href="/Profile" className={styles.menuItem}>
+                    الحساب الشخصي
+                  </Link>
                 </Box>
               )}
             </HStack>
@@ -92,16 +103,25 @@ const Navbar: React.FC = () => {
             />
             <MenuList className={styles.menuList}>
               <MenuItem className={styles.menuItem}>
-                <HStack spacing={2}>
-                  <Text>تسجيل دخول</Text>
-                  <Image src={loginIcon2} alt="icon" width={20} height={20} />
-                </HStack>
+                <Link href={"/Login"}>
+                  <HStack spacing={2}>
+                    <Text>تسجيل دخول</Text>
+                    <Image src={loginIcon2} alt="icon" width={20} height={20} />
+                  </HStack>
+                </Link>
               </MenuItem>
               <MenuItem className={styles.menuItem}>
-                <HStack spacing={2}>
-                  <Text>إنشاء حساب</Text>
-                  <Image src={profileIcon2} alt="icon" width={20} height={20} />
-                </HStack>
+                <Link href={"/SignUp"}>
+                  <HStack spacing={2}>
+                    <Text>إنشاء حساب</Text>
+                    <Image
+                      src={profileIcon2}
+                      alt="icon"
+                      width={20}
+                      height={20}
+                    />
+                  </HStack>
+                </Link>
               </MenuItem>
               <MenuItem className={styles.menuItem}>
                 <Text>المسارات التعليمية</Text>
@@ -125,7 +145,7 @@ const Navbar: React.FC = () => {
                     دروس فيديو قصيرة
                   </MenuItem>
                   <MenuItem className={styles.menuItem}>
-                    دليل أدوات الذكاء الاصطناعي
+                    <Link href="/AiTools">دليل أدوات الذكاء الاصطناعي</Link>
                   </MenuItem>
                   <MenuItem className={styles.menuItem}>
                     بنك الأسئلة التقنية
@@ -134,6 +154,9 @@ const Navbar: React.FC = () => {
                     دروس وأنماط الميدجورني
                   </MenuItem>
                   <MenuItem className={styles.menuItem}>لغة ضاد</MenuItem>
+                  <MenuItem className={styles.menuItem}>
+                    <Link href="/Profile"> الحساب الشخصي</Link>
+                  </MenuItem>
                 </Box>
               )}
               <MenuItem className={styles.menuItem}>
@@ -144,7 +167,9 @@ const Navbar: React.FC = () => {
         </>
       )}
       <Box>
-        <Image src={logo} alt="Navbar-logo" className={styles.logo} />
+        <Link href={"/"}>
+          <Image src={logo} alt="Navbar-logo" className={styles.logo} />
+        </Link>
       </Box>
     </Box>
   );

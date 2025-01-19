@@ -9,6 +9,7 @@ interface CustomButtonProps {
   color?: "green" | "orange";
   onClick?: () => void;
   textStyle?: React.CSSProperties;
+  type?: "button" | "submit";
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -18,6 +19,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   color = "green",
   onClick,
   textStyle,
+  type = "button",
 }) => {
   const [isMobile] = useMediaQuery("(max-width: 480px)");
   const [isTablet] = useMediaQuery(
@@ -33,7 +35,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     secondaryOne: isMobile
       ? { height: "45px", width: "175px" }
       : isTablet
-      ? { height: "50px", width: "150px" }
+      ? { height: "50px", width: "180px" }
       : { height: "50px", width: "180px" },
     secondaryTwo: isMobile
       ? { height: "40px", width: "100px" }
@@ -44,19 +46,20 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
   const colorStyles = {
     green: {
-      backgroundColor: "var(--green)",
+      backgroundColor: "#00be98",
       color: "var(--background)",
-      _hover: { backgroundColor: "var(--darkGreen)" },
+      _hover: { backgroundColor: "#04B08E" },
     },
     orange: {
-      backgroundColor: "var(--orange)",
+      backgroundColor: "#ff6542",
       color: "var(--background)",
-      _hover: { backgroundColor: "var(--darkOrange)" },
+      _hover: { backgroundColor: "#FA4E27" },
     },
   };
 
   return (
     <Button
+      type={type}
       sx={{
         ...buttonStyles[buttonType],
         ...colorStyles[color],

@@ -1,29 +1,37 @@
 .section {
   background-image: url("/images/InteractiveTools-img.png");
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  width: auto;
-  height: 700px;
+  height: 856px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 150px;
+  padding-top: 32.5px;
 }
 
-.promoBox {
-  margin-left: 40px;
-}
-
-@media (min-width: 1025px) {
+@media (min-width: 1024px) and (max-width: 1440px) {
   .section {
-    justify-content: flex-start;
-    padding-left: 150px;
+    height: 742px;
+    padding-left: 300px;
+    padding-top: 75px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .section {
+    height: 650px;
     justify-content: center;
+    padding-left: 0;
+    padding-top: 32.5px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .section {
+    background-size: cover;
+    padding-left: 150px;
   }
 
   .promoBox {
@@ -31,12 +39,12 @@
   }
 }
 
-@media (min-width: 481px) and (max-width: 1024px) {
+@media (max-width: 480px) {
   .section {
+    background-size: cover;
     justify-content: center;
-  }
-
-  .promoBox {
-    margin: auto;
+    padding-left: 0;
+    height: 70vh;
+    padding: 18px 20px 14px;
   }
 }

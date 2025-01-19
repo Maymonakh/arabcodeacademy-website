@@ -1,0 +1,163 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.card {
+  width: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--background);
+  border-radius: 8px;
+}
+
+.form-section h1 {
+  font-size: 23px;
+  text-align: right;
+  direction: rtl;
+  font-weight: 700;
+  line-height: 27px;
+  font-family: var(--font-tajawal);
+  color: var(--secondary);
+  margin-bottom: 30px;
+}
+
+.card .form-section {
+  padding: 50px 40px;
+}
+
+.inputs-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: -20px;
+}
+
+.have-account {
+  color: var(--secondary);
+  font-size: 18px;
+  font-family: var(--font-tajawal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 30px;
+}
+
+.have-account text {
+  border-bottom: 1px solid var(--secondary);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  color: var(--secondary);
+  font-size: 18px;
+  font-family: var(--font-tajawal);
+}
+
+.checkbox-group input {
+  margin-left: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-group label {
+  border-bottom: 1px solid var(--secondary);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 100%;
+  position: relative;
+}
+
+.social-login::before {
+  background-image: url("/images/Line 12.png");
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.social-login::after {
+  background-image: url("/images/Line 13.png");
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.social-login span {
+  font-size: 18px;
+  font-family: var(--font-tajawal);
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.social-login-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+  }
+
+  .form-section h1 {
+    font-size: 18px;
+    text-align: center;
+    direction: rtl;
+  }
+
+  .card .form-section {
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .checkbox-group {
+    text-align: center;
+  }
+
+  .checkbox-group input {
+    margin-left:0;
+    width: 25px;
+    height: 25px;
+  }
+
+  .checkbox-group label {
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .card {
+    width: 70%;
+  }
+}

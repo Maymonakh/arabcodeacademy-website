@@ -1,13 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 :root {
   --background: #ffffff;
-  --primary: #713488;
-  --secondary: #8d55a3;
+  --primary: #462576;
+  --secondary: #783ba2;
+  --green: #00be98;
+  --orange: #ff6542;
+  --darkGreen:#04B08E;
+  --darkOrange: #FA4E27;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -15,6 +22,7 @@ body {
   font-family: var(--font-tajawal), Arial, Helvetica, sans-serif; /* Use Tajawal as the primary font */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 * {

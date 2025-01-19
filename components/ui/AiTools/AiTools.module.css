@@ -1,9 +1,0 @@
-
-.cardSectionContainer {
-  display: flex;
-  flex-wrap: wrap; /* للسماح بالتفاف العناصر */
-  justify-content: flex-start; /* لجعل العناصر بجانب بعضها */
-  gap: 20px; /* لضمان وجود مسافات بين العناصر */
-  align-items: flex-start; /* تأكد من محاذاة العناصر من الأعلى */
-  flex-direction:row;
-}

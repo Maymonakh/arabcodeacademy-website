@@ -38,7 +38,7 @@
   gap: 140px;
 }
 
-.textHeading {
+.textContent {
   display: flex;
   flex-direction: column;
   text-align: end;
@@ -46,7 +46,7 @@
   height: 349px;
 }
 
-.textHead {
+.descriptionText {
   font-size: 27px;
   line-height: 40px;
   margin-bottom: 50px;
@@ -110,6 +110,16 @@
 
   .buttonContainer {
     justify-content: center;
+  }
+
+  .textContent {
+    width: auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .descriptionText {
+    font-size: 14px;
   }
 }
 
