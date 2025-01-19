@@ -1,7 +1,6 @@
 import React from "react";
 import { Flex, HStack } from "@chakra-ui/react";
 
-// واجهة موحّدة
 export interface SocialLinkProps {
   id: string;
   url: string;
@@ -12,8 +11,6 @@ export interface SocialLinkProps {
 }
 
 const SocialLink: React.FC<SocialLinkProps> = ({
-  id,
-  url,
   handle,
   platform,
   onEdit,
