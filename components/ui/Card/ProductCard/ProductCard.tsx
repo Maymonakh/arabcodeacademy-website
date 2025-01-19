@@ -38,14 +38,14 @@ const ProductsCard = ({
         isMobile
           ? "90%"
           : isTablet1
-            ? "270px"
-            : isTablet2
-              ? "300px"
-              : isDesktop1
-                ? "275px"
-                : isDesktop2
-                  ? "290px"
-                  : "300px"
+          ? "270px"
+          : isTablet2
+          ? "300px"
+          : isDesktop1
+          ? "275px"
+          : isDesktop2
+          ? "290px"
+          : "300px"
       }
       maxHeight={500}
       borderWidth="1px"
@@ -55,6 +55,7 @@ const ProductsCard = ({
         color: "var(--primary)",
         fontFamily: "var(--font-tajawal)",
         boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)",
+        overflow: "hidden",
       }}
     >
       {isComingSoon && (
@@ -113,20 +114,25 @@ const ProductsCard = ({
         align="center"
         justifyContent={"space-between"}
         textAlign={textAlign.toLowerCase() as "right" | "center"}
-
       >
-        <Stack spacing={2} textAlign={textAlign.toLowerCase() as "right" | "center"}>
+        <Stack
+          spacing={2}
+          textAlign={textAlign.toLowerCase() as "right" | "center"}
+        >
           <Text fontSize="md" fontWeight="bold" style={{ fontSize: "30px" }}>
             {price}
           </Text>
         </Stack>
-        <Stack spacing={2} textAlign={textAlign.toLowerCase() as "right" | "center"}>
+        <Stack
+          spacing={2}
+          textAlign={textAlign.toLowerCase() as "right" | "center"}
+        >
           <Box maxWidth="250px">
             <Text
               fontSize="lg"
               fontWeight="bold"
               style={{
-                fontSize: "23px",
+                fontSize: "18px",
                 overflow: "hidden",
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
@@ -139,7 +145,12 @@ const ProductsCard = ({
         </Stack>
       </Stack>
 
-      <Stack pr={3} textAlign={textAlign.toLowerCase() as "right" | "center"} spacing={2} fontSize="18px">
+      <Stack
+        pr={3}
+        textAlign={textAlign.toLowerCase() as "right" | "center"}
+        spacing={2}
+        fontSize="18px"
+      >
         <Text fontSize="sm">{coachName}</Text>
         <Text fontSize="sm">{description}</Text>
       </Stack>

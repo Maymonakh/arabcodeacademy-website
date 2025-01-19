@@ -22,7 +22,7 @@ const InteractiveTools = () => {
               onClick={() => console.log("Button Clicked!")}
             />
           }
-          opacity={0.83}
+          opacity={0.9}
         />
       </Box>
     </section>

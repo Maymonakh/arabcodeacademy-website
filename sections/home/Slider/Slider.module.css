@@ -89,6 +89,9 @@
 }
 
 @media (max-width: 768px) {
+  .heroCarousel {
+    height: 115vh;
+  }
   .content {
     flex-direction: column;
     gap: 10px;

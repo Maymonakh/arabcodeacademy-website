@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SimpleCard from "../../../components/ui/Card/SimpleCard/simpleCard";
-import styles from "./ReviewsCard(simple).module.css";
+import styles from "./ReviewsCard.module.css";
 import CustomSwiper from "@/components/ui/CustomSwiper/CustomSwiper";
 import ArrowButton from "../../../components/ui/CustomSwiper/ArrowButton";
 import { Swiper as SwiperType } from "swiper/types";
@@ -27,7 +27,7 @@ const fetchReviews = async (url: string) => {
   return response.json();
 };
 
-const CardSection: React.FC = () => {
+const ReviewsCard: React.FC = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
   const { data, error } = useSWR(
@@ -102,4 +102,4 @@ const CardSection: React.FC = () => {
   );
 };
 
-export default CardSection;
+export default ReviewsCard;

@@ -111,6 +111,16 @@
   .buttonContainer {
     justify-content: center;
   }
+
+  .textContent {
+    width: auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .descriptionText {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

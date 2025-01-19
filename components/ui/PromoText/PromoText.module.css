@@ -8,8 +8,8 @@
   color: var(--primary);
   background-color: rgba(255, 254, 254, 0.9);
   text-align: center;
-  height: 591px;
-  width: 791px;
+  height: 550px;
+  width: 700px;
 }
 
 .promoText {
@@ -20,7 +20,7 @@
   font-size: 27px;
   font-weight: 700;
   line-height: 40px;
-  margin: 62px 0;
+  margin: 50px 0;
 }
 
 .paragraph {
@@ -47,6 +47,7 @@
   .promoBox {
     height: 520px;
     width: 690px;
+    padding: 10px;
   }
 
   .title {
@@ -88,7 +89,8 @@
     box-shadow: none;
     border: 1px solid var(--primary);
     width: 300px;
-    height: 351px;
+    height: 400px;
+    padding: 10px;
   }
 
   .title {

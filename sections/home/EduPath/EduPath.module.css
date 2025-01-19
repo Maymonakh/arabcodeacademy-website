@@ -27,15 +27,25 @@
 .Img {
   height:650px; 
   width: 100%;
+  margin-top: 30px;
 
 }
 
 @media (max-width: 480px) {
+
   .section {
     flex-direction: column-reverse;
- 
+    gap: 5px;
+
      
   }
+  .Img {
+    height:250px; 
+    width: 100%;
+    margin-top: 30px;
+  
+  }
+  
 
 
 }
