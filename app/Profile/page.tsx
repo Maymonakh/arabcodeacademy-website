@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import {
   Box,
@@ -15,11 +16,11 @@ import profileImage from "@/public/images/user-circle.svg";
 import profileIcon from "@/public/icons/profile.png";
 import locationIcon from "@/public/icons/location.svg";
 import linksIcon from "@/public/icons/link.svg";
-import style from './Editprofile.module.css';
+import style from './Profile.module.css';
 import check from "@/public/icons/check-circle.svg";
 import Courses from "@/public/icons/courseIcon.svg";
 import edit from "@/public/icons/edit.svg";
-import CustomButton from "@/components/ui/CustomButton/CustomButton"; // استيراد الزر
+import CustomButton from "@/components/ui/CustomButton/CustomButton";
 
 const ProfileCard = () => {
   return (
