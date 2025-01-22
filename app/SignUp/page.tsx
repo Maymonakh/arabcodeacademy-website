@@ -72,6 +72,10 @@ const SignUp: React.FC = () => {
     setConfirmPasswordTouched(true);
   };
 
+  const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLocation(event.target.value);
+  };
+
   return (
     <div className="container">
       <div className="card">
@@ -87,7 +91,7 @@ const SignUp: React.FC = () => {
                   iconSrc="/icons/envelope.svg"
                   errorMessage={
                     (isSubmitted || emailTouched) && !email
-                      ? "عنوان البريد الإلكترونى هذا مسجل بالفعل. حاول تسجيل الدخول باستخدام بريدًا إلكترونيًا مختلفًا"
+                      ? " حاول تسجيل الدخول باستخدام بريدًا إلكترونيًا مختلفًا"
                       : ""
                   }
                   onFocus={() => setEmailTouched(true)}
@@ -206,7 +210,7 @@ const SignUp: React.FC = () => {
                   }
                   onFocus={() => setLocationTouched(true)}
                   value={location}
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={handleLocationChange}
                   isDropdown
                 />
 
