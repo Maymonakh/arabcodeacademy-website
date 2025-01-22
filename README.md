@@ -14,12 +14,12 @@ This project is a part of the **React Js and Next Js Training program** at **Gaz
 
 <hr>
 
-Technologies Used:
-Next.js (React Framework)
-HTML5
-CSS3
-JavaScript
-Chakra-UI
+## Technologies Used:
+- Next.js (React Framework)
+- HTML5
+- CSS3
+- JavaScript
+- Chakra-UI
 
 
 <hr>
