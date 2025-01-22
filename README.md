@@ -1,6 +1,6 @@
 # Arab Code Academy
 
-This project is a part of the **React Js and Next Js Training program** at **Gaza Sky Geeks**.
+This project is a part of the **React Js and Next Js Training program** at **Gaza Sky Geeks**. It showcases the frontend development of Arab Code Academy, an educational platform offering courses in the software development. The platform is built using Next.js to deliver a fast, efficient, and modern web experience for users interested in learning programming.
 
 <hr>
 
@@ -11,6 +11,16 @@ This project is a part of the **React Js and Next Js Training program** at **Gaz
 - Misk Ashoor
 
 ![image](https://github.com/user-attachments/assets/b28422d7-3d93-41cb-b106-8bd99ffc2465)
+
+<hr>
+
+Technologies Used:
+Next.js (React Framework)
+HTML5
+CSS3
+JavaScript
+Chakra-UI
+
 
 <hr>
 
