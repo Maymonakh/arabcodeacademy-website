@@ -109,7 +109,7 @@
   }
 }
 
-@media ((min-width: 480px) and (max-width: 768px)) {
+@media ((min-width: 480px) and (max-width: 1024px)) {
   .section {
     flex-direction: column;
     height: auto;

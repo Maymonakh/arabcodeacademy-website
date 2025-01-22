@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import "./InputField.css";
 
@@ -11,7 +11,7 @@ interface InputFieldProps {
   errorMessage?: string;
   onFocus?: () => void;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   isDropdown?: boolean;
   type?: "text" | "password";
 }
@@ -27,8 +27,23 @@ const InputField: React.FC<InputFieldProps> = ({
   value,
   onChange,
   isDropdown = false,
-  type = "text", 
+  type = "text",
 }) => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const countries = ["فلسطين", "الأردن", "مصر", "سوريا"];
+
+  const handleDropdownToggle = () => {
+    setIsDropdownVisible((prev) => !prev);
+  };
+
+  const handleOptionSelect = (country: string) => {
+    const syntheticEvent = {
+      target: { value: country } as HTMLInputElement,
+    } as React.ChangeEvent<HTMLInputElement>;
+    onChange(syntheticEvent);
+    setIsDropdownVisible(false);
+  };
+
   const labelClass = errorMessage ? "label-with-icon error" : "label-with-icon";
 
   return (
@@ -37,15 +52,19 @@ const InputField: React.FC<InputFieldProps> = ({
         <Image src={iconSrc} alt="icon" width={15} height={15} />
         {label}
       </label>
-      <div className="input-container">
+      <div
+        className={`input-container ${isDropdown ? "dropdown" : ""}`}
+        onClick={isDropdown ? handleDropdownToggle : undefined}
+      >
         <input
-          type={type} 
+          type={isDropdown ? "text" : type}
           id={id}
           placeholder={placeholder}
           onFocus={onFocus}
           value={value}
-          onChange={onChange}
-          className={`input-container ${errorMessage ? "error" : ""}`}
+          onChange={(e) => onChange(e)}
+          readOnly={isDropdown}
+          className={`input ${errorMessage ? "error" : ""}`}
         />
         {isDropdown && (
           <span className="arrow-icon">
@@ -68,6 +87,19 @@ const InputField: React.FC<InputFieldProps> = ({
           </span>
         )}
       </div>
+      {isDropdownVisible && isDropdown && (
+        <ul className="dropdown-menu">
+          {countries.map((country) => (
+            <li
+              key={country}
+              className="dropdown-item"
+              onClick={() => handleOptionSelect(country)}
+            >
+              {country}
+            </li>
+          ))}
+        </ul>
+      )}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
